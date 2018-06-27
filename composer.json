@@ -1,0 +1,29 @@
+{
+    "name": "logmephp/ups-soap-api",
+    "description": "PHP SOAP library for interact with UPS API.",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Daniel Neto",
+            "email": "daniel.neto@logme.pt"
+        }
+    ],
+    "require": {
+        "php": ">=7.0",
+        "nesbot/carbon": "^1.31"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^6"
+    },
+    "autoload": {
+        "psr-4": {
+            "Logme\\Soap\\Ups\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Tests\\": "tests/"
+        }
+    }
+}
