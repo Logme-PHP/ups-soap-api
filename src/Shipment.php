@@ -38,6 +38,14 @@ class Shipment extends AbstractModel
     protected $shipFrom;
 
     /**
+     * Service container instance.
+     * Only valid with RequestOption = Rate for both Small package and GFP Rating requests.
+     * 
+     * @var Service
+     */
+    protected $service;
+
+    /**
      * Create new shipment instance.
      */
     public function __construct()
