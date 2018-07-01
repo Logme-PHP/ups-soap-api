@@ -2,7 +2,7 @@
 
 namespace Logme\Soap\Ups;
 
-class DimWeight extends AbstractModel
+class Weight extends AbstractModel
 {
     /**
      * Unit of measurement container instance.

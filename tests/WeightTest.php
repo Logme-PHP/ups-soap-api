@@ -3,17 +3,17 @@
 namespace Tests;
 
 use PHPUnit\Framework\TestCase;
-use Logme\Soap\Ups\DimWeight;
+use Logme\Soap\Ups\Weight;
 use Logme\Soap\Ups\UnitOfMeasurement;
 
-class DimWeightTest extends TestCase
+class WeightTest extends TestCase
 {
     /**
      * Dimension weight instance.
      * 
-     * @var DimWeight
+     * @var Weight
      */
-    public $dimWeight;
+    public $weight;
 
     /**
      * Set up defaults values for all tests.
@@ -21,7 +21,7 @@ class DimWeightTest extends TestCase
     public function setUp()
     {
         parent::setUp();
-        $this->dimWeight = new DimWeight();
+        $this->weight = new Weight();
     }
 
     /**
@@ -29,7 +29,7 @@ class DimWeightTest extends TestCase
      */
     public function it_sets_default_attributes_values()
     {
-        $this->assertInstanceOf(UnitOfMeasurement::class, $this->dimWeight->unitOfMeasurement);
+        $this->assertInstanceOf(UnitOfMeasurement::class, $this->weight->unitOfMeasurement);
     }
 
     /**
@@ -40,10 +40,10 @@ class DimWeightTest extends TestCase
         $unitOfMeasurement = new UnitOfMeasurement();
         $unitOfMeasurement->code = $unitOfMeasurement::KILOGRAMS;
 
-        $this->dimWeight->unitOfMeasurement = $unitOfMeasurement;
+        $this->weight->unitOfMeasurement = $unitOfMeasurement;
 
-        $this->assertEquals("KGS", $this->dimWeight->unitOfMeasurement->code);
-        $this->assertEquals("Kilograms", $this->dimWeight->unitOfMeasurement->description);
+        $this->assertEquals("KGS", $this->weight->unitOfMeasurement->code);
+        $this->assertEquals("Kilograms", $this->weight->unitOfMeasurement->description);
     }
 
     /**
@@ -55,7 +55,7 @@ class DimWeightTest extends TestCase
     {
         $unitOfMeasurement = new UnitOfMeasurement();
         $unitOfMeasurement->code = $unitOfMeasurement::CENTIMETERS;
-        $this->dimWeight->unitOfMeasurement = $unitOfMeasurement;
+        $this->weight->unitOfMeasurement = $unitOfMeasurement;
     }
 
     /**
@@ -63,9 +63,9 @@ class DimWeightTest extends TestCase
      */
     public function it_sets_dimensional_weight_of_the_package()
     {
-        $this->dimWeight->weight = "155.5";
+        $this->weight->weight = "155.5";
 
-        $this->assertEquals("1555", $this->dimWeight->weight);
+        $this->assertEquals("1555", $this->weight->weight);
     }
 
     /**
@@ -75,6 +75,6 @@ class DimWeightTest extends TestCase
      */
     public function it_tries_to_set_dimensional_weight_with_a_string_greater_than_6()
     {
-        $this->dimWeight->weight = "111111.1";
+        $this->weight->weight = "111111.1";
     }
 }
