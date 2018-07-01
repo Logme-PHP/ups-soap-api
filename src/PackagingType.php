@@ -2,7 +2,7 @@
 
 namespace Logme\Soap\Ups;
 
-class PackagingType extends AbstractModel
+class PackagingType extends AbstractType
 {
     const UNKNOWN = "00";
     const UPS_LETTER = "01";
@@ -22,7 +22,7 @@ class PackagingType extends AbstractModel
      * 
      * @var array
      */
-    private $descriptions = [
+    protected $descriptions = [
         self::UNKNOWN => "UNKNOWN",
         self::UPS_LETTER => "UPS Letter",
         self::PACKAGE => "Package",
@@ -36,34 +36,4 @@ class PackagingType extends AbstractModel
         self::MEDIUM_EXPRESS_BOX => "Medium Express Box",
         self::LARGE_EXPRESS_BOX => "Large Express Box"
     ];
-
-    /**
-     * The code for the UPS packaging type associated with the package.
-     * 
-     * @var string
-     */
-    protected $code;
-
-    /**
-     * A text description of the code for the UPS packaging type associated with the shipment.
-     * 
-     * @var string
-     */
-    protected $description;
-
-    /**
-     * Sets the code for the UPS Packaging type.
-     * 
-     * @param string $value
-     * @throws Exception
-     */
-    public function setCode($value)
-    {
-        if (!array_key_exists($value, $this->descriptions)) {
-            throw new \Exception("Cannot set an invalid code value.");
-        }
-
-        $this->code = $value;
-        $this->description = $this->descriptions[$value];
-    }
 }
