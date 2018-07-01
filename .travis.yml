@@ -12,4 +12,8 @@ before_install:
 
 install: travis_retry composer install --no-interaction --prefer-dist --no-suggest
 
-script: vendor/bin/phpunit --verbose
+script: vendor/bin/phpunit --verbose --coverage-clover coverage.xml
+
+after_script:
+  - wget https://github.com/satooshi/php-coveralls/releases/download/v1.0.1/coveralls.phar
+  - php coveralls.phar --verbose

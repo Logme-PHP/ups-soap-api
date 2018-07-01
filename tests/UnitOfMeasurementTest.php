@@ -29,4 +29,34 @@ class UnitOfMeasurementTest extends TestCase
         $unitOfMeasurement = new UnitOfMeasurement();
         $unitOfMeasurement->code = "M";
     }
+
+    /**
+     * @test Checks if value is weight unit of measure.
+     */
+    public function it_checks_if_value_is_weight_unit_of_measure()
+    {
+        $unitOfMeasurement = new UnitOfMeasurement();
+        $unitOfMeasurement->code = $unitOfMeasurement::KILOGRAMS;
+
+        $this->assertTrue($unitOfMeasurement->isWeightMeasure());
+
+        $unitOfMeasurement->code = $unitOfMeasurement::CENTIMETERS;
+
+        $this->assertFalse($unitOfMeasurement->isWeightMeasure());
+    }
+
+    /**
+     * @test Checks if value is height unit of measure.
+     */
+    public function it_checks_if_value_is_height_unit_of_measure()
+    {
+        $unitOfMeasurement = new UnitOfMeasurement();
+        $unitOfMeasurement->code = $unitOfMeasurement::CENTIMETERS;
+
+        $this->assertTrue($unitOfMeasurement->isHeightMeasure());
+
+        $unitOfMeasurement->code = $unitOfMeasurement::KILOGRAMS;
+
+        $this->assertFalse($unitOfMeasurement->isHeightMeasure());
+    }
 }
