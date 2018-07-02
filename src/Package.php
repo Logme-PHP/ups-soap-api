@@ -35,6 +35,14 @@ class Package extends AbstractModel
     protected $packageWeight;
 
     /**
+     * Commodity package container.
+     * Required only for GFP when FRSShipmentIndicator is requested.
+     * 
+     * @var Commodity
+     */
+    protected $commodity;
+
+    /**
      * Create a new Package instance.
      */
     public function __construct()
