@@ -86,6 +86,37 @@ class PackageServiceOptions extends AbstractModel
     protected $verbalConfirmationIndicator = false;
 
     /**
+     * Indicates special handling is required for shipment having controller substances.
+     * Valid only for CA to CA movements
+     * 
+     * Available for following return services:
+     * Returns Exchange (available with a contract)
+     * Print Return Label Print and Mail Electronic Return Label
+     * Return Service Three Attempt
+     * 
+     * May be requested with following UPS services:
+     * UPS Express Early
+     * UPS Express
+     * UPS Express Saver
+     * UPS Standard
+     * 
+     * Not available for packages with the following:
+     * Delivery Confirmation - Signature Required
+     * Delivery Confirmation - Adult Signature Required
+     * 
+     * @var bool
+     */
+    protected $UPSPremiumCareIndicator = false;
+
+    /**
+     * Container to hold HazMat information.
+     * Applies only if SubVersion is greater than or equal to 1701.
+     * 
+     * @var HazMat
+     */
+    protected $hazMat;
+
+    /**
      * Create a new package service options instance.
      */
     public function __construct()
@@ -96,6 +127,7 @@ class PackageServiceOptions extends AbstractModel
         $this->declaredValue = new Currency();
         $this->shipperDeclaredValue = new Currency();
         $this->insurance = new Insurance();
+        $this->hazMat = new HazMat();
     }
 
     /**
@@ -188,7 +220,7 @@ class PackageServiceOptions extends AbstractModel
         $this->insurance = $value;
     }
 
-        /**
+    /**
      * Sets the verbal confirmation indicator.
      * 
      * @param bool $value
@@ -201,5 +233,20 @@ class PackageServiceOptions extends AbstractModel
         }
 
         $this->verbalConfirmationIndicator = $value;
+    }
+
+    /**
+     * Sets the UPS premium care indicator.
+     * 
+     * @param bool $value
+     * @throws Exception
+     */
+    public function setUPSPremiumCareIndicator($value)
+    {
+        if (!is_bool($value)) {
+            throw new \Exception("Cannot set the UPS Premium care indicator a boolean type value.");
+        }
+
+        $this->UPSPremiumCareIndicator = $value;
     }
 }

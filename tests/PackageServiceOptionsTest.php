@@ -234,4 +234,24 @@ class PackageServiceOptionsTest extends TestCase
     {
         $this->packageServiceOptions->verbalConfirmationIndicator = "string";
     }
+
+    /**
+     * @test Sets the UPS premium care indicator attribute.
+     */
+    public function it_sets_the_UPS_premium_care_indicator_attribute()
+    {
+        $this->packageServiceOptions->UPSPremiumCareIndicator = true;
+
+        $this->assertTrue($this->packageServiceOptions->UPSPremiumCareIndicator);
+    }
+
+    /**
+     * @test Tries to set the UPS Premium care indicator a boolean type value.
+     * @expectedException Exception
+     * @expectedExceptionMessage Cannot set the UPS Premium care indicator a boolean type value.
+     */
+    public function it_tries_to_set_the_UPS_premium_care_indicator_without_a_boolean_type_value()
+    {
+        $this->packageServiceOptions->UPSPremiumCareIndicator = "string";
+    }
 }
