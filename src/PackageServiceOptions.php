@@ -44,6 +44,48 @@ class PackageServiceOptions extends AbstractModel
     protected $declaredValue;
 
     /**
+     * Shipper paid declared value charge at package level.
+     * Valid for UPS World Wide Express Freight shipments.
+     * 
+     * @var Currency
+     */
+    protected $shipperDeclaredValue;
+
+    /**
+     * If package, the package is rated for UPS Proactive Response and proactive package tracking.
+     * Contractual accessorial for health care companies to allow package monitoring throughtout the UPS system.
+     * Shippers account needs to have valid contract for UPS Proactive Response.
+     * 
+     * @var bool
+     */
+    protected $proactiveIndicator = false;
+
+    /**
+     * Presence/Absenvce indicator.
+     * Any value is ignored. If present, indicates that the package contains ant item that needs refrigeration.
+     * Shippers account needs to have a valid contract for Refrigeration. 
+     *
+     * @var bool
+     */
+    protected $refrigerationIndicator = false;
+
+    /**
+     * Insurance Accessorial.
+     * Only one type of insurance can exist at a time on the shipment.
+     * Valid for UPS World Wide Express Freight shipments.
+     * 
+     * @var Insurance
+     */
+    protected $insurance;
+
+    /**
+     * A flag indicating if the packages require verbal confirmation.
+     * 
+     * @var bool
+     */
+    protected $verbalConfirmationIndicator = false;
+
+    /**
      * Create a new package service options instance.
      */
     public function __construct()
@@ -52,6 +94,8 @@ class PackageServiceOptions extends AbstractModel
         $this->accessPointCOD = new Currency();
         $this->COD = new CashOnDelivery();
         $this->declaredValue = new Currency();
+        $this->shipperDeclaredValue = new Currency();
+        $this->insurance = new Insurance();
     }
 
     /**
@@ -92,5 +136,70 @@ class PackageServiceOptions extends AbstractModel
     public function setDeclaredValue(Currency $value)
     {
         $this->declaredValue = $value;
+    }
+
+    /**
+     * Sets the shipper declared value attribute.
+     * 
+     * @param Currency $value
+     */
+    public function setShipperDeclaredValue(Currency $value)
+    {
+        $this->shipperDeclaredValue = $value;
+    }
+
+    /**
+     * Sets the proactive indicator attribute.
+     * 
+     * @param bool $value
+     * @throws Exception
+     */
+    public function setProactiveIndicator($value)
+    {
+        if (!is_bool($value)) {
+            throw new \Exception("Cannot set the proactive indicator without a boolean type value.");
+        }
+
+        $this->proactiveIndicator = $value;
+    }
+
+    /**
+     * Sets the refrigeration indicator.
+     * 
+     * @param bool $value
+     * @throws Exception
+     */
+    public function setRefrigerationIndicator($value)
+    {
+        if (!is_bool($value)) {
+            throw new \Exception("Cannot set the refrigeration indicator without a boolean type value.");
+        }
+
+        $this->refrigerationIndicator = $value;
+    }
+
+    /**
+     * Sets the insurance container.
+     *
+     * @var Insurance $value
+     */
+    public function setInsurance(Insurance $value)
+    {
+        $this->insurance = $value;
+    }
+
+        /**
+     * Sets the verbal confirmation indicator.
+     * 
+     * @param bool $value
+     * @throws Exception
+     */
+    public function setVerbalConfirmationIndicator($value)
+    {
+        if (!is_bool($value)) {
+            throw new \Exception("Cannot set the verbal confirmation indicator without a boolean type value.");
+        }
+
+        $this->verbalConfirmationIndicator = $value;
     }
 }
