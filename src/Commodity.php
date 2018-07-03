@@ -12,6 +12,22 @@ class Commodity extends AbstractModel
     protected $freightClass;
 
     /**
+     * NMFC Container instance. 
+     * For GFP Only.
+     * 
+     * @var NMFC
+     */
+    protected $NMFC;
+
+    /**
+     * Create a new commodity instance.
+     */
+    public function __construct()
+    {
+        $this->NMFC = new NMFC();
+    }
+
+    /**
      * Sets the freight class attribute.
      * 
      * @param string $value
@@ -24,5 +40,15 @@ class Commodity extends AbstractModel
         }
 
         $this->freightClass = $value;
+    }
+
+    /**
+     * Sets the NFMC container.
+     * 
+     * @param NMFC $value
+     */
+    public function setNMFC(NMFC $value)
+    {
+        $this->NMFC = $value;
     }
 }

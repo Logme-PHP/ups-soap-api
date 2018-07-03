@@ -19,7 +19,7 @@ class Package extends AbstractModel
     protected $dimensions;
 
     /**
-     * Package dimensional weight container.
+     * Package dimensional weight container instance.
      * Values in this container are ignored when package dimensions are provided.
      * 
      * @var Weight
@@ -27,7 +27,7 @@ class Package extends AbstractModel
     protected $dimWeight;
 
     /**
-     * Package weight container.
+     * Package weight container instance.
      * Required for an GFP request.
      * 
      * @var Weight
@@ -35,7 +35,7 @@ class Package extends AbstractModel
     protected $packageWeight;
 
     /**
-     * Commodity package container.
+     * Commodity package container instance.
      * Required only for GFP when FRSShipmentIndicator is requested.
      * 
      * @var Commodity
@@ -43,13 +43,28 @@ class Package extends AbstractModel
     protected $commodity;
 
     /**
+     * Indicates than the shipment will be categorized as a large package.
+     * 
+     * @var bool
+     */
+    protected $largePackageIndicator = false;
+
+    /**
+     * Package service options container instance.
+     * 
+     * @var PackageServiceOptions
+     */
+    protected $packageServiceOptions;
+
+    /**
      * Create a new Package instance.
      */
     public function __construct()
     {
-        $this->packagingType = new PackagingType;
+        $this->packagingType = new PackagingType();
         $this->dimWeight = new Weight();
         $this->packageWeight = new Weight();
+        $this->packageServiceOptions = new PackageServiceOptions();
     }
 
     /**
@@ -80,5 +95,20 @@ class Package extends AbstractModel
     public function setPackageWeight(Weight $value)
     {
         $this->packageWeight = $value;
+    }
+
+    /**
+     * Sets the large package indcator for the package.
+     * 
+     * @param bool $value
+     * @throws Exception
+     */
+    public function setLargePackageIndicator($value)
+    {
+        if (!is_bool($value)) {
+            throw new \Exception("The large package indicator value must be a boolean type.");
+        }
+
+        $this->largePackageIndicator = true;
     }
 }

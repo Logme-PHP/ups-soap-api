@@ -29,10 +29,14 @@ abstract class AbstractModel
      */
     public function __get($name)
     {
+        if (property_exists($this, $name)) {
+            return $this->$name;
+        }
+
         $getter = lcfirst($name);
 
         if (!property_exists($this, $getter)) {
-            throw new \Exception("Unrecognized attribute {$getter}.");
+            throw new \Exception("Unrecognized attribute {$name}.");
         }
 
         return $this->$getter;
