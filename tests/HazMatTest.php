@@ -24,6 +24,14 @@ class HazMatTest extends TestCase
     }
 
     /**
+     * @test Sets the defaults attributes values.
+     */
+    public function it_sets_the_defaults_attributes_values()
+    {
+        $this->assertFalse($this->hazMat->overPackedIndicator);
+    }
+
+    /**
      * @test Sets the package identifier attribute.
      */
     public function it_sets_the_package_identifier_attribute()
@@ -61,5 +69,45 @@ class HazMatTest extends TestCase
     public function it_tries_to_set_the_QValue_with_an_unexpected_value()
     {
         $this->hazMat->QValue = "2.0";
+    }
+
+    /**
+     * @test Sets the over packed indicator attribute.
+     */
+    public function it_sets_the_over_packed_indicator_attribute()
+    {
+        $this->hazMat->overPackedIndicator = true;
+
+        $this->assertTrue($this->hazMat->overPackedIndicator);
+    }
+
+    /**
+     * @test Tries to set over packed indicator without a boolean type value.
+     * @expectedException Exception
+     * @expectedExceptionMessage The over packed indicator only accepts boolean type values.
+     */
+    public function it_tries_to_set_over_packed_indicator_without_a_boolean_type_value()
+    {
+        $this->hazMat->overPackedIndicator = "string";
+    }
+
+    /**
+     * @test Sets the all packed in one indicator attribute.
+     */
+    public function it_sets_all_packed_in_one_indicator_attribute()
+    {
+        $this->hazMat->allPackedInOneIndicator = true;
+
+        $this->assertTrue($this->hazMat->allPackedInOneIndicator);
+    }
+
+    /**
+     * @test Tries to set packed in one indicator without a boolean type value.
+     * @expectedException Exception
+     * @expectedExceptionMessage The all packed in one indicator only accepts boolean type values.
+     */
+    public function it_tries_to_set_all_packed_in_one_indicator_without_a_boolean_type_value()
+    {
+        $this->hazMat->allPackedInOneIndicator = "string";
     }
 }

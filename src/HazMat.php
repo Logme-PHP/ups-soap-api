@@ -23,6 +23,24 @@ class HazMat extends AbstractModel
     protected $QValue;
 
     /**
+     * Presence/Absence indicator. Any value is ignored.
+     * Indicates the hazmat shipment/package is all packed in one.
+     * Applies only if Sub Version is greater than or equal to 1701.
+     * 
+     * @var bool
+     */
+    protected $overPackedIndicator =  false;
+
+    /**
+     * Presence/Absence indicator. Any value is ignored.
+     * Indicates the hazmat shipment/package is all packed in one.
+     * Applies only if Sub Version is greater than or equal to 1701.
+     * 
+     * @var bool
+     */
+    protected $allPackedInOneIndicator = false;
+
+    /**
      * Sets the package identifier value.
      * 
      * @param string $value
@@ -53,5 +71,34 @@ class HazMat extends AbstractModel
         }
 
         $this->QValue = $value;
+    }
+
+    /**
+     * Sets the over packed identifier attribute.
+     * 
+     * @param bool $value
+     * @throws Exception
+     */
+    public function setOverPackedIndicator($value)
+    {
+        if (!is_bool($value)) {
+            throw new \Exception("The over packed indicator only accepts boolean type values.");
+        }
+
+        $this->overPackedIndicator = $value;
+    }
+
+    /**
+     * Sets the all packed ino one indicator attribute.
+     * 
+     * @param bool $value
+     */
+    public function setAllPackedInOneIndicator($value)
+    {
+        if (!is_bool($value)) {
+            throw new \Exception("The all packed in one indicator only accepts boolean type values.");
+        }
+
+        $this->allPackedInOneIndicator = $value;
     }
 }
