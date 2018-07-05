@@ -21,7 +21,7 @@ class Service extends AbstractType
 
     /**
      * List with the descriptions for service.
-     * 
+     *
      * Valid domestic values:
      * 01 - Next Day Air
      * 02 - 2nd Day Air
@@ -30,7 +30,7 @@ class Service extends AbstractType
      * 13 - Next Day Air Saver
      * 14 - UPS Next Day Air Early
      * 59 - 2nd Day Air A.M
-     * 
+     *
      * Valid international values:
      * 07 - Worldwide Express
      * 08 - Worldwide Expedited
@@ -39,7 +39,7 @@ class Service extends AbstractType
      * 65 - Saver
      * 96 - UPS Worldwide Express Freight
      * 71 - UPS Worldwide Express Freight Midday
-     * 
+     *
      * @var array
      */
     protected $descriptions = [

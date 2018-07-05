@@ -6,7 +6,7 @@ class PackageServiceOptions extends AbstractModel
 {
     /**
      * Delivery confirmation instance.
-     * 
+     *
      * @var DeliveryConfirmation
      */
     protected $deliveryConfirmation;
@@ -15,10 +15,10 @@ class PackageServiceOptions extends AbstractModel
      * Access Point COD indicates Package COD is requested for a shipment.
      * Valid only for:
      * 01 - Hold For Pickup At UPS Access Point, Shipment Indication type.
-     * 
+     *
      * Package Access Point COD is valid only for shipment without return service from US/PR to US/PR and CA to CA.
      * Not valid with (Package) COD.
-     * 
+     *
      * @var Currency
      */
     protected $accessPointCOD;
@@ -26,19 +26,19 @@ class PackageServiceOptions extends AbstractModel
     /**
      * COD container instance.
      * Indicates COD is requested.
-     * Vald for the following country or territory combinations: 
+     * Vald for the following country or territory combinations:
      * US/PR to US/PR
      * CA to CA
      * CA to US
      * Not allowed for CA to US for packages that are designated as Letters or Envelopes.
-     * 
+     *
      * @var CashOnDelivery
      */
     protected $COD;
 
     /**
      * Declared value container.
-     * 
+     *
      * @var Currency
      */
     protected $declaredValue;
@@ -46,7 +46,7 @@ class PackageServiceOptions extends AbstractModel
     /**
      * Shipper paid declared value charge at package level.
      * Valid for UPS World Wide Express Freight shipments.
-     * 
+     *
      * @var Currency
      */
     protected $shipperDeclaredValue;
@@ -55,7 +55,7 @@ class PackageServiceOptions extends AbstractModel
      * If package, the package is rated for UPS Proactive Response and proactive package tracking.
      * Contractual accessorial for health care companies to allow package monitoring throughtout the UPS system.
      * Shippers account needs to have valid contract for UPS Proactive Response.
-     * 
+     *
      * @var bool
      */
     protected $proactiveIndicator = false;
@@ -63,7 +63,7 @@ class PackageServiceOptions extends AbstractModel
     /**
      * Presence/Absenvce indicator.
      * Any value is ignored. If present, indicates that the package contains ant item that needs refrigeration.
-     * Shippers account needs to have a valid contract for Refrigeration. 
+     * Shippers account needs to have a valid contract for Refrigeration.
      *
      * @var bool
      */
@@ -73,14 +73,14 @@ class PackageServiceOptions extends AbstractModel
      * Insurance Accessorial.
      * Only one type of insurance can exist at a time on the shipment.
      * Valid for UPS World Wide Express Freight shipments.
-     * 
+     *
      * @var Insurance
      */
     protected $insurance;
 
     /**
      * A flag indicating if the packages require verbal confirmation.
-     * 
+     *
      * @var bool
      */
     protected $verbalConfirmationIndicator = false;
@@ -88,22 +88,22 @@ class PackageServiceOptions extends AbstractModel
     /**
      * Indicates special handling is required for shipment having controller substances.
      * Valid only for CA to CA movements
-     * 
+     *
      * Available for following return services:
      * Returns Exchange (available with a contract)
      * Print Return Label Print and Mail Electronic Return Label
      * Return Service Three Attempt
-     * 
+     *
      * May be requested with following UPS services:
      * UPS Express Early
      * UPS Express
      * UPS Express Saver
      * UPS Standard
-     * 
+     *
      * Not available for packages with the following:
      * Delivery Confirmation - Signature Required
      * Delivery Confirmation - Adult Signature Required
-     * 
+     *
      * @var bool
      */
     protected $UPSPremiumCareIndicator = false;
@@ -111,7 +111,7 @@ class PackageServiceOptions extends AbstractModel
     /**
      * Container to hold HazMat information.
      * Applies only if SubVersion is greater than or equal to 1701.
-     * 
+     *
      * @var HazMat
      */
     protected $hazMat;
@@ -132,7 +132,7 @@ class PackageServiceOptions extends AbstractModel
 
     /**
      * Sets delivery confirmation attribute.
-     * 
+     *
      * @param DeliveryConfirmation $value
      */
     public function setDeliveryConfirmation(DeliveryConfirmation $value)
@@ -142,7 +142,7 @@ class PackageServiceOptions extends AbstractModel
 
     /**
      * Sets access point COD attribute.
-     * 
+     *
      * @param Currency $value
      */
     public function setAccessPointCOD(Currency $value)
@@ -152,7 +152,7 @@ class PackageServiceOptions extends AbstractModel
 
     /**
      * Sets the COD attribute.
-     * 
+     *
      * @param CashOnDelivery $value
      */
     public function setCOD(CashOnDelivery $value)
@@ -162,7 +162,7 @@ class PackageServiceOptions extends AbstractModel
 
     /**
      * Sets the declared value attribute.
-     * 
+     *
      * @param Currency $value
      */
     public function setDeclaredValue(Currency $value)
@@ -172,7 +172,7 @@ class PackageServiceOptions extends AbstractModel
 
     /**
      * Sets the shipper declared value attribute.
-     * 
+     *
      * @param Currency $value
      */
     public function setShipperDeclaredValue(Currency $value)
@@ -182,7 +182,7 @@ class PackageServiceOptions extends AbstractModel
 
     /**
      * Sets the proactive indicator attribute.
-     * 
+     *
      * @param bool $value
      * @throws Exception
      */
@@ -197,7 +197,7 @@ class PackageServiceOptions extends AbstractModel
 
     /**
      * Sets the refrigeration indicator.
-     * 
+     *
      * @param bool $value
      * @throws Exception
      */
@@ -222,7 +222,7 @@ class PackageServiceOptions extends AbstractModel
 
     /**
      * Sets the verbal confirmation indicator.
-     * 
+     *
      * @param bool $value
      * @throws Exception
      */
@@ -237,7 +237,7 @@ class PackageServiceOptions extends AbstractModel
 
     /**
      * Sets the UPS premium care indicator.
-     * 
+     *
      * @param bool $value
      * @throws Exception
      */

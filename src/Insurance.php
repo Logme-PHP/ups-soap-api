@@ -7,7 +7,7 @@ class Insurance extends AbstractModel
     /**
      * Container to hold basic flexible parcel indicator information.
      * Valid for UPS World Wide Express Freight shipments.
-     * 
+     *
      * @var Currency
      */
     protected $basicFlexibleParcelIndicator;
@@ -15,7 +15,7 @@ class Insurance extends AbstractModel
     /**
      * Container for extended flexible parcel indicator.
      * Valid for UPS World Wide Express shipments.
-     * 
+     *
      * @var Currency
      */
     protected $extendedFlexibleParcelIndicator;
@@ -23,7 +23,7 @@ class Insurance extends AbstractModel
     /**
      * Container to hold time in transit flexbile parcel indicator information.
      * Valid for UPS World Wide Express Freight shipments.
-     * 
+     *
      * @var Currency
      */
     protected $timeInTransitFlexibleParcelIndicator;
@@ -40,7 +40,7 @@ class Insurance extends AbstractModel
 
     /**
      * Sets the basic flexible parcel indicator attribute.
-     * 
+     *
      * @param Currency $value
      */
     public function setBasicFlexibleParcelIndicator(Currency $value)
@@ -50,7 +50,7 @@ class Insurance extends AbstractModel
 
     /**
      * Sets the extended flexible parcel indicator attribute.
-     * 
+     *
      * @param Currency $value
      */
     public function setExtendedFlexibleParcelIndicator(Currency $value)
@@ -60,7 +60,7 @@ class Insurance extends AbstractModel
 
     /**
      * Sets the time in transit flexible parcel indicator attribute.
-     * 
+     *
      * @param Currency $value
      */
     public function setTimeInTransitFlexibleParcelIndicator(Currency $value)

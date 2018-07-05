@@ -10,7 +10,7 @@ class Shipment extends AbstractModel
      * The time that the request was made from the originating system.
      * UTC time down to milliseconds. Example: 2016-07-17T12:01:33.000.
      * Applicable only for HazMat request and subversion greater that or equal to 1701
-     * 
+     *
      * @var string
      */
     protected $originRecordTransactionTimestamp;
@@ -18,21 +18,21 @@ class Shipment extends AbstractModel
     /**
      * Shipper container instance.
      * Information associated with the UPS account number.
-     * 
+     *
      * @var Shipper
      */
     protected $shipper;
 
     /**
      * Ship to container instance.
-     * 
+     *
      * @var Shipper
      */
     protected $shipTo;
 
     /**
      * Ship from container instance.
-     * 
+     *
      * @var Shipper
      */
     protected $shipFrom;
@@ -40,7 +40,7 @@ class Shipment extends AbstractModel
     /**
      * Service container instance.
      * Only valid with RequestOption = Rate for both Small package and GFP Rating requests.
-     * 
+     *
      * @var Service
      */
     protected $service;
@@ -57,7 +57,7 @@ class Shipment extends AbstractModel
 
     /**
      * Sets the origin record transaction timestamp value in microseconds.
-     * 
+     *
      * @param Carbon $value
      */
     public function setOriginRecordTransactionTimestamp(Carbon $value)
@@ -68,7 +68,7 @@ class Shipment extends AbstractModel
 
     /**
      * Sets the shipper container.
-     * 
+     *
      * @param Shipper $value
      */
     public function setShipper(Shipper $value)
@@ -78,7 +78,7 @@ class Shipment extends AbstractModel
 
     /**
      * Sets the ship to container.
-     * 
+     *
      * @param Shipper $value
      */
     public function setShipTo(Shipper $value)
@@ -88,7 +88,7 @@ class Shipment extends AbstractModel
 
     /**
      * Sets the ship from container.
-     * 
+     *
      * @param Shipper $value
      */
     public function setShipFrom(Shipper $value)

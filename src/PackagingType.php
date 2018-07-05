@@ -19,7 +19,7 @@ class PackagingType extends AbstractType
 
     /**
      * List with the descriptions for packages.
-     * 
+     *
      * @var array
      */
     protected $descriptions = [

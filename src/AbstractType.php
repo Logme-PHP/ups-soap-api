@@ -6,14 +6,14 @@ abstract class AbstractType extends AbstractModel
 {
     /**
      * List with descriptions for type code.
-     * 
+     *
      * @var array
      */
     protected $descriptions = [];
 
     /**
      * Type code.
-     * 
+     *
      * @var string
      */
     protected $code;
@@ -25,7 +25,7 @@ abstract class AbstractType extends AbstractModel
 
     /**
      * Sets the type code.
-     * 
+     *
      * @param string $value
      * @throws Exception
      */

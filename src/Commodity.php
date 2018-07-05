@@ -6,15 +6,15 @@ class Commodity extends AbstractModel
 {
     /**
      * Freight classification. Freight class partially determines the freight rate for the article.
-     * 
+     *
      * @var string
      */
     protected $freightClass;
 
     /**
-     * NMFC Container instance. 
+     * NMFC Container instance.
      * For GFP Only.
-     * 
+     *
      * @var NMFC
      */
     protected $NMFC;
@@ -29,7 +29,7 @@ class Commodity extends AbstractModel
 
     /**
      * Sets the freight class attribute.
-     * 
+     *
      * @param string $value
      * @throws Exception
      */
@@ -44,7 +44,7 @@ class Commodity extends AbstractModel
 
     /**
      * Sets the NFMC container.
-     * 
+     *
      * @param NMFC $value
      */
     public function setNMFC(NMFC $value)

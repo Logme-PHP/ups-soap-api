@@ -59,4 +59,28 @@ class UnitOfMeasurementTest extends TestCase
 
         $this->assertFalse($unitOfMeasurement->isHeightMeasure());
     }
+
+    /**
+     * @test Sets the use weight measure as code attribute.
+     */
+    public function it_sets_the_use_weight_measure_as_code_attribute()
+    {
+        $unitOfMeasurement = new UnitOfMeasurement();
+        $this->assertFalse($unitOfMeasurement->useWeightMeasureAsCode);
+
+        $unitOfMeasurement->useWeightMeasureAsCode = true;
+
+        $this->assertTrue($unitOfMeasurement->useWeightMeasureAsCode);
+    }
+
+    /**
+     * @test Tries to set use weight measure as code without a boolean type value.
+     * @expectedException Exception
+     * @expectedExceptionMessage The use weight measure as code value must be a boolean type.
+     */
+    public function it_tries_to_set_weight_measure_as_code_without_a_boolean_type_value()
+    {
+        $unitOfMeasurement = new UnitOfMeasurement();
+        $unitOfMeasurement->useWeightMeasureAsCode = "string";
+    }
 }

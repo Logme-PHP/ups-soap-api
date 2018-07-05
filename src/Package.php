@@ -6,14 +6,14 @@ class Package extends AbstractModel
 {
     /**
      * Packaging Type container instance.
-     * 
+     *
      * @var PackagingType
      */
     protected $packagingType;
 
     /**
      * Dimensions container instance.
-     * 
+     *
      * @var Dimensions
      */
     protected $dimensions;
@@ -21,7 +21,7 @@ class Package extends AbstractModel
     /**
      * Package dimensional weight container instance.
      * Values in this container are ignored when package dimensions are provided.
-     * 
+     *
      * @var Weight
      */
     protected $dimWeight;
@@ -29,7 +29,7 @@ class Package extends AbstractModel
     /**
      * Package weight container instance.
      * Required for an GFP request.
-     * 
+     *
      * @var Weight
      */
     protected $packageWeight;
@@ -37,21 +37,21 @@ class Package extends AbstractModel
     /**
      * Commodity package container instance.
      * Required only for GFP when FRSShipmentIndicator is requested.
-     * 
+     *
      * @var Commodity
      */
     protected $commodity;
 
     /**
      * Indicates than the shipment will be categorized as a large package.
-     * 
+     *
      * @var bool
      */
     protected $largePackageIndicator = false;
 
     /**
      * Package service options container instance.
-     * 
+     *
      * @var PackageServiceOptions
      */
     protected $packageServiceOptions;
@@ -69,9 +69,9 @@ class Package extends AbstractModel
 
     /**
      * Sets the packaging type for the package.
-     * 
+     *
      * @param PackagingType $value
-     */ 
+     */
     public function setPackagingType(PackagingType $value)
     {
         $this->packagingType = $value;
@@ -79,7 +79,7 @@ class Package extends AbstractModel
 
     /**
      * Sets the dimensional weight for the package.
-     * 
+     *
      * @param Weight $value
      */
     public function setDimWeight(Weight $value)
@@ -89,7 +89,7 @@ class Package extends AbstractModel
 
     /**
      * Sets the package weight for the package.
-     * 
+     *
      * @param Weight $value
      */
     public function setPackageWeight(Weight $value)
@@ -99,7 +99,7 @@ class Package extends AbstractModel
 
     /**
      * Sets the large package indcator for the package.
-     * 
+     *
      * @param bool $value
      * @throws Exception
      */

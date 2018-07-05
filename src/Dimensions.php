@@ -6,7 +6,7 @@ class Dimensions extends AbstractModel
 {
     /**
      * Unit Of Measurement container instance.
-     * 
+     *
      * @var UnitOfMeasurement
      */
     protected $unitOfMeasurement;
@@ -14,7 +14,7 @@ class Dimensions extends AbstractModel
     /**
      * Length of the package used to determine dimensional weight.
      * Required for GB to GB and Poland to Poland shipments.
-     * 
+     *
      * @var string
      */
     protected $length;
@@ -22,7 +22,7 @@ class Dimensions extends AbstractModel
     /**
      * Width of the package used to determine dimensional weight.
      * Required for GB to GB and Poland to Poland shipments.
-     * 
+     *
      * @var string
      */
     protected $width;
@@ -30,7 +30,7 @@ class Dimensions extends AbstractModel
     /**
      * Height of the package used to determine dimensional weight.
      * Required for GB to GB and Poland to Poland shipments.
-     * 
+     *
      * @var string
      */
     protected $height;
@@ -55,7 +55,7 @@ class Dimensions extends AbstractModel
 
     /**
      * Sets the dimension value for length.
-     * 
+     *
      * @param string $value
      */
     public function setLength($value)
@@ -65,7 +65,7 @@ class Dimensions extends AbstractModel
 
     /**
      * Sets the dimension value for width.
-     * 
+     *
      * @param string $value.
      */
     public function setWidth($value)
@@ -75,7 +75,7 @@ class Dimensions extends AbstractModel
 
     /**
      * Sets the dimension value for height.
-     * 
+     *
      * @param string $value
      */
     public function setHeight($value)
@@ -85,7 +85,7 @@ class Dimensions extends AbstractModel
 
     /**
      * Sets the dimension value for the attribute.
-     * 
+     *
      * @param string $attribute
      * @param string $value
      * @throws Exception

@@ -9,6 +9,11 @@ class HazMatChemicalRecord extends AbstractModel
     const PASSENGER_AIRCRAFT = "03";
     const CARGO_AIRCRAFT_ONLY = "04";
 
+    const FULLY_REGULATED = "FR";
+    const LIMITED_QUANTITY = "LQ";
+    const EXCEPTED_QUANTITY = "EQ";
+    const LIGHTLY_REGULATED = "LR";
+
     /**
      * Valid values for Regulatory Set.
      *
@@ -23,7 +28,7 @@ class HazMatChemicalRecord extends AbstractModel
 
     /**
      * Valid values for packaging group type.
-     * 
+     *
      * @var array
      */
     private $packagingGroupTypes = [
@@ -36,7 +41,7 @@ class HazMatChemicalRecord extends AbstractModel
     /**
      * Identifies the Chemical record.
      * Required if Sub Version is greater than or equal to 1701.
-     * 
+     *
      * @var string
      */
     protected $chemicalRecordIdentifier;
@@ -45,7 +50,7 @@ class HazMatChemicalRecord extends AbstractModel
      * This is hazard class associated to specified commodity.
      * Required if CommodityRegulatedLevelCode is 'LQ' or 'FR'.
      * Applies only if Sub Version is greater than or equal to 1701.
-     * 
+     *
      * @var string
      */
     protected $classDivisionNumber;
@@ -56,7 +61,7 @@ class HazMatChemicalRecord extends AbstractModel
      * applies to the material by regulation.
      * UN/NA/ID Identification Number assigned to the specified regulated good.
      * Applies only if Sub Version is greater than or equal to 1701.
-     * 
+     *
      * @var string
      */
     protected $IDNumber;
@@ -72,7 +77,7 @@ class HazMatChemicalRecord extends AbstractModel
      * All TransportationMode except for '04', are general service offering. If any
      * Chemical record contains '04' as TransportationMode, ShipperNumber needs be
      * authorized to use '04' as TransportationMode.
-     * 
+     *
      * @var string
      */
     protected $transportationMode;
@@ -84,7 +89,7 @@ class HazMatChemicalRecord extends AbstractModel
      * For multiple ChemicalRecords per package or multiple packages containing
      * different RegulationSet, RegulationSet of first ChemicalRecord would be
      * considered for validating and rating the entire shipment.
-     * 
+     *
      * @var string
      */
     protected $regulationSet;
@@ -98,7 +103,7 @@ class HazMatChemicalRecord extends AbstractModel
      * Applies only if Sub Version is greater than or equal to 1701.
      * The following are restricted in the phone number period ".", "-", plus
      * sign "+" and conventional parentheses "(" and ")", "EXT or OPT".
-     * 
+     *
      * @var string
      */
     protected $emergencyPhone;
@@ -110,7 +115,7 @@ class HazMatChemicalRecord extends AbstractModel
      * field above and the shipment is with a US50 or PR origin and/or destination
      * and the RegulationSet is IATA.
      * Applies only if Sub Version is greater than or equal to 1701.
-     * 
+     *
      * @var string
      */
     protected $emergencyContact;
@@ -120,7 +125,7 @@ class HazMatChemicalRecord extends AbstractModel
      * to the material by regulation.
      * If reportable quantity is met, 'RQ' should be entered.
      * Applies only if Sub Version is greater than or equal to 1701.
-     * 
+     *
      * @var string
      */
     protected $reportableQuantity;
@@ -131,7 +136,7 @@ class HazMatChemicalRecord extends AbstractModel
      * Secondary hazardous characteristics of a package.
      * (There can ne more than one - separate each a comma)
      * Applies only if Sub Version is greater than or equal to 1701.
-     * 
+     *
      * @var string
      */
     protected $subRiskClass;
@@ -141,7 +146,7 @@ class HazMatChemicalRecord extends AbstractModel
      * Required if CommodityRegulatorLevelCode = LQ or FR and if the field applies
      * to the material by regulation. Must be shown in Roman Numerals.
      * Applies only of Sub Version is greater than or equal to 1701.
-     * 
+     *
      * @var string
      */
     protected $packagingGroupType;
@@ -150,7 +155,7 @@ class HazMatChemicalRecord extends AbstractModel
      * Required if CommodityRegulatedLevelCode = LQ or FR. The numerical value
      * of the mass capacity if the regulated good.
      * Applies only if Sub Version is greater than or equal to 1701.
-     * 
+     *
      * @var string
      */
     protected $quantity;
@@ -161,7 +166,7 @@ class HazMatChemicalRecord extends AbstractModel
      * For Example: ml, L, g, mg, kg, cylinder, pound, pint, quart, gallon,
      * ounce, etc.
      * Applies only if Sub Version is greater than or equal to 1701.
-     * 
+     *
      * @var string
      */
     protected $UOM;
@@ -171,7 +176,7 @@ class HazMatChemicalRecord extends AbstractModel
      * Required if CommodityRegulatedLevelCode = LQ or FR and if the field applies
      * to material by regulation.
      * Applies only if Sub Version is greater than or equal to 1701.
-     * 
+     *
      * @var string
      */
     protected $packagingInstructionCode;
@@ -181,7 +186,7 @@ class HazMatChemicalRecord extends AbstractModel
      * Required if CommodityRegulatedLevelCode = LQ or FR and if the field applies
      * to the material by regulation.
      * Applies only if Sub Version is greater than or equal to 1701.
-     * 
+     *
      * @var string
      */
     protected $properShippingName;
@@ -190,7 +195,7 @@ class HazMatChemicalRecord extends AbstractModel
      * The technical name (when required) for the specified commodity.
      * Required if CommodityRegulatedLevelCode = LQ or FR and if the field applies
      * to the material by regulation.
-     * 
+     *
      * @var string
      */
     protected $technicalName;
@@ -202,14 +207,78 @@ class HazMatChemicalRecord extends AbstractModel
      * Additional information that may be required by regulation about a hazardous
      * material, such as, "Limited Quantity", DOT-SP numbers, EX numbers.
      * Applies only if Sub Version is greater than or equal to 1701.
-     * 
+     *
      * @var string
      */
     protected $additionalDescription;
 
     /**
+     * The package type code identifying the type of packaging used for the
+     * commodity. (Ex: Fiberboard Box).
+     * Required if CommodityRegulatedLevelCode = LQ or FR.
+     * Applies only if Sub Version is greater than or equal to 1701.
+     *
+     * @var string
+     */
+    protected $packagingType;
+
+    /**
+     * Defines the type of label that is required on the package for the
+     * commpdity. Not applicable if CommodityRegulatedLevelCode = LR or EQ.
+     * Applies only if Sub Version is greater than or equal to 1701.
+     *
+     * @var string
+     */
+    protected $hazardLabelRequired;
+
+    /**
+     * The number of pieces of the specific commodity.
+     * Required if CommodityRegulatedLevelCode = LQ or FR.
+     * Applies only if Sub Version is greater than or equal to 1701.
+     *
+     * @var string
+     */
+    protected $packagingTypeQuantity;
+
+    /**
+     * Indicates the type of commodity.
+     * Fully Regulated (FR)
+     * Limited Quantity (LQ)
+     * Excepted Quantity (EQ)
+     * Lightly Regulated (LR)
+     * Default value is FR
+     * Applies only if Sub Version is greater than or equal to 1701.
+     *
+     * @var string
+     */
+    protected $commodityRegulatedLevelCode = self::FULLY_REGULATED;
+
+    /**
+     * Transport Category.
+     * Applies only if Sub Version is greater than or equal to 1701.
+     *
+     * @var string
+     */
+    protected $transportCategory;
+
+    /**
+     * Defines what is restricted to pass through a tunnel.
+     * Applies only if Sub Version is greater than or equal to 1701.
+     *
+     * @var string
+     */
+    protected $tunnelRestrictionCode;
+
+    /**
+     * Container to hold Dry Ice information.
+     *
+     * @var DryIce.
+     */
+    protected $dryIce;
+
+    /**
      * Sets the chemical record identifier attribute.
-     * 
+     *
      * @param string $value
      * @throws Exception
      */
@@ -231,7 +300,7 @@ class HazMatChemicalRecord extends AbstractModel
      * 02 - Ground
      * 03 - Passager Aircraft
      * 04 - Cargo Aircraft Only
-     * 
+     *
      * @param string $value
      * @throws Exception
      */
@@ -248,7 +317,7 @@ class HazMatChemicalRecord extends AbstractModel
 
     /**
      * Sets the ID number attribute.
-     * 
+     *
      * @param string $value
      * @throws Exception
      */
@@ -265,7 +334,7 @@ class HazMatChemicalRecord extends AbstractModel
 
     /**
      * Sets the transportation mode attribute.
-     * 
+     *
      * @param string $value
      * @throws Exception
      */
@@ -290,7 +359,7 @@ class HazMatChemicalRecord extends AbstractModel
      * CFR - For HazMat regulated by US Dept. of Transportation within hte U.S or ground shipments to Canada
      * IATA - For Worldwide Air movement
      * TDG - For Canada to Canada ground movement or Canada to U.S standard movement.
-     * 
+     *
      * @param string $value
      * @throws Exception
      */
@@ -305,7 +374,7 @@ class HazMatChemicalRecord extends AbstractModel
 
     /**
      * Sets the emergency phone attribute.
-     * 
+     *
      * @param string $value
      * @throws Exception
      */
@@ -326,7 +395,7 @@ class HazMatChemicalRecord extends AbstractModel
 
     /**
      * Sets the emergency contact attribute.
-     * 
+     *
      * @param string $value
      * @throws Exception
      */
@@ -341,7 +410,7 @@ class HazMatChemicalRecord extends AbstractModel
 
     /**
      * Sets the reportable quantity attribute.
-     * 
+     *
      * @param string $value
      * @throws Exception
      */
@@ -356,7 +425,7 @@ class HazMatChemicalRecord extends AbstractModel
 
     /**
      * Sets the sub risk class attribute.
-     * 
+     *
      * @param string $value
      * @throws Exception
      */
@@ -371,7 +440,7 @@ class HazMatChemicalRecord extends AbstractModel
 
     /**
      * Sets the packaging group type attribute.
-     * 
+     *
      * @param string $value
      * @throws Exception
      */
@@ -386,7 +455,7 @@ class HazMatChemicalRecord extends AbstractModel
 
     /**
      * Sets the quantity attribute.
-     * 
+     *
      * @param string $value
      * @throws Exception
      */
@@ -405,7 +474,7 @@ class HazMatChemicalRecord extends AbstractModel
 
     /**
      * Sets the UOM attribute.
-     * 
+     *
      * @param string $value
      */
     public function setUOM($value)
@@ -421,7 +490,7 @@ class HazMatChemicalRecord extends AbstractModel
 
     /**
      * Sets the packaging instruction code attribute.
-     * 
+     *
      * @param string $value
      * @throws Exception
      */
@@ -438,7 +507,7 @@ class HazMatChemicalRecord extends AbstractModel
 
     /**
      * Sets the proper shipping name attribute.
-     * 
+     *
      * @param string $value
      * @throws Exception
      */
@@ -455,7 +524,7 @@ class HazMatChemicalRecord extends AbstractModel
 
     /**
      * Sets the techincal name attribute.
-     * 
+     *
      * @param string $value
      * @throws Exception
      */
@@ -472,7 +541,7 @@ class HazMatChemicalRecord extends AbstractModel
 
     /**
      * Sets the aditional description attribute.
-     * 
+     *
      * @param string $value
      * @throws Exception
      */
@@ -485,5 +554,117 @@ class HazMatChemicalRecord extends AbstractModel
         }
 
         $this->additionalDescription = $value;
+    }
+
+    /**
+     * Sets the packaging type attribute.
+     *
+     * @param string $value
+     * @throws Exception
+     */
+    public function setPackagingType($value)
+    {
+        $len = strlen($value);
+
+        if ($len < 1 || $len > 250) {
+            throw new \Exception("The string length of packaging type must be between 1 and 255.");
+        }
+
+        $this->packagingType = $value;
+    }
+
+    /**
+     * Sets the hazard level required attribute.
+     *
+     * @param string $value
+     * @throws Exception
+     */
+    public function setHazardLabelRequired($value)
+    {
+        $len = strlen($value);
+
+        if ($len < 1 || $len > 50) {
+            throw new \Exception("The string length of hazard label required must be between 1 and 50.");
+        }
+
+        $this->hazardLabelRequired = $value;
+    }
+
+    /**
+     * Sets the packaging type quantity attribute.
+     *
+     * @param string $value
+     * @throws Exception
+     */
+    public function setPackagingTypeQuantity($value)
+    {
+        $len = strlen($value);
+
+        if ($len < 1 || $len > 3) {
+            throw new \Exception("The string length of packaging type quantity must be between 1 and 3.");
+        }
+
+        if (!is_numeric($value)) {
+            throw new \Exception("The packaging type quantity only accepts numerical values.");
+        }
+
+        $this->packagingTypeQuantity = $value;
+    }
+
+    /**
+     * Sets the commodity regulated level code attribute.
+     *
+     * @param string $value
+     * @throws Exception
+     */
+    public function setCommodityRegulatedLevelCode($value)
+    {
+        switch ($value) {
+            case self::FULLY_REGULATED:
+            case self::LIMITED_QUANTITY:
+            case self::EXCEPTED_QUANTITY:
+            case self::LIGHTLY_REGULATED:
+                $this->commodityRegulatedLevelCode = $value;
+                break;
+            default:
+                throw new \Exception("Cannot set the commodity regulated level code with an unexpected value.");
+        }
+    }
+
+    /**
+     * Sets the category transport attribute.
+     * Valid values are 0 to 4.
+     *
+     * @param string $value
+     * @throws Exception
+     */
+    public function setTransportCategory($value)
+    {
+        if (!is_numeric($value)) {
+            throw new \Exception("The transport category only accepts numerical values.");
+        }
+
+        if ($value < 0 || $value > 4) {
+            throw new \Exception("The transport category value must be between 0 and 4.");
+        }
+
+        $this->transportCategory = $value;
+    }
+
+    /**
+     * Sets the tunnel restriction code attribute.
+     *
+     * @param string $value
+     * @throws Exception
+     */
+    public function setTunnelRestrictionCode($value)
+    {
+        $len = strlen($value);
+
+        if ($len < 1 || $len > 10) {
+            throw new \Exception("The string length of tunnel restriction code must be between 1 and 10.");
+        }
+
+        $this->tunnelRestrictionCode = $value;
     }
 }

@@ -7,7 +7,7 @@ class HazMat extends AbstractModel
     /**
      * Identifies the packages containing Dangerous Goods.
      * Required if sub version is greater than or equal to 1701.
-     * 
+     *
      * @var string
      */
     protected $packageIdentifier;
@@ -17,7 +17,7 @@ class HazMat extends AbstractModel
      * and the regulation set for that shipment is IATA.
      * Applies only if Sub Version is greater than or equal to 1701.
      * Valid values are: 0.1; 0.2, 0.3; 0.4; 0.5; 0.6; 0.7; 0.8; 0.9; 1.0
-     * 
+     *
      * @var string
      */
     protected $QValue;
@@ -26,7 +26,7 @@ class HazMat extends AbstractModel
      * Presence/Absence indicator. Any value is ignored.
      * Indicates the hazmat shipment/package is all packed in one.
      * Applies only if Sub Version is greater than or equal to 1701.
-     * 
+     *
      * @var bool
      */
     protected $overPackedIndicator =  false;
@@ -35,14 +35,14 @@ class HazMat extends AbstractModel
      * Presence/Absence indicator. Any value is ignored.
      * Indicates the hazmat shipment/package is all packed in one.
      * Applies only if Sub Version is greater than or equal to 1701.
-     * 
+     *
      * @var bool
      */
     protected $allPackedInOneIndicator = false;
 
     /**
      * Sets the package identifier value.
-     * 
+     *
      * @param string $value
      * @throws Exception
      */
@@ -59,7 +59,7 @@ class HazMat extends AbstractModel
 
     /**
      * Sets the QValue attribute.
-     * 
+     *
      * @param string $value
      */
     public function setQValue($value)
@@ -75,7 +75,7 @@ class HazMat extends AbstractModel
 
     /**
      * Sets the over packed identifier attribute.
-     * 
+     *
      * @param bool $value
      * @throws Exception
      */
@@ -90,7 +90,7 @@ class HazMat extends AbstractModel
 
     /**
      * Sets the all packed ino one indicator attribute.
-     * 
+     *
      * @param bool $value
      */
     public function setAllPackedInOneIndicator($value)

@@ -7,14 +7,14 @@ class Weight extends AbstractModel
     /**
      * Unit of measurement container instance.
      * This unit of measurement represents the package weight.
-     * 
+     *
      * @var UnitOfMeasurement
      */
     protected $unitOfMeasurement;
 
     /**
      * Dimensional weight of the package.
-     * 
+     *
      * @var string
      */
     protected $weight;
@@ -30,11 +30,11 @@ class Weight extends AbstractModel
     /**
      * Sets the unit of measurement.
      * Only accepts unit of measurement related with package weight.
-     * 
+     *
      * Valid values:
      * KGS - Kilograms
-     * LBS - Pounds 
-     * 
+     * LBS - Pounds
+     *
      * @param UnitOfMeasurement $value
      * @throws Exception
      */
@@ -50,7 +50,7 @@ class Weight extends AbstractModel
     /**
      * Sets the dimensional weight for the package.
      * Decimal values are translate to int values (i.e. 11.5 = 115)
-     * 
+     *
      * @var string
      * @throws Exception
      */

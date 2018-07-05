@@ -12,7 +12,7 @@ class PickupType extends AbstractType
 
     /**
      * List with descriptions for pickup type.
-     * 
+     *
      * @var array
      */
     protected $descriptions = [

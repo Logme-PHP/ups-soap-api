@@ -9,7 +9,7 @@ class AddressTest extends TestCase
 {
     /**
      * Address container instance.
-     * 
+     *
      * @var Address
      */
     public $address;

@@ -7,7 +7,7 @@ class Address extends AbstractModel
     /**
      * Street address incluing name and number (when applicable).
      * Maximum Occurence should be three.
-     * 
+     *
      * @var array
      */
     protected $addressLine = [];
@@ -15,28 +15,28 @@ class Address extends AbstractModel
     /**
      * Name of the city.
      * Required if country or territory does not utilize postal codes.
-     * 
+     *
      * @var string
      */
     protected $city;
 
     /**
      * Address state code.
-     * 
+     *
      * @var string
      */
     protected $stateProvinceCode;
 
     /**
      * Address postal code.
-     * 
+     *
      * @var string
      */
     protected $postalCode;
 
     /**
      * Address country or territory code.
-     * 
+     *
      * @var string
      */
     protected $countryCode;
@@ -45,14 +45,14 @@ class Address extends AbstractModel
      * Residential address flag.
      * This field is a flag to indicate if the destination is a residential location.
      * Is false by default.
-     * 
+     *
      * @var bool
      */
     protected $residentialAddressIndicator = false;
 
     /**
      * Sets address line string to array.
-     * 
+     *
      * @param mixed $value
      * @throws \Exception
      */
@@ -83,7 +83,7 @@ class Address extends AbstractModel
 
     /**
      * Sets the name of the city.
-     * 
+     *
      * @param string $value
      * @throws \Exception
      */
@@ -98,7 +98,7 @@ class Address extends AbstractModel
 
     /**
      * Sets the state province code of address.
-     * 
+     *
      * @param string $value
      * @throws \Exception
      */
@@ -113,7 +113,7 @@ class Address extends AbstractModel
 
     /**
      * Sets the postal code of the addres.
-     * 
+     *
      * @param string $value
      * @throws \Exception
      */
@@ -128,7 +128,7 @@ class Address extends AbstractModel
 
     /**
      * Sets country code of the address.
-     * 
+     *
      * @param string $value
      * @throws \Exception
      */

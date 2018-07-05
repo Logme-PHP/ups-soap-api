@@ -6,7 +6,7 @@ class ServiceAccessToken
 {
     /**
      * Access licence number value.
-     * 
+     *
      * @var string
      */
     public $accessLicenceNumber;

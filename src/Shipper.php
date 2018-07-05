@@ -6,7 +6,7 @@ class Shipper extends AbstractModel
 {
     /**
      * Shipper's name or company name.
-     * 
+     *
      * @var string
      */
     protected $name;
@@ -15,7 +15,7 @@ class Shipper extends AbstractModel
      * Shipper's UPS account number.
      * A valid account number is required to receive negotiated rates.
      * Optional otherwise. Cannot be present when requesting UserLevelDiscount.
-     * 
+     *
      * @var string
      */
     protected $shipperNumber;
@@ -24,7 +24,7 @@ class Shipper extends AbstractModel
      * Shipper address container.
      * If the ShipFrom container is not present the this address will be used as ShipFrom.
      * If this address is used as the ShipFrom, the shipment will be rated from this origin address.
-     * 
+     *
      * @var Address
      */
     protected $address;
@@ -39,7 +39,7 @@ class Shipper extends AbstractModel
 
     /**
      * Sets the shipper name or company name value.
-     * 
+     *
      * @param string $value
      * @throws Exception
      */
@@ -54,7 +54,7 @@ class Shipper extends AbstractModel
 
     /**
      * Sets the shipper account number value.
-     * 
+     *
      * @param string $value
      * @throws Exception
      */
@@ -69,7 +69,7 @@ class Shipper extends AbstractModel
 
     /**
      * Sets the shipper address.
-     * 
+     *
      * @param Address $value
      */
     public function setAddress(Address $value)

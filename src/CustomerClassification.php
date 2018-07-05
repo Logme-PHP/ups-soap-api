@@ -12,7 +12,7 @@ class CustomerClassification extends AbstractType
 
     /**
      * List with descriptions for customer classification codes.
-     * 
+     *
      * Valid values:
      * 00 - Rates Associated with shipper number.
      * 01 - Daily Rates.
@@ -22,7 +22,7 @@ class CustomerClassification extends AbstractType
      * Length is not valid validated.
      * If customer classification code is not provided or it is not provided or it is provided with an invalid value,
      * UPS would use rate chart (customer classification code associated with shipper country or territory to rate the shipments).
-     * 
+     *
      * @var array
      */
     protected $descriptions = [

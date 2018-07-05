@@ -8,7 +8,7 @@ class Currency extends AbstractModel
      * Access Point COD currency code.
      * Required if Access Point COD container is present.
      * UPS does not suport all internacional currency codes.
-     * 
+     *
      * @var string
      */
     protected $currencyCode;
@@ -16,14 +16,14 @@ class Currency extends AbstractModel
     /**
      * Access Point COD monetary value.
      * Required of Access Point COD container is present.
-     * 
+     *
      * @var string
      */
     protected $monetaryValue;
 
     /**
      * Sets currency code.
-     * 
+     *
      * @param string $value
      * @throws Exception
      */
@@ -38,7 +38,7 @@ class Currency extends AbstractModel
 
     /**
      * Sets monetary value.
-     * 
+     *
      * @param string $value
      */
     public function setMonetaryValue($value)

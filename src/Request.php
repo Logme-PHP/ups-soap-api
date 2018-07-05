@@ -18,7 +18,7 @@ class Request extends AbstractModel
 
     /**
      * Used to define the request type.
-     * 
+     *
      * @var string
      */
     protected $requestOption;
@@ -26,14 +26,14 @@ class Request extends AbstractModel
     /**
      * Indicates Rate API to display the new release features in Rate API response based on Rate release.
      * Supported values: 1601, 1607, 1701, 1801
-     * 
+     *
      * @var string
      */
     protected $subVersion;
 
     /**
      * Transaction reference identifies transactions between client and server.
-     * 
+     *
      * @var TransactionReference
      */
     protected $transactionReference;
@@ -50,15 +50,15 @@ class Request extends AbstractModel
 
     /**
      * Set the request option value.
-     * 
+     *
      * Valid Values:
      * Rate = The server rates (The default Request option is Rate if a Request Option is not provided).
      * Shop = The server validates the shipment, and returns rates for all UPS products from the ShipFrom to ShipTo addresses.
      * Ratetimeintransit = The server rates with transit time information.
      * Shoptimeintransit = The server validates the shipment, and transit times for all UPS products from the ShipFrom to ShipTo addresses.
-     * 
+     *
      * Rate is the only valide request option for UPS Ground Freight Pricing requests.
-     * 
+     *
      * @param string $value
      * @throws \Exception
      */
@@ -79,7 +79,7 @@ class Request extends AbstractModel
     /**
      * Set the sub version value.
      * Supported values: 1601, 1607, 1701, 1801.
-     * 
+     *
      * @param string $value
      * @throws \Exception
      */
@@ -99,7 +99,7 @@ class Request extends AbstractModel
 
     /**
      * Sets the transaction reference to identify the customer transaction.
-     * 
+     *
      * @param TransactionReference $value
      */
     public function setTransactionReference(TransactionReference $value)

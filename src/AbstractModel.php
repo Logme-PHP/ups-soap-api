@@ -6,7 +6,7 @@ abstract class AbstractModel
 {
     /**
      * Magic method to write data to inaccessible properties.
-     * 
+     *
      * @param string $name property name
      * @param mixed $value property value to set
      */
@@ -23,7 +23,7 @@ abstract class AbstractModel
 
     /**
      * Magic method to read data from inaccessible properties.
-     * 
+     *
      * @param string $name property name
      * @return mixed
      */

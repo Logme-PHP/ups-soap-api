@@ -6,14 +6,14 @@ class CashOnDelivery extends AbstractModel
 {
     /**
      * Indicates the type of funds that will be used for the C.O.D payment.
-     * 
+     *
      * @var string
      */
     protected $CODFundsCode;
 
     /**
      * Currency container for cash on delivery amount.
-     * 
+     *
      * @var Currency
      */
     protected $CODAmount;
@@ -28,7 +28,7 @@ class CashOnDelivery extends AbstractModel
 
     /**
      * Sets the COD funds code.
-     * 
+     *
      * @param string $value
      * @throws Exception
      */
@@ -43,7 +43,7 @@ class CashOnDelivery extends AbstractModel
 
     /**
      * Sets the COD amount container.
-     * 
+     *
      * @param Currency $value
      */
     public function setCODAmount(Currency $value)

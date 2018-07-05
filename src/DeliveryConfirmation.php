@@ -10,14 +10,14 @@ class DeliveryConfirmation extends AbstractModel
 
     /**
      * Type of delivery confirmation.
-     * 
+     *
      * @var string
      */
     protected $DCISType;
 
     /**
      * @test Sets DCIS type attribute value.
-     * 
+     *
      * @param string $value
      * @throws Exception
      */

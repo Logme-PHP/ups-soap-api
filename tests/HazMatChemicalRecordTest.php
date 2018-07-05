@@ -24,6 +24,14 @@ class HazMatChemicalRecordTest extends TestCase
     }
 
     /**
+     * @test Sets the defaults attributes values.
+     */
+    public function it_sets_the_defaults_attributes_values()
+    {
+        $this->assertEquals($this->hazMatChemicalRecord::FULLY_REGULATED, $this->hazMatChemicalRecord->commodityRegulatedLevelCode);
+    }
+
+    /**
      * @test Sets the chemical record identifier attribute.
      */
     public function it_sets_the_chemical_record_identifier_attribute()
@@ -375,5 +383,149 @@ class HazMatChemicalRecordTest extends TestCase
         $str = str_repeat("a", 76);
 
         $this->hazMatChemicalRecord->additionalDescription = $str;
+    }
+
+    /**
+     * @test Sets the packaging type attribute.
+     */
+    public function it_sets_the_packaging_type_attribute()
+    {
+        $this->hazMatChemicalRecord->packagingType = "packaging type";
+
+        $this->assertEquals("packaging type", $this->hazMatChemicalRecord->packagingType);
+    }
+
+    /**
+     * @test Tries to set the packaging type with a string greater than 255.
+     * @expectedException Exception
+     * @expectedExceptionMessage The string length of packaging type must be between 1 and 255.
+     */
+    public function it_tries_to_set_the_packaging_type_with_a_string_greater_than_255()
+    {
+        $str = str_repeat("a", 256);
+
+        $this->hazMatChemicalRecord->packagingType = $str;
+    }
+
+    /**
+     * @test Sets the hazard label required attribute.
+     */
+    public function it_sets_the_hazard_label_required_attribute()
+    {
+        $this->hazMatChemicalRecord->hazardLabelRequired = "string";
+
+        $this->assertEquals("string", $this->hazMatChemicalRecord->hazardLabelRequired);
+    }
+
+    /**
+     * @test Tries to set hazard label required with a string greater than 50.
+     * @expectedException Exception
+     * @expectedExceptionMessage The string length of hazard label required must be between 1 and 50.
+     */
+    public function it_tries_to_set_hazard_label_required_with_a_string_greater_than_50()
+    {
+        $str = str_repeat("a", 51);
+
+        $this->hazMatChemicalRecord->hazardLabelRequired = $str;
+    }
+
+    /**
+     * @test Sets the packaging type quantity attribute.
+     */
+    public function it_sets_the_packaging_type_quantity_attribute()
+    {
+        $this->hazMatChemicalRecord->packagingTypeQuantity = "999";
+
+        $this->assertEquals("999", $this->hazMatChemicalRecord->packagingTypeQuantity);
+    }
+
+    /**
+     * @test Tries to set packaging type quantity with a string greater than 3.
+     * @expectedException Exception
+     * @expectedExceptionMessage The string length of packaging type quantity must be between 1 and 3.
+     */
+    public function it_tries_to_set_packaging_type_quantity_with_a_string_greater_than_3()
+    {
+        $this->hazMatChemicalRecord->packagingTypeQuantity = "9999";
+    }
+
+    /**
+     * @test Tries to set packaging type quantity with a non numerical value.
+     * @expectedException Exception
+     * @expectedExceptionMessage The packaging type quantity only accepts numerical values.
+     */
+    public function it_tries_to_set_packaging_type_quantity_with_a_non_numerical_value()
+    {
+        $this->hazMatChemicalRecord->packagingTypeQuantity = "A99";
+    }
+
+    /**
+     * @test Sets the commodity regulated level code attribute
+     */
+    public function it_sets_the_commodity_regulated_level_code_attribute()
+    {
+        $this->hazMatChemicalRecord->commodityRegulatedLevelCode = $this->hazMatChemicalRecord::LIGHTLY_REGULATED;
+
+        $this->assertEquals("LR", $this->hazMatChemicalRecord->commodityRegulatedLevelCode);
+    }
+
+    /**
+     * @test Tries to set commodity regulated level code with an unexpected value.
+     * @expectedException Exception
+     * @expectedExceptionMessage Cannot set the commodity regulated level code with an unexpected value.
+     */
+    public function it_tries_to_set_commodity_regulated_level_code_with_an_unexpected_value()
+    {
+        $this->hazMatChemicalRecord->commodityRegulatedLevelCode = "REW";
+    }
+
+    /**
+     * @test Sets the transport category attribute.
+     */
+    public function it_sets_the_transport_category_attribute()
+    {
+        $this->hazMatChemicalRecord->transportCategory = "4";
+
+        $this->assertEquals("4", $this->hazMatChemicalRecord->transportCategory);
+    }
+
+    /**
+     * @test Tries to set transport category with a non numerical value.
+     * @expectedException Exception
+     * @expectedExceptionMessage The transport category only accepts numerical values.
+     */
+    public function it_tries_set_transport_category_with_a_non_numerical_value()
+    {
+        $this->hazMatChemicalRecord->transportCategory = "a";
+    }
+
+    /**
+     * @test Tries to set transport category with a number out of range of 0 to 4.
+     * @expectedException Exception
+     * @expectedExceptionMessage The transport category value must be between 0 and 4.
+     */
+    public function it_tries_to_set_transport_category_with_a_number_out_of_range_of_0_to_4()
+    {
+        $this->hazMatChemicalRecord->transportCategory = "5";
+    }
+
+    /**
+     * @test Sets the tunnel restriction code attribute.
+     */
+    public function it_sets_the_tunnel_restriction_code_attribute()
+    {
+        $this->hazMatChemicalRecord->tunnelRestrictionCode = "1234567";
+
+        $this->assertEquals("1234567", $this->hazMatChemicalRecord->tunnelRestrictionCode);
+    }
+
+    /**
+     * @test Tries to set tunnel restriction code with a string greater than 10.
+     * @expectedException Exception
+     * @expectedExceptionMessage The string length of tunnel restriction code must be between 1 and 10.
+     */
+    public function it_tries_to_set_tunnel_restriction_code_with_a_string_greater_than_10()
+    {
+        $this->hazMatChemicalRecord->tunnelRestrictionCode = "12345678901";
     }
 }
