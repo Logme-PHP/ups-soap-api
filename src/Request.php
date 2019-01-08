@@ -57,7 +57,7 @@ class Request extends AbstractModel
      * Ratetimeintransit = The server rates with transit time information.
      * Shoptimeintransit = The server validates the shipment, and transit times for all UPS products from the ShipFrom to ShipTo addresses.
      *
-     * Rate is the only valide request option for UPS Ground Freight Pricing requests.
+     * Rate is the only valid request option for UPS Ground Freight Pricing requests.
      *
      * @param string $value
      * @throws \Exception
