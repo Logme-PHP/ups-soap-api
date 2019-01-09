@@ -4,6 +4,7 @@ namespace Tests;
 
 use PHPUnit\Framework\TestCase;
 use Logme\Soap\Ups\Track\TrackRequest;
+use Logme\Soap\Ups\ReferenceNumber;
 
 class TrackingRequestTest extends TestCase
 {
@@ -49,5 +50,62 @@ class TrackingRequestTest extends TestCase
     {
         $trackRequest = new TrackRequest();
         $trackRequest->inquiryNumber = "12345678";
+    }
+
+    /**
+     * @test Sets the include mail innovations indicator attribute value.
+     */
+    public function it_sets_the_include_mail_innovations_indicator_attribute_value()
+    {
+        $trackRequest = new TrackRequest();
+        $trackRequest->includeMailInnovationIndicator = true;
+
+        $this->assertTrue($trackRequest->includeMailInnovationIndicator);
+    }
+
+    /**
+     * @test Tries to set include mail innovations indicator value without a boolean value.
+     * @expectedException Exception
+     * @expectedExceptionMessage The include mail innovation indicator value must be a boolean type.
+     */
+    public function it_tries_to_set_include_mail_innovations_indicator_value_without_a_boolean_value()
+    {
+        $trackRequest = new TrackRequest();
+        $trackRequest->includeMailInnovationIndicator = "aaaa";
+    }
+
+    /**
+     * @test Sets the candidate bookmark attribute value.
+     */
+    public function it_sets_the_candidate_bookmark_attribute_value()
+    {
+        $trackRequest = new TrackRequest();
+        $trackRequest->candidateBookmark = "123456";
+
+        $this->assertEquals("123456", $trackRequest->candidateBookmark);
+    }
+
+    /**
+     * @test Tries to set candidate bookmark with a value greater than 15.
+     * @expectedException Exception
+     * @expectedExceptionMessage The candidate bookmark value length must be between 1 and 15.
+     */
+    public function it_tries_to_set_candidate_bookmark_with_a_value_greater_than_15()
+    {
+        $trackRequest = new TrackRequest();
+        $trackRequest->candidateBookmark = "1234567890123456";
+    }
+
+    /**
+     * @test Sets the reference number attribute value.
+     */
+    public function it_sets_the_reference_number_attribute_value()
+    {
+        $trackRequest = new TrackRequest();
+        $trackRequest->referenceNumber = new ReferenceNumber();
+        $trackRequest->referenceNumber->value = "1234567890";
+
+        $this->assertInstanceOf(ReferenceNumber::class, $trackRequest->referenceNumber);
+        $this->assertEquals("1234567890", $trackRequest->referenceNumber->value);
     }
 }

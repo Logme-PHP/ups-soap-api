@@ -98,7 +98,7 @@ class Package extends AbstractModel
     }
 
     /**
-     * Sets the large package indcator for the package.
+     * Sets the large package indicator for the package.
      *
      * @param bool $value
      * @throws Exception

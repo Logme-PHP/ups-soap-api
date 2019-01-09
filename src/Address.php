@@ -5,8 +5,8 @@ namespace Logme\Soap\Ups;
 class Address extends AbstractModel
 {
     /**
-     * Street address incluing name and number (when applicable).
-     * Maximum Occurence should be three.
+     * Street address including name and number (when applicable).
+     * Maximum Occurrence should be three.
      *
      * @var array
      */

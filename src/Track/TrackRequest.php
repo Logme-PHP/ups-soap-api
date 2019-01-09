@@ -3,7 +3,8 @@
 namespace Logme\Soap\Ups\Track;
 
 use Logme\Soap\Ups\AbstractModel;
-use PHPUnit\Framework\MockObject\Stub\Exception;
+use Logme\Soap\Ups\ReferenceNumber;
+use Exception;
 
 /**
  * Container for the root Track Request.
@@ -61,7 +62,7 @@ class TrackRequest extends AbstractModel
 
     /**
      * Tracking Option.
-     * Only applies to Package and Mail Innovations only.
+     * Only applies to Package and Mail Innovations.
      * 
      * Package:
      * 01 - Single trackable entity with more trackable entities inside it.
@@ -81,8 +82,47 @@ class TrackRequest extends AbstractModel
      * Mail Innovations:
      * For Mail Innovations track by number, this is a mandatory field which has to be set
      * to 03. For Mail Innovations a single shipment has single package.
+     * 
+     * @var string
      */
     protected $trackingOption;
+
+    /**
+     * Candidate Bookmark.
+     * During InquiryNumber and Reference Number searches, it is possible that duplicate
+     * shipments will be found. If the duplicate shipments are found, then a Candidate
+     * Summary with a corresponding CandidateBookmark for each of the Shipments will be
+     * returned in the track response.
+     * This Base64 encoded CandidateBookmark can be passed back to the Tracking service
+     * in a separate request to retrieve tracking information about the particular shipment
+     * of interest. It does not apply to package tracking or Mail Innovations.
+     * 
+     * Only applies to Freight shipments.
+     * 
+     * @var string 
+     */
+    protected $candidateBookmark;
+
+    /**
+     * Reference Number.
+     * Required if an inquiry number or candidate bookmark is not present.
+     * The reference number for Mail Innovations needs to be set here along with appropriate
+     * code in ShipmentType.
+     * 
+     * Only applies to Package and Mail Innovations Shipments.
+     * 
+     * @var ReferenceNumber
+     */
+    protected $referenceNumber;
+
+    /**
+     * Pickup date range.
+     * The additional information of pickup date range to support and narrow a reference number search.
+     * For Mail Innovations this is optional field for tracking by reference number.
+     * 
+     * @var PickupDateRange
+     */
+    protected $pickupDateRange;
 
     /**
      * Set the inquiry number value.
@@ -97,6 +137,21 @@ class TrackRequest extends AbstractModel
         }
 
         $this->inquiryNumber = $value;
+    }
+
+    /**
+     * Set the include mail innovations Indicator.
+     * 
+     * @param bool $value
+     * @throws \Exception
+     */
+    protected function setIncludeMailInnovationIndicator($value)
+    {
+        if (!is_bool($value)) {
+            throw new \Exception("The include mail innovation indicator value must be a boolean type.");
+        }
+
+        $this->includeMailInnovationIndicator = $value;
     }
 
     /**
@@ -123,5 +178,30 @@ class TrackRequest extends AbstractModel
             default:
                 throw new \Exception("Cannot set an invalid tracking option value.");
         }
+    }
+
+    /**
+     * Set the candidate bookmark value.
+     * 
+     * @param string $value
+     * @throws Exception
+     */
+    protected function setCandidateBookmark($value)
+    {
+        if (strlen($value) < 1 || strlen($value) > 15) {
+            throw new \Exception("The candidate bookmark value length must be between 1 and 15.");
+        }
+ 
+        $this->candidateBookmark = $value;
+    }
+
+    /**
+     * Set the Reference number container.
+     * 
+     * @param ReferenceNumber $value
+     */
+    protected function setReferenceNumber(ReferenceNumber $value)
+    {
+        $this->referenceNumber = $value;
     }
 }
