@@ -4,6 +4,8 @@ namespace Logme\Soap\Ups\Track;
 
 use Logme\Soap\Ups\AbstractModel;
 use Logme\Soap\Ups\ReferenceNumber;
+use Logme\Soap\Ups\Request;
+use Logme\Soap\Ups\PickupDateRange;
 use Exception;
 
 /**
@@ -124,6 +126,13 @@ class TrackRequest extends AbstractModel
      */
     protected $pickupDateRange;
 
+    public function __construct()
+    {
+        $this->request = new Request();
+        $this->referenceNumber = new ReferenceNumber();
+        $this->pickupDateRange = new PickupDateRange();
+    }
+
     /**
      * Set the inquiry number value.
      * 
@@ -203,5 +212,15 @@ class TrackRequest extends AbstractModel
     protected function setReferenceNumber(ReferenceNumber $value)
     {
         $this->referenceNumber = $value;
+    }
+
+    /**
+     * Set the pickup date range container.
+     * 
+     * @param PickupDateRange
+     */
+    protected function setPickupDateRange(PickupDateRange $value)
+    {
+        $this->pickupDateRange = $value;
     }
 }

@@ -26,7 +26,7 @@ class PickupDateRange extends AbstractModel
      * @param string $value
      * @throws Exception
      */
-    public function setBeginDate($value)
+    protected function setBeginDate($value)
     {
         if (strlen($value) != 8) {
             throw new \Exception("The string length of begin date must be equals to 8.");
@@ -44,7 +44,7 @@ class PickupDateRange extends AbstractModel
      * 
      * @param string $value
      */
-    public function setEndDate($value)
+    protected function setEndDate($value)
     {
         if (strlen($value) != 8) {
             throw new \Exception("The string length of end date must be equals to 8.");

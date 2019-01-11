@@ -62,9 +62,10 @@ class Request extends AbstractModel
      * @param string $value
      * @throws \Exception
      */
-    public function setRequestOption($value)
+    protected function setRequestOption($value)
     {
         switch ($value) {
+            case "1":
             case self::RATE:
             case self::SHOP:
             case self::RATE_TIME_IN_TRANSIT:
@@ -83,7 +84,7 @@ class Request extends AbstractModel
      * @param string $value
      * @throws \Exception
      */
-    public function setSubVersion($value)
+    protected function setSubVersion($value)
     {
         switch ($value) {
             case self::SUBVERSION_1601:
@@ -102,7 +103,7 @@ class Request extends AbstractModel
      *
      * @param TransactionReference $value
      */
-    public function setTransactionReference(TransactionReference $value)
+    protected function setTransactionReference(TransactionReference $value)
     {
         $this->transactionReference = $value;
     }

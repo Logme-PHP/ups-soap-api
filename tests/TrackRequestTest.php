@@ -5,8 +5,9 @@ namespace Tests;
 use PHPUnit\Framework\TestCase;
 use Logme\Soap\Ups\Track\TrackRequest;
 use Logme\Soap\Ups\ReferenceNumber;
+use Logme\Soap\Ups\PickupDateRange;
 
-class TrackingRequestTest extends TestCase
+class TrackRequestTest extends TestCase
 {
     /**
      * @test Sets the tracking option attribute value.
@@ -107,5 +108,20 @@ class TrackingRequestTest extends TestCase
 
         $this->assertInstanceOf(ReferenceNumber::class, $trackRequest->referenceNumber);
         $this->assertEquals("1234567890", $trackRequest->referenceNumber->value);
+    }
+
+    /**
+     * @test Sets the pickup date range attribute value.
+     */
+    public function it_sets_the_pickup_date_range_attribute_value()
+    {
+        $trackRequest = new TrackRequest();
+        $trackRequest->pickupDateRange = new PickupDateRange();
+        $trackRequest->pickupDateRange->beginDate = "20190109";
+        $trackRequest->pickupDateRange->endDate = "20190110";
+
+        $this->assertInstanceOf(PickupDateRange::class, $trackRequest->pickupDateRange);
+        $this->assertEquals("20190109", $trackRequest->pickupDateRange->beginDate);
+        $this->assertEquals("20190110", $trackRequest->pickupDateRange->endDate);
     }
 }

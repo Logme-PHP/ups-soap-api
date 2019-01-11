@@ -41,4 +41,49 @@ abstract class AbstractModel
 
         return $this->$getter;
     }
+
+    /**
+     * Convert all assigned properties to json string.
+     * 
+     * @return string
+     */
+    public function toJson()
+    {   
+        return json_encode($this->toArray());
+    }
+
+    /**
+     * Convert all assigned properties to array.
+     * 
+     * @return array
+     */
+    public function toArray()
+    {
+        $array = get_object_vars($this);
+
+        return array_filter($this->upperPropertyName($array));
+    }
+
+    /**
+     * Uppercase the first letter for each property.
+     * 
+     * @param array $array
+     * @return array
+     */
+    private function upperPropertyName(array $array) : array
+    {
+        foreach ($array as $key => $value) {
+            unset($array[$key]);
+            if (!is_null($value)) {
+                $array[ucfirst($key)] = is_object($value) ? 
+                    $this->upperPropertyName(get_object_vars($value)): $value;
+            }
+
+            if (is_array($array[ucfirst($key)])) {
+                $array[ucfirst($key)] = $this->upperPropertyName($array[ucfirst($key)]);
+            }
+        }
+
+        return $array;
+    }
 }

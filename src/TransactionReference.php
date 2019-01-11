@@ -19,7 +19,7 @@ class TransactionReference extends AbstractModel
      * @param string $value
      * @throws \Exception
      */
-    public function setCustomerContext($value)
+    protected function setCustomerContext($value)
     {
         if (strlen($value) > 512) {
             throw new \Exception("The string length of customer context must be less or equal to 512.");
