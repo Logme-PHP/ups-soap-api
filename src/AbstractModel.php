@@ -47,7 +47,7 @@ abstract class AbstractModel
      * 
      * @return string
      */
-    public function toJson()
+    public function toJson() : string
     {   
         return json_encode($this->toArray());
     }
@@ -57,7 +57,7 @@ abstract class AbstractModel
      * 
      * @return array
      */
-    public function toArray()
+    public function toArray() : array
     {
         $array = get_object_vars($this);
 
@@ -74,13 +74,15 @@ abstract class AbstractModel
     {
         foreach ($array as $key => $value) {
             unset($array[$key]);
+            $upperKey = ucfirst($key);
+
             if (!is_null($value)) {
-                $array[ucfirst($key)] = is_object($value) ? 
-                    $this->upperPropertyName(get_object_vars($value)): $value;
+                $array[$upperKey] = is_object($value) ? 
+                    $this->upperPropertyName(get_object_vars($value)) : $value;
             }
 
-            if (is_array($array[ucfirst($key)])) {
-                $array[ucfirst($key)] = $this->upperPropertyName($array[ucfirst($key)]);
+            if (is_array($array[$upperKey])) {
+                $array[$upperKey] = $this->upperPropertyName($array[$upperKey]);
             }
         }
 
