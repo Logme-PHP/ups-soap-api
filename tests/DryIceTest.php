@@ -10,7 +10,7 @@ class DryIceTest extends TestCase
 {
     /**
      * Dry Ice instance.
-     * 
+     *
      * @var DryIce
      */
     protected $dryIce;
@@ -38,9 +38,9 @@ class DryIceTest extends TestCase
      */
     public function it_sets_the_regulation_set_attribute()
     {
-        $this->dryIce->regulationSet = "CDR";
+        $this->dryIce->regulationSet = 'CDR';
 
-        $this->assertEquals("CDR", $this->dryIce->regulationSet);
+        $this->assertEquals('CDR', $this->dryIce->regulationSet);
     }
 
     /**
@@ -50,7 +50,7 @@ class DryIceTest extends TestCase
      */
     public function it_tries_to_set_regulation_set_with_an_unexpected_value()
     {
-        $this->dryIce->regulationSet = "ADERT";
+        $this->dryIce->regulationSet = 'ADERT';
     }
 
     /**
@@ -64,7 +64,7 @@ class DryIceTest extends TestCase
 
         $this->dryIce->dryIceWeight = $dryIceWeight;
 
-        $this->assertEquals("01", $this->dryIce->dryIceWeight->unitOfMeasurement->code);
-        $this->assertEquals("Pounds", $this->dryIce->dryIceWeight->unitOfMeasurement->description);
+        $this->assertEquals('01', $this->dryIce->dryIceWeight->unitOfMeasurement->code);
+        $this->assertEquals('Pounds', $this->dryIce->dryIceWeight->unitOfMeasurement->description);
     }
 }

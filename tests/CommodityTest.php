@@ -1,6 +1,6 @@
 <?php
 
-namespace Tests;
+namespace tests;
 
 use PHPUnit\Framework\TestCase;
 use Logme\Soap\Ups\Commodity;
@@ -10,7 +10,7 @@ class CommodityTest extends TestCase
 {
     /**
      * Commodity instance.
-     * 
+     *
      * @var Commodity;
      */
     public $commodity;
@@ -31,15 +31,15 @@ class CommodityTest extends TestCase
     {
         $this->assertInstanceOf(NMFC::class, $this->commodity->NMFC);
     }
-    
+
     /**
      * @test Sets the freight class attribute.
      */
     public function it_sets_the_freight_class_attribute()
     {
-        $this->commodity->freightClass = "freight01";
+        $this->commodity->freightClass = 'freight01';
 
-        $this->assertEquals("freight01", $this->commodity->freightClass);
+        $this->assertEquals('freight01', $this->commodity->freightClass);
     }
 
     /**
@@ -49,7 +49,7 @@ class CommodityTest extends TestCase
      */
     public function it_tries_to_set_the_freight_class_attribute_with_string_greater_than_10()
     {
-        $this->commodity->freightClass = "freight0111";
+        $this->commodity->freightClass = 'freight0111';
     }
 
     /**
@@ -58,15 +58,15 @@ class CommodityTest extends TestCase
     public function it_sets_the_NMFC_container()
     {
         $this->assertNull($this->commodity->NMFC->primeCode);
-        $this->assertEquals("00", $this->commodity->NMFC->subCode);
+        $this->assertEquals('00', $this->commodity->NMFC->subCode);
 
         $NMFC = new NMFC();
-        $NMFC->primeCode = "AAAA";
-        $NMFC->subCode = "01";
+        $NMFC->primeCode = 'AAAA';
+        $NMFC->subCode = '01';
 
         $this->commodity->NMFC = $NMFC;
 
-        $this->assertEquals("AAAA", $this->commodity->NMFC->primeCode);
-        $this->assertEquals("01", $this->commodity->NMFC->subCode);
+        $this->assertEquals('AAAA', $this->commodity->NMFC->primeCode);
+        $this->assertEquals('01', $this->commodity->NMFC->subCode);
     }
 }

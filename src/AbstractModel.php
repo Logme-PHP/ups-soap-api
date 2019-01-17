@@ -7,12 +7,12 @@ abstract class AbstractModel
     /**
      * Magic method to write data to inaccessible properties.
      *
-     * @param string $name property name
-     * @param mixed $value property value to set
+     * @param string $name  property name
+     * @param mixed  $value property value to set
      */
     public function __set($name, $value)
     {
-        $setter = "set" . ucfirst($name);
+        $setter = 'set'.ucfirst($name);
 
         if (!method_exists($this, $setter)) {
             throw new \Exception("Unrecognized method {$setter}.");
@@ -25,6 +25,7 @@ abstract class AbstractModel
      * Magic method to read data from inaccessible properties.
      *
      * @param string $name property name
+     *
      * @return mixed
      */
     public function __get($name)
@@ -44,17 +45,17 @@ abstract class AbstractModel
 
     /**
      * Convert all assigned properties to json string.
-     * 
+     *
      * @return string
      */
     public function toJson() : string
-    {   
+    {
         return json_encode($this->toArray());
     }
 
     /**
      * Convert all assigned properties to array.
-     * 
+     *
      * @return array
      */
     public function toArray() : array
@@ -65,9 +66,20 @@ abstract class AbstractModel
     }
 
     /**
+     * Intend to make object conversion to instantiated class.
+     *
+     * @return object
+     */
+    public function toObject($value)
+    {
+        $this->instantiateProperty($this, $value);
+    }
+
+    /**
      * Uppercase the first letter for each property.
-     * 
+     *
      * @param array $array
+     *
      * @return array
      */
     private function upperPropertyName(array $array) : array
@@ -77,7 +89,7 @@ abstract class AbstractModel
             $upperKey = ucfirst($key);
 
             if (!is_null($value)) {
-                $array[$upperKey] = is_object($value) ? 
+                $array[$upperKey] = is_object($value) ?
                     $this->upperPropertyName(get_object_vars($value)) : $value;
             }
 
@@ -87,5 +99,49 @@ abstract class AbstractModel
         }
 
         return $array;
+    }
+
+    /**
+     * Instantiate objects properties dynamically.
+     *
+     * @param string $class
+     * @param object $object
+     *
+     * @return object
+     */
+    private function instantiateProperty($class, $object)
+    {
+        foreach ($object as $k => $value) {
+            $key = lcfirst($k);
+            if (property_exists($class, $key)) {
+                if (is_object($value)) {
+                    $c = $this->getValidNamespace(get_class($class), $key);
+                    $class->$key = new $c();
+                    $class->$key = $this->instantiateProperty($class->$key, $value);
+                } else {
+                    $class->$key = $value;
+                }
+            }
+        }
+
+        return $class;
+    }
+
+    /**
+     * Get a valid namespace for class.
+     *
+     * @param string $class
+     * @param string $key
+     *
+     * @return string
+     */
+    private function getValidNamespace($class, $key)
+    {
+        $reflection = new \ReflectionClass($class);
+        $namespace = $reflection->getNamespaceName();
+        $c = $namespace.'\\'.$key;
+
+        return class_exists($c) ?
+            $c : $this->getValidNamespace(get_parent_class($class), $key);
     }
 }

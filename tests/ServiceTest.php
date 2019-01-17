@@ -3,7 +3,6 @@
 namespace Logme\Soap\Ups;
 
 use PHPUnit\Framework\TestCase;
-use Logme\Soap\Ups\Service;
 
 class ServiceTest extends TestCase
 {
@@ -15,8 +14,8 @@ class ServiceTest extends TestCase
         $service = new Service();
         $service->code = $service::NEXT_DAY_AIR;
 
-        $this->assertEquals("01", $service->code);
-        $this->assertEquals("Next Day Air", $service->description);
+        $this->assertEquals('01', $service->code);
+        $this->assertEquals('Next Day Air', $service->description);
     }
 
     /**
@@ -27,6 +26,6 @@ class ServiceTest extends TestCase
     public function it_tries_to_set_service_code_with_an_unexpected_value()
     {
         $service = new Service();
-        $service->code = "15461";
+        $service->code = '15461';
     }
 }

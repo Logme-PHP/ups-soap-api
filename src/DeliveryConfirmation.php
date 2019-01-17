@@ -4,9 +4,9 @@ namespace Logme\Soap\Ups;
 
 class DeliveryConfirmation extends AbstractModel
 {
-    const DELIVERY_CONFIRMATION = "1";
-    const DELIVERY_CONFIRMATION_SIGNATURE_REQUIRED = "2";
-    const DELIVERY_CONFIRMATION_ADULT_SIGNATURE_REQUIRED = "3";
+    const DELIVERY_CONFIRMATION = '1';
+    const DELIVERY_CONFIRMATION_SIGNATURE_REQUIRED = '2';
+    const DELIVERY_CONFIRMATION_ADULT_SIGNATURE_REQUIRED = '3';
 
     /**
      * Type of delivery confirmation.
@@ -19,6 +19,7 @@ class DeliveryConfirmation extends AbstractModel
      * @test Sets DCIS type attribute value.
      *
      * @param string $value
+     *
      * @throws Exception
      */
     public function setDcisType($value)
@@ -30,7 +31,7 @@ class DeliveryConfirmation extends AbstractModel
                 $this->DCISType = $value;
                 break;
             default:
-                throw new \Exception("Cannot set attribute with an invalid value.");
+                throw new \Exception('Cannot set attribute with an invalid value.');
         }
     }
 }

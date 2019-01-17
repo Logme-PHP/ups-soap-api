@@ -15,7 +15,7 @@ class DeliveryConfirmationTest extends TestCase
         $deliveryConfirmation = new DeliveryConfirmation();
         $deliveryConfirmation->DCISType = $deliveryConfirmation::DELIVERY_CONFIRMATION;
 
-        $this->assertEquals("1", $deliveryConfirmation->DCISType);
+        $this->assertEquals('1', $deliveryConfirmation->DCISType);
     }
 
     /**
@@ -26,6 +26,6 @@ class DeliveryConfirmationTest extends TestCase
     public function it_tries_to_set_dcis_type_with_an_invalid_value()
     {
         $deliveryConfirmation = new DeliveryConfirmation();
-        $deliveryConfirmation->DCISType = "5";
+        $deliveryConfirmation->DCISType = '5';
     }
 }

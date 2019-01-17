@@ -54,13 +54,14 @@ class Address extends AbstractModel
      * Sets address line string to array.
      *
      * @param mixed $value
+     *
      * @throws \Exception
      */
     public function setAddressLine($value)
     {
         $actual = $this->addressLine;
 
-        $values = is_array($value) ? $value : [ $value ];
+        $values = is_array($value) ? $value : [$value];
 
         if (count($values) === 0) {
             $this->addressLine = [];
@@ -69,13 +70,13 @@ class Address extends AbstractModel
         $elements = count($values) + count($this->addressLine);
 
         if ($elements > 3) {
-            throw new \Exception("The maximum size of address line array are 3 elements.");
+            throw new \Exception('The maximum size of address line array are 3 elements.');
         }
 
         foreach ($values as $v) {
             if (strlen($v) > 35) {
                 $this->addressLine = $actual;
-                throw new \Exception("The string length of address line must be less or equal to 35.");
+                throw new \Exception('The string length of address line must be less or equal to 35.');
             }
             array_push($this->addressLine, $v);
         }
@@ -85,12 +86,13 @@ class Address extends AbstractModel
      * Sets the name of the city.
      *
      * @param string $value
+     *
      * @throws \Exception
      */
     public function setCity($value)
     {
         if (strlen($value) > 30) {
-            throw new \Exception("The string length of city must be less or equal to 30.");
+            throw new \Exception('The string length of city must be less or equal to 30.');
         }
 
         $this->city = $value;
@@ -100,12 +102,13 @@ class Address extends AbstractModel
      * Sets the state province code of address.
      *
      * @param string $value
+     *
      * @throws \Exception
      */
     public function setStateProvinceCode($value)
     {
         if (strlen($value) > 2) {
-            throw new \Exception("The string length of state province code must be less or equal to 2.");
+            throw new \Exception('The string length of state province code must be less or equal to 2.');
         }
 
         $this->stateProvinceCode = $value;
@@ -115,12 +118,13 @@ class Address extends AbstractModel
      * Sets the postal code of the addres.
      *
      * @param string $value
+     *
      * @throws \Exception
      */
     public function setPostalCode($value)
     {
         if (strlen($value) > 9) {
-            throw new \Exception("The string length of postal code must be less or equal to 9.");
+            throw new \Exception('The string length of postal code must be less or equal to 9.');
         }
 
         $this->postalCode = $value;
@@ -130,12 +134,13 @@ class Address extends AbstractModel
      * Sets country code of the address.
      *
      * @param string $value
+     *
      * @throws \Exception
      */
     public function setCountryCode($value)
     {
         if (strlen($value) !== 2) {
-            throw new \Exception("The string length of country code must be equal to 2.");
+            throw new \Exception('The string length of country code must be equal to 2.');
         }
 
         $this->countryCode = $value;
@@ -144,7 +149,7 @@ class Address extends AbstractModel
     public function setResidentialAddressIndicator($value)
     {
         if (!is_bool($value)) {
-            throw new \Exception("The residential address indicator expects a boolean value.");
+            throw new \Exception('The residential address indicator expects a boolean value.');
         }
 
         $this->residentialAddressIndicator = $value;

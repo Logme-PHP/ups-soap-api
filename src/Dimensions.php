@@ -60,7 +60,7 @@ class Dimensions extends AbstractModel
      */
     public function setLength($value)
     {
-        $this->setDimension("length", $value);
+        $this->setDimension('length', $value);
     }
 
     /**
@@ -70,7 +70,7 @@ class Dimensions extends AbstractModel
      */
     public function setWidth($value)
     {
-        $this->setDimension("width", $value);
+        $this->setDimension('width', $value);
     }
 
     /**
@@ -80,7 +80,7 @@ class Dimensions extends AbstractModel
      */
     public function setHeight($value)
     {
-        $this->setDimension("height", $value);
+        $this->setDimension('height', $value);
     }
 
     /**
@@ -88,6 +88,7 @@ class Dimensions extends AbstractModel
      *
      * @param string $attribute
      * @param string $value
+     *
      * @throws Exception
      */
     private function setDimension($attribute, $value)

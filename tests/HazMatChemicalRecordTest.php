@@ -1,6 +1,6 @@
 <?php
 
-namespace Tests;
+namespace tests;
 
 use PHPUnit\Framework\TestCase;
 use Logme\Soap\Ups\HazMatChemicalRecord;
@@ -9,7 +9,7 @@ class HazMatChemicalRecordTest extends TestCase
 {
     /**
      * Hazmat Chemical record container.
-     * 
+     *
      * @var HazMatChemicalRecord
      */
     public $hazMatChemicalRecord;
@@ -36,9 +36,9 @@ class HazMatChemicalRecordTest extends TestCase
      */
     public function it_sets_the_chemical_record_identifier_attribute()
     {
-        $this->hazMatChemicalRecord->chemicalRecordIdentifier = "123";
-        
-        $this->assertEquals("123", $this->hazMatChemicalRecord->chemicalRecordIdentifier);
+        $this->hazMatChemicalRecord->chemicalRecordIdentifier = '123';
+
+        $this->assertEquals('123', $this->hazMatChemicalRecord->chemicalRecordIdentifier);
     }
 
     /**
@@ -48,7 +48,7 @@ class HazMatChemicalRecordTest extends TestCase
      */
     public function it_tries_to_set_the_chemical_record_identifier_with_a_string_greater_than_3()
     {
-        $this->hazMatChemicalRecord->chemicalRecordIdentifier = "1234";
+        $this->hazMatChemicalRecord->chemicalRecordIdentifier = '1234';
     }
 
     /**
@@ -56,9 +56,9 @@ class HazMatChemicalRecordTest extends TestCase
      */
     public function it_sets_the_class_division_number_attribute()
     {
-        $this->hazMatChemicalRecord->classDivisionNumber = "12345";
+        $this->hazMatChemicalRecord->classDivisionNumber = '12345';
 
-        $this->assertEquals("12345", $this->hazMatChemicalRecord->classDivisionNumber);
+        $this->assertEquals('12345', $this->hazMatChemicalRecord->classDivisionNumber);
     }
 
     /**
@@ -68,7 +68,7 @@ class HazMatChemicalRecordTest extends TestCase
      */
     public function it_tries_to_set_class_division_number_with_a_string_greater_than_7()
     {
-        $this->hazMatChemicalRecord->classDivisionNumber = "12345678";
+        $this->hazMatChemicalRecord->classDivisionNumber = '12345678';
     }
 
     /**
@@ -76,9 +76,9 @@ class HazMatChemicalRecordTest extends TestCase
      */
     public function it_sets_the_id_number_attribute()
     {
-        $this->hazMatChemicalRecord->IDNumber = "123456";
+        $this->hazMatChemicalRecord->IDNumber = '123456';
 
-        $this->assertEquals("123456", $this->hazMatChemicalRecord->IDNumber);
+        $this->assertEquals('123456', $this->hazMatChemicalRecord->IDNumber);
     }
 
     /**
@@ -88,7 +88,7 @@ class HazMatChemicalRecordTest extends TestCase
      */
     public function it_tries_to_set_id_number_with_a_string_greater_than_6()
     {
-        $this->hazMatChemicalRecord->IDNumber = "1234567";
+        $this->hazMatChemicalRecord->IDNumber = '1234567';
     }
 
     /**
@@ -98,7 +98,7 @@ class HazMatChemicalRecordTest extends TestCase
     {
         $this->hazMatChemicalRecord->transportationMode = $this->hazMatChemicalRecord::HIGHWAY;
 
-        $this->assertEquals("01", $this->hazMatChemicalRecord->transportationMode);
+        $this->assertEquals('01', $this->hazMatChemicalRecord->transportationMode);
     }
 
     /**
@@ -108,7 +108,7 @@ class HazMatChemicalRecordTest extends TestCase
      */
     public function it_tries_to_set_transportation_mode_with_an_unexpected_value()
     {
-        $this->hazMatChemicalRecord->transportationMode = "AAA";
+        $this->hazMatChemicalRecord->transportationMode = 'AAA';
     }
 
     /**
@@ -116,9 +116,9 @@ class HazMatChemicalRecordTest extends TestCase
      */
     public function it_sets_the_regulation_set_attribute()
     {
-        $this->hazMatChemicalRecord->regulationSet = "ADR";
+        $this->hazMatChemicalRecord->regulationSet = 'ADR';
 
-        $this->assertEquals("ADR", $this->hazMatChemicalRecord->regulationSet);
+        $this->assertEquals('ADR', $this->hazMatChemicalRecord->regulationSet);
     }
 
     /**
@@ -128,7 +128,7 @@ class HazMatChemicalRecordTest extends TestCase
      */
     public function it_tries_to_set_regulation_set_with_an_unexpected_value()
     {
-        $this->hazMatChemicalRecord->regulationSet = "AETYYY";
+        $this->hazMatChemicalRecord->regulationSet = 'AETYYY';
     }
 
     /**
@@ -136,9 +136,9 @@ class HazMatChemicalRecordTest extends TestCase
      */
     public function it_sets_the_emergency_phone_attribute()
     {
-        $this->hazMatChemicalRecord->emergencyPhone = "00351 910 000 000";
+        $this->hazMatChemicalRecord->emergencyPhone = '00351 910 000 000';
 
-        $this->assertEquals("00351 910 000 000", $this->hazMatChemicalRecord->emergencyPhone);
+        $this->assertEquals('00351 910 000 000', $this->hazMatChemicalRecord->emergencyPhone);
     }
 
     /**
@@ -148,7 +148,7 @@ class HazMatChemicalRecordTest extends TestCase
      */
     public function it_tries_to_set_emergency_phone_with_a_string_greater_than_25()
     {
-        $str = str_repeat("1", 26);
+        $str = str_repeat('1', 26);
 
         $this->hazMatChemicalRecord->emergencyPhone = $str;
     }
@@ -160,7 +160,7 @@ class HazMatChemicalRecordTest extends TestCase
      */
     public function it_tries_to_set_emergency_phone_with_a_string_with_invalid_chars()
     {
-        $this->hazMatChemicalRecord->emergencyPhone = "123 a135 153a +168";
+        $this->hazMatChemicalRecord->emergencyPhone = '123 a135 153a +168';
     }
 
     /**
@@ -168,9 +168,9 @@ class HazMatChemicalRecordTest extends TestCase
      */
     public function it_sets_the_emergency_contact_attribute()
     {
-        $this->hazMatChemicalRecord->emergencyContact = "Steven Butt";
+        $this->hazMatChemicalRecord->emergencyContact = 'Steven Butt';
 
-        $this->assertEquals("Steven Butt", $this->hazMatChemicalRecord->emergencyContact);
+        $this->assertEquals('Steven Butt', $this->hazMatChemicalRecord->emergencyContact);
     }
 
     /**
@@ -180,7 +180,7 @@ class HazMatChemicalRecordTest extends TestCase
      */
     public function it_tries_to_set_emergency_contact_with_a_string_greater_than_35()
     {
-        $str = str_repeat("a", 36);
+        $str = str_repeat('a', 36);
 
         $this->hazMatChemicalRecord->emergencyContact = $str;
     }
@@ -190,9 +190,9 @@ class HazMatChemicalRecordTest extends TestCase
      */
     public function it_sets_the_reportable_quantity_attribute()
     {
-        $this->hazMatChemicalRecord->reportableQuantity = "10";
+        $this->hazMatChemicalRecord->reportableQuantity = '10';
 
-        $this->assertEquals("10", $this->hazMatChemicalRecord->reportableQuantity);
+        $this->assertEquals('10', $this->hazMatChemicalRecord->reportableQuantity);
     }
 
     /**
@@ -202,7 +202,7 @@ class HazMatChemicalRecordTest extends TestCase
      */
     public function it_tries_to_set_the_reportable_quantity_with_a_string_greater_than_2()
     {
-        $this->hazMatChemicalRecord->reportableQuantity = "200";
+        $this->hazMatChemicalRecord->reportableQuantity = '200';
     }
 
     /**
@@ -210,9 +210,9 @@ class HazMatChemicalRecordTest extends TestCase
      */
     public function it_sets_the_sub_risk_class_attribute()
     {
-        $this->hazMatChemicalRecord->subRiskClass = "This is a sub risk class";
+        $this->hazMatChemicalRecord->subRiskClass = 'This is a sub risk class';
 
-        $this->assertEquals("This is a sub risk class", $this->hazMatChemicalRecord->subRiskClass);
+        $this->assertEquals('This is a sub risk class', $this->hazMatChemicalRecord->subRiskClass);
     }
 
     /**
@@ -222,7 +222,7 @@ class HazMatChemicalRecordTest extends TestCase
      */
     public function it_tries_to_set_the_sub_risk_class_with_a_string_greater_than_100()
     {
-        $str = str_repeat("a", 101);
+        $str = str_repeat('a', 101);
 
         $this->hazMatChemicalRecord->subRiskClass = $str;
     }
@@ -232,9 +232,9 @@ class HazMatChemicalRecordTest extends TestCase
      */
     public function it_sets_the_packaging_group_type_attribute()
     {
-        $this->hazMatChemicalRecord->packagingGroupType = "I";
+        $this->hazMatChemicalRecord->packagingGroupType = 'I';
 
-        $this->assertEquals("I", $this->hazMatChemicalRecord->packagingGroupType);
+        $this->assertEquals('I', $this->hazMatChemicalRecord->packagingGroupType);
     }
 
     /**
@@ -244,7 +244,7 @@ class HazMatChemicalRecordTest extends TestCase
      */
     public function it_tries_to_set_the_packaging_group_type_with_an_unexpected_value()
     {
-        $this->hazMatChemicalRecord->packagingGroupType = "IV";
+        $this->hazMatChemicalRecord->packagingGroupType = 'IV';
     }
 
     /**
@@ -252,9 +252,9 @@ class HazMatChemicalRecordTest extends TestCase
      */
     public function it_sets_the_quantity_attribute()
     {
-        $this->hazMatChemicalRecord->quantity = "100";
+        $this->hazMatChemicalRecord->quantity = '100';
 
-        $this->assertEquals("100", $this->hazMatChemicalRecord->quantity);
+        $this->assertEquals('100', $this->hazMatChemicalRecord->quantity);
     }
 
     /**
@@ -264,7 +264,7 @@ class HazMatChemicalRecordTest extends TestCase
      */
     public function it_tries_to_set_quantity_with_a_string_greater_than_15()
     {
-        $this->hazMatChemicalRecord->quantity = "12345678910111213";
+        $this->hazMatChemicalRecord->quantity = '12345678910111213';
     }
 
     /**
@@ -274,7 +274,7 @@ class HazMatChemicalRecordTest extends TestCase
      */
     public function it_tries_to_set_quantity_with_a_non_numerical_string()
     {
-        $this->hazMatChemicalRecord->quantity = "A142";
+        $this->hazMatChemicalRecord->quantity = 'A142';
     }
 
     /**
@@ -282,9 +282,9 @@ class HazMatChemicalRecordTest extends TestCase
      */
     public function it_sets_the_UOM_attribute()
     {
-        $this->hazMatChemicalRecord->UOM = "cylinder";
+        $this->hazMatChemicalRecord->UOM = 'cylinder';
 
-        $this->assertEquals("cylinder", $this->hazMatChemicalRecord->UOM);
+        $this->assertEquals('cylinder', $this->hazMatChemicalRecord->UOM);
     }
 
     /**
@@ -294,7 +294,7 @@ class HazMatChemicalRecordTest extends TestCase
      */
     public function it_tries_to_set_the_UOM_with_a_string_greater_than_10()
     {
-        $this->hazMatChemicalRecord->UOM = "12345678901";
+        $this->hazMatChemicalRecord->UOM = '12345678901';
     }
 
     /**
@@ -302,9 +302,9 @@ class HazMatChemicalRecordTest extends TestCase
      */
     public function it_sets_the_packaging_instruction_code_attribute()
     {
-        $this->hazMatChemicalRecord->packagingInstructionCode =  "This is the packaging instruction code.";
+        $this->hazMatChemicalRecord->packagingInstructionCode = 'This is the packaging instruction code.';
 
-        $this->assertEquals("This is the packaging instruction code.", $this->hazMatChemicalRecord->packagingInstructionCode);
+        $this->assertEquals('This is the packaging instruction code.', $this->hazMatChemicalRecord->packagingInstructionCode);
     }
 
     /**
@@ -314,7 +314,7 @@ class HazMatChemicalRecordTest extends TestCase
      */
     public function it_tries_to_set_packaging_instruction_code_with_a_string_greater_than_353()
     {
-        $str = str_repeat("a", 354);
+        $str = str_repeat('a', 354);
 
         $this->hazMatChemicalRecord->packagingInstructionCode = $str;
     }
@@ -324,9 +324,9 @@ class HazMatChemicalRecordTest extends TestCase
      */
     public function it_sets_the_proper_shipping_name_attribute()
     {
-        $this->hazMatChemicalRecord->properShippingName = "Steven Butt";
+        $this->hazMatChemicalRecord->properShippingName = 'Steven Butt';
 
-        $this->assertEquals("Steven Butt", $this->hazMatChemicalRecord->properShippingName);
+        $this->assertEquals('Steven Butt', $this->hazMatChemicalRecord->properShippingName);
     }
 
     /**
@@ -336,7 +336,7 @@ class HazMatChemicalRecordTest extends TestCase
      */
     public function it_tries_to_set_proper_shipping_name_with_a_string_greater_than_250()
     {
-        $str = str_repeat("z", 251);
+        $str = str_repeat('z', 251);
 
         $this->hazMatChemicalRecord->properShippingName = $str;
     }
@@ -346,9 +346,9 @@ class HazMatChemicalRecordTest extends TestCase
      */
     public function it_sets_the_technical_name_attribute()
     {
-        $this->hazMatChemicalRecord->technicalName = "altronix";
+        $this->hazMatChemicalRecord->technicalName = 'altronix';
 
-        $this->assertEquals("altronix", $this->hazMatChemicalRecord->technicalName);
+        $this->assertEquals('altronix', $this->hazMatChemicalRecord->technicalName);
     }
 
     /**
@@ -358,7 +358,7 @@ class HazMatChemicalRecordTest extends TestCase
      */
     public function it_tries_to_set_technical_name_with_a_string_greater_than_300()
     {
-        $str = str_repeat("a", 301);
+        $str = str_repeat('a', 301);
 
         $this->hazMatChemicalRecord->technicalName = $str;
     }
@@ -368,9 +368,9 @@ class HazMatChemicalRecordTest extends TestCase
      */
     public function it_sets_the_additional_description_attribute()
     {
-        $this->hazMatChemicalRecord->additionalDescription = "aditional description";
+        $this->hazMatChemicalRecord->additionalDescription = 'aditional description';
 
-        $this->assertEquals("aditional description", $this->hazMatChemicalRecord->additionalDescription);
+        $this->assertEquals('aditional description', $this->hazMatChemicalRecord->additionalDescription);
     }
 
     /**
@@ -380,7 +380,7 @@ class HazMatChemicalRecordTest extends TestCase
      */
     public function it_tries_to_set_additional_description_with_a_string_greater_than_75()
     {
-        $str = str_repeat("a", 76);
+        $str = str_repeat('a', 76);
 
         $this->hazMatChemicalRecord->additionalDescription = $str;
     }
@@ -390,9 +390,9 @@ class HazMatChemicalRecordTest extends TestCase
      */
     public function it_sets_the_packaging_type_attribute()
     {
-        $this->hazMatChemicalRecord->packagingType = "packaging type";
+        $this->hazMatChemicalRecord->packagingType = 'packaging type';
 
-        $this->assertEquals("packaging type", $this->hazMatChemicalRecord->packagingType);
+        $this->assertEquals('packaging type', $this->hazMatChemicalRecord->packagingType);
     }
 
     /**
@@ -402,7 +402,7 @@ class HazMatChemicalRecordTest extends TestCase
      */
     public function it_tries_to_set_the_packaging_type_with_a_string_greater_than_255()
     {
-        $str = str_repeat("a", 256);
+        $str = str_repeat('a', 256);
 
         $this->hazMatChemicalRecord->packagingType = $str;
     }
@@ -412,9 +412,9 @@ class HazMatChemicalRecordTest extends TestCase
      */
     public function it_sets_the_hazard_label_required_attribute()
     {
-        $this->hazMatChemicalRecord->hazardLabelRequired = "string";
+        $this->hazMatChemicalRecord->hazardLabelRequired = 'string';
 
-        $this->assertEquals("string", $this->hazMatChemicalRecord->hazardLabelRequired);
+        $this->assertEquals('string', $this->hazMatChemicalRecord->hazardLabelRequired);
     }
 
     /**
@@ -424,7 +424,7 @@ class HazMatChemicalRecordTest extends TestCase
      */
     public function it_tries_to_set_hazard_label_required_with_a_string_greater_than_50()
     {
-        $str = str_repeat("a", 51);
+        $str = str_repeat('a', 51);
 
         $this->hazMatChemicalRecord->hazardLabelRequired = $str;
     }
@@ -434,9 +434,9 @@ class HazMatChemicalRecordTest extends TestCase
      */
     public function it_sets_the_packaging_type_quantity_attribute()
     {
-        $this->hazMatChemicalRecord->packagingTypeQuantity = "999";
+        $this->hazMatChemicalRecord->packagingTypeQuantity = '999';
 
-        $this->assertEquals("999", $this->hazMatChemicalRecord->packagingTypeQuantity);
+        $this->assertEquals('999', $this->hazMatChemicalRecord->packagingTypeQuantity);
     }
 
     /**
@@ -446,7 +446,7 @@ class HazMatChemicalRecordTest extends TestCase
      */
     public function it_tries_to_set_packaging_type_quantity_with_a_string_greater_than_3()
     {
-        $this->hazMatChemicalRecord->packagingTypeQuantity = "9999";
+        $this->hazMatChemicalRecord->packagingTypeQuantity = '9999';
     }
 
     /**
@@ -456,7 +456,7 @@ class HazMatChemicalRecordTest extends TestCase
      */
     public function it_tries_to_set_packaging_type_quantity_with_a_non_numerical_value()
     {
-        $this->hazMatChemicalRecord->packagingTypeQuantity = "A99";
+        $this->hazMatChemicalRecord->packagingTypeQuantity = 'A99';
     }
 
     /**
@@ -466,7 +466,7 @@ class HazMatChemicalRecordTest extends TestCase
     {
         $this->hazMatChemicalRecord->commodityRegulatedLevelCode = $this->hazMatChemicalRecord::LIGHTLY_REGULATED;
 
-        $this->assertEquals("LR", $this->hazMatChemicalRecord->commodityRegulatedLevelCode);
+        $this->assertEquals('LR', $this->hazMatChemicalRecord->commodityRegulatedLevelCode);
     }
 
     /**
@@ -476,7 +476,7 @@ class HazMatChemicalRecordTest extends TestCase
      */
     public function it_tries_to_set_commodity_regulated_level_code_with_an_unexpected_value()
     {
-        $this->hazMatChemicalRecord->commodityRegulatedLevelCode = "REW";
+        $this->hazMatChemicalRecord->commodityRegulatedLevelCode = 'REW';
     }
 
     /**
@@ -484,9 +484,9 @@ class HazMatChemicalRecordTest extends TestCase
      */
     public function it_sets_the_transport_category_attribute()
     {
-        $this->hazMatChemicalRecord->transportCategory = "4";
+        $this->hazMatChemicalRecord->transportCategory = '4';
 
-        $this->assertEquals("4", $this->hazMatChemicalRecord->transportCategory);
+        $this->assertEquals('4', $this->hazMatChemicalRecord->transportCategory);
     }
 
     /**
@@ -496,7 +496,7 @@ class HazMatChemicalRecordTest extends TestCase
      */
     public function it_tries_set_transport_category_with_a_non_numerical_value()
     {
-        $this->hazMatChemicalRecord->transportCategory = "a";
+        $this->hazMatChemicalRecord->transportCategory = 'a';
     }
 
     /**
@@ -506,7 +506,7 @@ class HazMatChemicalRecordTest extends TestCase
      */
     public function it_tries_to_set_transport_category_with_a_number_out_of_range_of_0_to_4()
     {
-        $this->hazMatChemicalRecord->transportCategory = "5";
+        $this->hazMatChemicalRecord->transportCategory = '5';
     }
 
     /**
@@ -514,9 +514,9 @@ class HazMatChemicalRecordTest extends TestCase
      */
     public function it_sets_the_tunnel_restriction_code_attribute()
     {
-        $this->hazMatChemicalRecord->tunnelRestrictionCode = "1234567";
+        $this->hazMatChemicalRecord->tunnelRestrictionCode = '1234567';
 
-        $this->assertEquals("1234567", $this->hazMatChemicalRecord->tunnelRestrictionCode);
+        $this->assertEquals('1234567', $this->hazMatChemicalRecord->tunnelRestrictionCode);
     }
 
     /**
@@ -526,6 +526,6 @@ class HazMatChemicalRecordTest extends TestCase
      */
     public function it_tries_to_set_tunnel_restriction_code_with_a_string_greater_than_10()
     {
-        $this->hazMatChemicalRecord->tunnelRestrictionCode = "12345678901";
+        $this->hazMatChemicalRecord->tunnelRestrictionCode = '12345678901';
     }
 }

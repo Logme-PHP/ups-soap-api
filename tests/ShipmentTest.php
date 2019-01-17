@@ -11,7 +11,7 @@ class ShipmentTest extends TestCase
 {
     /**
      * Shipment instance.
-     * 
+     *
      * @var Shipment
      */
     public $shipment;
@@ -61,19 +61,19 @@ class ShipmentTest extends TestCase
         $this->assertNull($this->shipment->shipper->address->countryCode);
 
         $shipper = new Shipper();
-        $shipper->name = "Company, Inc";
-        $shipper->shipperNumber = "123456";
-        $shipper->address->city = "Lisbon";
-        $shipper->address->postalCode = "1150042";
-        $shipper->address->countryCode = "PT";
+        $shipper->name = 'Company, Inc';
+        $shipper->shipperNumber = '123456';
+        $shipper->address->city = 'Lisbon';
+        $shipper->address->postalCode = '1150042';
+        $shipper->address->countryCode = 'PT';
 
         $this->shipment->shipper = $shipper;
 
-        $this->assertEquals("Company, Inc", $this->shipment->shipper->name);
-        $this->assertEquals("123456", $this->shipment->shipper->shipperNumber);
-        $this->assertEquals("Lisbon", $this->shipment->shipper->address->city);
-        $this->assertEquals("1150042", $this->shipment->shipper->address->postalCode);
-        $this->assertEquals("PT", $this->shipment->shipper->address->countryCode);
+        $this->assertEquals('Company, Inc', $this->shipment->shipper->name);
+        $this->assertEquals('123456', $this->shipment->shipper->shipperNumber);
+        $this->assertEquals('Lisbon', $this->shipment->shipper->address->city);
+        $this->assertEquals('1150042', $this->shipment->shipper->address->postalCode);
+        $this->assertEquals('PT', $this->shipment->shipper->address->countryCode);
     }
 
     /**
@@ -88,18 +88,18 @@ class ShipmentTest extends TestCase
         $this->assertFalse($this->shipment->shipTo->address->residentialAddressIndicator);
 
         $shipTo = new Shipper();
-        $shipTo->name = "Company, Inc";
-        $shipTo->address->city = "Lisbon";
-        $shipTo->address->postalCode = "1150042";
-        $shipTo->address->countryCode = "PT";
+        $shipTo->name = 'Company, Inc';
+        $shipTo->address->city = 'Lisbon';
+        $shipTo->address->postalCode = '1150042';
+        $shipTo->address->countryCode = 'PT';
         $shipTo->address->residentialAddressIndicator = true;
 
         $this->shipment->shipTo = $shipTo;
 
-        $this->assertEquals("Company, Inc", $this->shipment->shipTo->name);
-        $this->assertEquals("Lisbon", $this->shipment->shipTo->address->city);
-        $this->assertEquals("1150042", $this->shipment->shipTo->address->postalCode);
-        $this->assertEquals("PT", $this->shipment->shipTo->address->countryCode);
+        $this->assertEquals('Company, Inc', $this->shipment->shipTo->name);
+        $this->assertEquals('Lisbon', $this->shipment->shipTo->address->city);
+        $this->assertEquals('1150042', $this->shipment->shipTo->address->postalCode);
+        $this->assertEquals('PT', $this->shipment->shipTo->address->countryCode);
         $this->assertTrue($this->shipment->shipTo->address->residentialAddressIndicator);
     }
 
@@ -114,16 +114,16 @@ class ShipmentTest extends TestCase
         $this->assertNull($this->shipment->shipFrom->address->countryCode);
 
         $shipFrom = new Shipper();
-        $shipFrom->name = "Company, Inc";
-        $shipFrom->address->city = "Lisbon";
-        $shipFrom->address->postalCode = "1150042";
-        $shipFrom->address->countryCode = "PT";
+        $shipFrom->name = 'Company, Inc';
+        $shipFrom->address->city = 'Lisbon';
+        $shipFrom->address->postalCode = '1150042';
+        $shipFrom->address->countryCode = 'PT';
 
         $this->shipment->shipFrom = $shipFrom;
 
-        $this->assertEquals("Company, Inc", $this->shipment->shipFrom->name);
-        $this->assertEquals("Lisbon", $this->shipment->shipFrom->address->city);
-        $this->assertEquals("1150042", $this->shipment->shipFrom->address->postalCode);
-        $this->assertEquals("PT", $this->shipment->shipFrom->address->countryCode);
+        $this->assertEquals('Company, Inc', $this->shipment->shipFrom->name);
+        $this->assertEquals('Lisbon', $this->shipment->shipFrom->address->city);
+        $this->assertEquals('1150042', $this->shipment->shipFrom->address->postalCode);
+        $this->assertEquals('PT', $this->shipment->shipFrom->address->countryCode);
     }
 }

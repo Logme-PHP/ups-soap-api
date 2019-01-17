@@ -30,12 +30,13 @@ class CashOnDelivery extends AbstractModel
      * Sets the COD funds code.
      *
      * @param string $value
+     *
      * @throws Exception
      */
     public function setCODFundsCode($value)
     {
         if (strlen($value) > 1) {
-            throw new \Exception("The string length of COD Funds code must be equal to 1.");
+            throw new \Exception('The string length of COD Funds code must be equal to 1.');
         }
 
         $this->CODFundsCode = $value;

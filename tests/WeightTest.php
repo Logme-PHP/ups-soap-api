@@ -10,7 +10,7 @@ class WeightTest extends TestCase
 {
     /**
      * Dimension weight instance.
-     * 
+     *
      * @var Weight
      */
     public $weight;
@@ -42,8 +42,8 @@ class WeightTest extends TestCase
 
         $this->weight->unitOfMeasurement = $unitOfMeasurement;
 
-        $this->assertEquals("KGS", $this->weight->unitOfMeasurement->code);
-        $this->assertEquals("Kilograms", $this->weight->unitOfMeasurement->description);
+        $this->assertEquals('KGS', $this->weight->unitOfMeasurement->code);
+        $this->assertEquals('Kilograms', $this->weight->unitOfMeasurement->description);
     }
 
     /**
@@ -63,9 +63,9 @@ class WeightTest extends TestCase
      */
     public function it_sets_dimensional_weight_of_the_package()
     {
-        $this->weight->weight = "155.5";
+        $this->weight->weight = '155.5';
 
-        $this->assertEquals("1555", $this->weight->weight);
+        $this->assertEquals('1555', $this->weight->weight);
     }
 
     /**
@@ -75,6 +75,6 @@ class WeightTest extends TestCase
      */
     public function it_tries_to_set_dimensional_weight_with_a_string_greater_than_6()
     {
-        $this->weight->weight = "111111.1";
+        $this->weight->weight = '111111.1';
     }
 }

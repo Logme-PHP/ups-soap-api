@@ -4,11 +4,11 @@ namespace Logme\Soap\Ups;
 
 class CustomerClassification extends AbstractType
 {
-    const RATES_ASSOCIATED_WITH_SHIPPER_NUMBER = "00";
-    const DAILY_RATES = "01";
-    const RETAIL_RATES = "04";
-    const GENERAL_LIST_RATES = "05";
-    const STANDARD_LIST_RATES = "53";
+    const RATES_ASSOCIATED_WITH_SHIPPER_NUMBER = '00';
+    const DAILY_RATES = '01';
+    const RETAIL_RATES = '04';
+    const GENERAL_LIST_RATES = '05';
+    const STANDARD_LIST_RATES = '53';
 
     /**
      * List with descriptions for customer classification codes.
@@ -26,10 +26,10 @@ class CustomerClassification extends AbstractType
      * @var array
      */
     protected $descriptions = [
-        self::RATES_ASSOCIATED_WITH_SHIPPER_NUMBER => "Rates associated with shipper number",
-        self::DAILY_RATES => "Daily Rates",
-        self::RETAIL_RATES => "Retail Rates",
-        self::GENERAL_LIST_RATES => "General List Rates",
-        self::STANDARD_LIST_RATES => "Standard List Rates"
+        self::RATES_ASSOCIATED_WITH_SHIPPER_NUMBER => 'Rates associated with shipper number',
+        self::DAILY_RATES => 'Daily Rates',
+        self::RETAIL_RATES => 'Retail Rates',
+        self::GENERAL_LIST_RATES => 'General List Rates',
+        self::STANDARD_LIST_RATES => 'Standard List Rates',
     ];
 }

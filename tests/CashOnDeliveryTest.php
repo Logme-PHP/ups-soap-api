@@ -1,6 +1,6 @@
 <?php
 
-namespace Tests;
+namespace tests;
 
 use PHPUnit\Framework\TestCase;
 use Logme\Soap\Ups\CashOnDelivery;
@@ -10,7 +10,7 @@ class CashOnDeliveryTest extends TestCase
 {
     /**
      * Cash on delivery instance.
-     * 
+     *
      * @var CashOnDelivery
      */
     public $cashOnDelivery;
@@ -37,9 +37,9 @@ class CashOnDeliveryTest extends TestCase
      */
     public function it_sets_cod_funds_code_attribute()
     {
-        $this->cashOnDelivery->CODFundsCode = "0";
+        $this->cashOnDelivery->CODFundsCode = '0';
 
-        $this->assertEquals("0", $this->cashOnDelivery->CODFundsCode);
+        $this->assertEquals('0', $this->cashOnDelivery->CODFundsCode);
     }
 
     /**
@@ -49,7 +49,7 @@ class CashOnDeliveryTest extends TestCase
      */
     public function it_tries_to_set_COD_Funds_code_with_string_greater_than_1()
     {
-        $this->cashOnDelivery->CODFundsCode = "11";
+        $this->cashOnDelivery->CODFundsCode = '11';
     }
 
     /**
@@ -61,12 +61,12 @@ class CashOnDeliveryTest extends TestCase
         $this->assertNull($this->cashOnDelivery->CODAmount->monetaryValue);
 
         $CODAmount = new Currency();
-        $CODAmount->currencyCode = "USD";
-        $CODAmount->monetaryValue = "50.00";
+        $CODAmount->currencyCode = 'USD';
+        $CODAmount->monetaryValue = '50.00';
 
         $this->cashOnDelivery->CODAmount = $CODAmount;
 
-        $this->assertEquals("USD", $this->cashOnDelivery->CODAmount->currencyCode);
-        $this->assertEquals("50.00", $this->cashOnDelivery->CODAmount->monetaryValue);
+        $this->assertEquals('USD', $this->cashOnDelivery->CODAmount->currencyCode);
+        $this->assertEquals('50.00', $this->cashOnDelivery->CODAmount->monetaryValue);
     }
 }

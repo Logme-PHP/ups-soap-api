@@ -14,9 +14,9 @@ class PickupTypeTest extends TestCase
     {
         $pickupType = new PickupType();
         $pickupType->code = $pickupType::CUSTOMER_COUNTER;
-        
-        $this->assertEquals("03", $pickupType->code);
-        $this->assertEquals("Customer Counter", $pickupType->description);
+
+        $this->assertEquals('03', $pickupType->code);
+        $this->assertEquals('Customer Counter', $pickupType->description);
     }
 
     /**
@@ -27,6 +27,6 @@ class PickupTypeTest extends TestCase
     public function it_tries_to_set_code_without_an_expected_value()
     {
         $pickupType = new PickupType();
-        $pickupType->code = "99";
+        $pickupType->code = '99';
     }
 }

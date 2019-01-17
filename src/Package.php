@@ -101,12 +101,13 @@ class Package extends AbstractModel
      * Sets the large package indicator for the package.
      *
      * @param bool $value
+     *
      * @throws Exception
      */
     public function setLargePackageIndicator($value)
     {
         if (!is_bool($value)) {
-            throw new \Exception("The large package indicator value must be a boolean type.");
+            throw new \Exception('The large package indicator value must be a boolean type.');
         }
 
         $this->largePackageIndicator = true;

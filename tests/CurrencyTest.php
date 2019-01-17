@@ -9,7 +9,7 @@ class CurrencyTest extends TestCase
 {
     /**
      * Access Point COD instance.
-     * 
+     *
      * @var Currency
      */
     public $accessPointCOD;
@@ -28,9 +28,9 @@ class CurrencyTest extends TestCase
      */
     public function it_sets_currency_code_attribute_value()
     {
-        $this->accessPointCOD->currencyCode = "EUR";
+        $this->accessPointCOD->currencyCode = 'EUR';
 
-        $this->assertEquals("EUR", $this->accessPointCOD->currencyCode);
+        $this->assertEquals('EUR', $this->accessPointCOD->currencyCode);
     }
 
     /**
@@ -40,7 +40,7 @@ class CurrencyTest extends TestCase
      */
     public function it_tries_to_set_currency_code_with_a_string_greater_than_3()
     {
-        $this->accessPointCOD->currencyCode = "EURO";
+        $this->accessPointCOD->currencyCode = 'EURO';
     }
 
     /**
@@ -48,9 +48,9 @@ class CurrencyTest extends TestCase
      */
     public function it_sets_monetary_value_attribute()
     {
-        $this->accessPointCOD->monetaryValue = "2000.50";
+        $this->accessPointCOD->monetaryValue = '2000.50';
 
-        $this->assertEquals("2000.50", $this->accessPointCOD->monetaryValue);
+        $this->assertEquals('2000.50', $this->accessPointCOD->monetaryValue);
     }
 
     /**
@@ -60,6 +60,6 @@ class CurrencyTest extends TestCase
      */
     public function it_tries_to_set_monetary_value_with_a_string_greater_than_8()
     {
-        $this->accessPointCOD->monetaryValue = "200000000000";
+        $this->accessPointCOD->monetaryValue = '200000000000';
     }
 }

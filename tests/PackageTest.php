@@ -12,7 +12,7 @@ class PackageTest extends TestCase
 {
     /**
      * Package instance.
-     * 
+     *
      * @var Package
      */
     public $package;
@@ -51,8 +51,8 @@ class PackageTest extends TestCase
 
         $this->package->packagingType = $packagingType;
 
-        $this->assertEquals("00", $this->package->packagingType->code);
-        $this->assertEquals("UNKNOWN", $this->package->packagingType->description);
+        $this->assertEquals('00', $this->package->packagingType->code);
+        $this->assertEquals('UNKNOWN', $this->package->packagingType->description);
     }
 
     /**
@@ -65,14 +65,14 @@ class PackageTest extends TestCase
         $this->assertNull($this->package->dimWeight->weight);
 
         $dimWeight = new Weight();
-        $dimWeight->unitOfMeasurement->code = "KGS";
-        $dimWeight->weight = "50";
+        $dimWeight->unitOfMeasurement->code = 'KGS';
+        $dimWeight->weight = '50';
 
         $this->package->dimWeight = $dimWeight;
 
-        $this->assertEquals("KGS", $this->package->dimWeight->unitOfMeasurement->code);
-        $this->assertEquals("Kilograms", $this->package->dimWeight->unitOfMeasurement->description);
-        $this->assertEquals("50", $this->package->dimWeight->weight);
+        $this->assertEquals('KGS', $this->package->dimWeight->unitOfMeasurement->code);
+        $this->assertEquals('Kilograms', $this->package->dimWeight->unitOfMeasurement->description);
+        $this->assertEquals('50', $this->package->dimWeight->weight);
     }
 
     /**
@@ -85,14 +85,14 @@ class PackageTest extends TestCase
         $this->assertNull($this->package->packageWeight->weight);
 
         $packageWeight = new Weight();
-        $packageWeight->unitOfMeasurement->code = "KGS";
-        $packageWeight->weight = "40";
+        $packageWeight->unitOfMeasurement->code = 'KGS';
+        $packageWeight->weight = '40';
 
         $this->package->packageWeight = $packageWeight;
 
-        $this->assertEquals("KGS", $this->package->packageWeight->unitOfMeasurement->code);
-        $this->assertEquals("Kilograms", $this->package->packageWeight->unitOfMeasurement->description);
-        $this->assertEquals("40", $this->package->packageWeight->weight);
+        $this->assertEquals('KGS', $this->package->packageWeight->unitOfMeasurement->code);
+        $this->assertEquals('Kilograms', $this->package->packageWeight->unitOfMeasurement->description);
+        $this->assertEquals('40', $this->package->packageWeight->weight);
     }
 
     /**
@@ -101,7 +101,7 @@ class PackageTest extends TestCase
     public function it_sets_large_package_indicator_attribute_to_true()
     {
         $this->package->largePackageIndicator = true;
-        
+
         $this->assertTrue($this->package->largePackageIndicator);
     }
 
@@ -112,6 +112,6 @@ class PackageTest extends TestCase
      */
     public function it_tries_to_set_large_package_indicator_attribute_without_a_boolean_value()
     {
-        $this->package->largePackageIndicator = "AAAA";
+        $this->package->largePackageIndicator = 'AAAA';
     }
 }

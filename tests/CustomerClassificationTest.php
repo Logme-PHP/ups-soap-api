@@ -14,9 +14,9 @@ class CustomerClassificationTest extends TestCase
     {
         $customerClassification = new CustomerClassification();
         $customerClassification->code = $customerClassification::RATES_ASSOCIATED_WITH_SHIPPER_NUMBER;
-        
-        $this->assertEquals("00", $customerClassification->code);
-        $this->assertEquals("Rates associated with shipper number", $customerClassification->description);
+
+        $this->assertEquals('00', $customerClassification->code);
+        $this->assertEquals('Rates associated with shipper number', $customerClassification->description);
     }
 
     /**
@@ -27,6 +27,6 @@ class CustomerClassificationTest extends TestCase
     public function it_tries_to_set_code_without_an_expected_value()
     {
         $customerClassification = new CustomerClassification();
-        $customerClassification->code = "99";
+        $customerClassification->code = '99';
     }
 }

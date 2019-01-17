@@ -17,7 +17,7 @@ class TrackRequestTest extends TestCase
         $trackRequest = new TrackRequest();
         $trackRequest->trackingOption = $trackRequest::ENTITY_WITH_MORE_TRACKABLE_ENTITIES;
 
-        $this->assertEquals("01", $trackRequest->trackingOption);
+        $this->assertEquals('01', $trackRequest->trackingOption);
     }
 
     /**
@@ -28,7 +28,7 @@ class TrackRequestTest extends TestCase
     public function it_tries_to_set_tracking_option_with_an_invalid_string()
     {
         $trackRequest = new TrackRequest();
-        $trackRequest->trackingOption = "04";
+        $trackRequest->trackingOption = '04';
     }
 
     /**
@@ -37,9 +37,9 @@ class TrackRequestTest extends TestCase
     public function it_sets_the_inquiry_number_attribute_value()
     {
         $trackRequest = new TrackRequest();
-        $trackRequest->inquiryNumber = "1234567890";
+        $trackRequest->inquiryNumber = '1234567890';
 
-        $this->assertEquals("1234567890", $trackRequest->inquiryNumber);
+        $this->assertEquals('1234567890', $trackRequest->inquiryNumber);
     }
 
     /**
@@ -50,7 +50,7 @@ class TrackRequestTest extends TestCase
     public function it_tries_to_set_inquiry_number_with_a_value_with_length_outside_the_range_of_9_and_34()
     {
         $trackRequest = new TrackRequest();
-        $trackRequest->inquiryNumber = "12345678";
+        $trackRequest->inquiryNumber = '12345678';
     }
 
     /**
@@ -72,7 +72,7 @@ class TrackRequestTest extends TestCase
     public function it_tries_to_set_include_mail_innovations_indicator_value_without_a_boolean_value()
     {
         $trackRequest = new TrackRequest();
-        $trackRequest->includeMailInnovationIndicator = "aaaa";
+        $trackRequest->includeMailInnovationIndicator = 'aaaa';
     }
 
     /**
@@ -81,9 +81,9 @@ class TrackRequestTest extends TestCase
     public function it_sets_the_candidate_bookmark_attribute_value()
     {
         $trackRequest = new TrackRequest();
-        $trackRequest->candidateBookmark = "123456";
+        $trackRequest->candidateBookmark = '123456';
 
-        $this->assertEquals("123456", $trackRequest->candidateBookmark);
+        $this->assertEquals('123456', $trackRequest->candidateBookmark);
     }
 
     /**
@@ -94,7 +94,7 @@ class TrackRequestTest extends TestCase
     public function it_tries_to_set_candidate_bookmark_with_a_value_greater_than_15()
     {
         $trackRequest = new TrackRequest();
-        $trackRequest->candidateBookmark = "1234567890123456";
+        $trackRequest->candidateBookmark = '1234567890123456';
     }
 
     /**
@@ -104,10 +104,10 @@ class TrackRequestTest extends TestCase
     {
         $trackRequest = new TrackRequest();
         $trackRequest->referenceNumber = new ReferenceNumber();
-        $trackRequest->referenceNumber->value = "1234567890";
+        $trackRequest->referenceNumber->value = '1234567890';
 
         $this->assertInstanceOf(ReferenceNumber::class, $trackRequest->referenceNumber);
-        $this->assertEquals("1234567890", $trackRequest->referenceNumber->value);
+        $this->assertEquals('1234567890', $trackRequest->referenceNumber->value);
     }
 
     /**
@@ -117,11 +117,11 @@ class TrackRequestTest extends TestCase
     {
         $trackRequest = new TrackRequest();
         $trackRequest->pickupDateRange = new PickupDateRange();
-        $trackRequest->pickupDateRange->beginDate = "20190109";
-        $trackRequest->pickupDateRange->endDate = "20190110";
+        $trackRequest->pickupDateRange->beginDate = '20190109';
+        $trackRequest->pickupDateRange->endDate = '20190110';
 
         $this->assertInstanceOf(PickupDateRange::class, $trackRequest->pickupDateRange);
-        $this->assertEquals("20190109", $trackRequest->pickupDateRange->beginDate);
-        $this->assertEquals("20190110", $trackRequest->pickupDateRange->endDate);
+        $this->assertEquals('20190109', $trackRequest->pickupDateRange->beginDate);
+        $this->assertEquals('20190110', $trackRequest->pickupDateRange->endDate);
     }
 }

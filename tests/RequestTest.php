@@ -10,7 +10,7 @@ class RequestTest extends TestCase
 {
     /**
      * Request class instance.
-     * 
+     *
      * @var Request.
      */
     public $request;
@@ -29,7 +29,7 @@ class RequestTest extends TestCase
      */
     public function it_sets_default_attributes_values()
     {
-        $this->assertEquals("Rate", $this->request->requestOption);
+        $this->assertEquals('Rate', $this->request->requestOption);
         $this->assertNull($this->request->subVersion);
         $this->assertInstanceOf(TransactionReference::class, $this->request->transactionReference);
     }
@@ -41,7 +41,7 @@ class RequestTest extends TestCase
     {
         $this->request->requestOption = $this->request::SHOP;
 
-        $this->assertEquals("Shop", $this->request->requestOption);
+        $this->assertEquals('Shop', $this->request->requestOption);
     }
 
     /**
@@ -51,7 +51,7 @@ class RequestTest extends TestCase
      */
     public function it_tries_to_set_the_request_option_value_without_an_expected_value()
     {
-        $this->request->requestOption = "Bad Value";
+        $this->request->requestOption = 'Bad Value';
     }
 
     /**
@@ -61,7 +61,7 @@ class RequestTest extends TestCase
     {
         $this->request->subVersion = $this->request::SUBVERSION_1801;
 
-        $this->assertEquals("1801", $this->request->subVersion);
+        $this->assertEquals('1801', $this->request->subVersion);
     }
 
     /**
@@ -71,7 +71,7 @@ class RequestTest extends TestCase
      */
     public function it_tries_to_set_the_sub_version_value_without_an_expected_value()
     {
-        $this->request->subVersion = "1501";
+        $this->request->subVersion = '1501';
     }
 
     /**
@@ -80,11 +80,11 @@ class RequestTest extends TestCase
     public function it_sets_transaction_reference_value()
     {
         $this->assertNull($this->request->transactionReference->customerContext);
-        
+
         $transactionReference = new TransactionReference();
-        $transactionReference->customerContext = "New Transaction Reference";
+        $transactionReference->customerContext = 'New Transaction Reference';
         $this->request->transactionReference = $transactionReference;
 
-        $this->assertEquals("New Transaction Reference", $this->request->transactionReference->customerContext);
+        $this->assertEquals('New Transaction Reference', $this->request->transactionReference->customerContext);
     }
 }

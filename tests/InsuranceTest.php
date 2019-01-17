@@ -10,7 +10,7 @@ class InsuranceTest extends TestCase
 {
     /**
      * Insurance instance.
-     * 
+     *
      * @var Insurance
      */
     public $insurance;
@@ -43,13 +43,13 @@ class InsuranceTest extends TestCase
         $this->assertNull($this->insurance->basicFlexibleParcelIndicator->monetaryValue);
 
         $basicFlexibleParcelIndicator = new Currency();
-        $basicFlexibleParcelIndicator->currencyCode = "EUR";
-        $basicFlexibleParcelIndicator->monetaryValue = "200.5";
+        $basicFlexibleParcelIndicator->currencyCode = 'EUR';
+        $basicFlexibleParcelIndicator->monetaryValue = '200.5';
 
         $this->insurance->basicFlexibleParcelIndicator = $basicFlexibleParcelIndicator;
 
-        $this->assertEquals("EUR", $this->insurance->basicFlexibleParcelIndicator->currencyCode);
-        $this->assertEquals("200.5", $this->insurance->basicFlexibleParcelIndicator->monetaryValue);
+        $this->assertEquals('EUR', $this->insurance->basicFlexibleParcelIndicator->currencyCode);
+        $this->assertEquals('200.5', $this->insurance->basicFlexibleParcelIndicator->monetaryValue);
     }
 
     /**
@@ -61,13 +61,13 @@ class InsuranceTest extends TestCase
         $this->assertNull($this->insurance->extendedFlexibleParcelIndicator->monetaryValue);
 
         $extendedFlexibleParcelIndicator = new Currency();
-        $extendedFlexibleParcelIndicator->currencyCode = "EUR";
-        $extendedFlexibleParcelIndicator->monetaryValue = "200";
+        $extendedFlexibleParcelIndicator->currencyCode = 'EUR';
+        $extendedFlexibleParcelIndicator->monetaryValue = '200';
 
         $this->insurance->extendedFlexibleParcelIndicator = $extendedFlexibleParcelIndicator;
 
-        $this->assertEquals("EUR", $this->insurance->extendedFlexibleParcelIndicator->currencyCode);
-        $this->assertEquals("200", $this->insurance->extendedFlexibleParcelIndicator->monetaryValue);
+        $this->assertEquals('EUR', $this->insurance->extendedFlexibleParcelIndicator->currencyCode);
+        $this->assertEquals('200', $this->insurance->extendedFlexibleParcelIndicator->monetaryValue);
     }
 
     /**
@@ -79,12 +79,12 @@ class InsuranceTest extends TestCase
         $this->assertNull($this->insurance->timeInTransitFlexibleParcelIndicator->monetaryValue);
 
         $timeInTransitFlexibleParcelIndicator = new Currency();
-        $timeInTransitFlexibleParcelIndicator->currencyCode = "EUR";
-        $timeInTransitFlexibleParcelIndicator->monetaryValue = "200";
+        $timeInTransitFlexibleParcelIndicator->currencyCode = 'EUR';
+        $timeInTransitFlexibleParcelIndicator->monetaryValue = '200';
 
         $this->insurance->timeInTransitFlexibleParcelIndicator = $timeInTransitFlexibleParcelIndicator;
 
-        $this->assertEquals("EUR", $this->insurance->timeInTransitFlexibleParcelIndicator->currencyCode);
-        $this->assertEquals("200", $this->insurance->timeInTransitFlexibleParcelIndicator->monetaryValue);
+        $this->assertEquals('EUR', $this->insurance->timeInTransitFlexibleParcelIndicator->currencyCode);
+        $this->assertEquals('200', $this->insurance->timeInTransitFlexibleParcelIndicator->monetaryValue);
     }
 }

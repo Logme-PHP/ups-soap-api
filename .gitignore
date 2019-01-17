@@ -7,4 +7,5 @@ composer.lock
 /coverage/
 clover.xml
 coverage.php
-/src/Example/
+/Example/
+Dockerfile

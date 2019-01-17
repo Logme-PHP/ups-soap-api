@@ -9,7 +9,7 @@ class Shipment extends AbstractModel
     /**
      * The time that the request was made from the originating system.
      * UTC time down to milliseconds. Example: 2016-07-17T12:01:33.000.
-     * Applicable only for HazMat request and subversion greater that or equal to 1701
+     * Applicable only for HazMat request and subversion greater that or equal to 1701.
      *
      * @var string
      */

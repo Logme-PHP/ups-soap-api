@@ -1,18 +1,18 @@
-<?php 
+<?php
 
 namespace Logme\Soap\Ups;
 
 class HazMatChemicalRecord extends AbstractModel
 {
-    const HIGHWAY = "01";
-    const GROUND = "02";
-    const PASSENGER_AIRCRAFT = "03";
-    const CARGO_AIRCRAFT_ONLY = "04";
+    const HIGHWAY = '01';
+    const GROUND = '02';
+    const PASSENGER_AIRCRAFT = '03';
+    const CARGO_AIRCRAFT_ONLY = '04';
 
-    const FULLY_REGULATED = "FR";
-    const LIMITED_QUANTITY = "LQ";
-    const EXCEPTED_QUANTITY = "EQ";
-    const LIGHTLY_REGULATED = "LR";
+    const FULLY_REGULATED = 'FR';
+    const LIMITED_QUANTITY = 'LQ';
+    const EXCEPTED_QUANTITY = 'EQ';
+    const LIGHTLY_REGULATED = 'LR';
 
     /**
      * Valid values for Regulatory Set.
@@ -20,10 +20,10 @@ class HazMatChemicalRecord extends AbstractModel
      * @var array
      */
     private $regulationSets = [
-        "ADR",
-        "CFR",
-        "IATA",
-        "TDG"
+        'ADR',
+        'CFR',
+        'IATA',
+        'TDG',
     ];
 
     /**
@@ -32,10 +32,10 @@ class HazMatChemicalRecord extends AbstractModel
      * @var array
      */
     private $packagingGroupTypes = [
-        "I",
-        "II",
-        "III",
-        ""
+        'I',
+        'II',
+        'III',
+        '',
     ];
 
     /**
@@ -199,7 +199,7 @@ class HazMatChemicalRecord extends AbstractModel
      * @var string
      */
     protected $technicalName;
-    
+
     /**
      * Additional remarks or special provision information.
      * Required if CommodityRegulatedLevelCode = LQ or FR and if the field applies
@@ -280,6 +280,7 @@ class HazMatChemicalRecord extends AbstractModel
      * Sets the chemical record identifier attribute.
      *
      * @param string $value
+     *
      * @throws Exception
      */
     public function setChemicalRecordIdentifier($value)
@@ -287,7 +288,7 @@ class HazMatChemicalRecord extends AbstractModel
         $len = strlen($value);
 
         if ($len < 1 || $len > 3) {
-            throw new \Exception("The string length of chemical record identifier must be between 1 and 3.");
+            throw new \Exception('The string length of chemical record identifier must be between 1 and 3.');
         }
 
         $this->chemicalRecordIdentifier = $value;
@@ -299,9 +300,10 @@ class HazMatChemicalRecord extends AbstractModel
      * 01 - Highway
      * 02 - Ground
      * 03 - Passager Aircraft
-     * 04 - Cargo Aircraft Only
+     * 04 - Cargo Aircraft Only.
      *
      * @param string $value
+     *
      * @throws Exception
      */
     public function setClassDivisionNumber($value)
@@ -309,7 +311,7 @@ class HazMatChemicalRecord extends AbstractModel
         $len = strlen($value);
 
         if ($len < 1 || $len > 7) {
-            throw new \Exception("The string length of class division number must be between 1 and 7.");
+            throw new \Exception('The string length of class division number must be between 1 and 7.');
         }
 
         $this->classDivisionNumber = $value;
@@ -319,6 +321,7 @@ class HazMatChemicalRecord extends AbstractModel
      * Sets the ID number attribute.
      *
      * @param string $value
+     *
      * @throws Exception
      */
     public function setIDNumber($value)
@@ -326,7 +329,7 @@ class HazMatChemicalRecord extends AbstractModel
         $len = strlen($value);
 
         if ($len < 1 || $len > 6) {
-            throw new \Exception("The string length of ID number must be between 1 and 6.");
+            throw new \Exception('The string length of ID number must be between 1 and 6.');
         }
 
         $this->IDNumber = $value;
@@ -336,6 +339,7 @@ class HazMatChemicalRecord extends AbstractModel
      * Sets the transportation mode attribute.
      *
      * @param string $value
+     *
      * @throws Exception
      */
     public function setTransportationMode($value)
@@ -348,7 +352,7 @@ class HazMatChemicalRecord extends AbstractModel
                 $this->transportationMode = $value;
                 break;
             default:
-                throw new \Exception("Cannot set the transportation mode with an unexpected value.");
+                throw new \Exception('Cannot set the transportation mode with an unexpected value.');
         }
     }
 
@@ -361,12 +365,13 @@ class HazMatChemicalRecord extends AbstractModel
      * TDG - For Canada to Canada ground movement or Canada to U.S standard movement.
      *
      * @param string $value
+     *
      * @throws Exception
      */
     public function setRegulationSet($value)
     {
         if (!in_array($value, $this->regulationSets)) {
-            throw new \Exception("Cannot set the regulation set with an unexpected value.");
+            throw new \Exception('Cannot set the regulation set with an unexpected value.');
         }
 
         $this->regulationSet = $value;
@@ -376,18 +381,19 @@ class HazMatChemicalRecord extends AbstractModel
      * Sets the emergency phone attribute.
      *
      * @param string $value
+     *
      * @throws Exception
      */
     public function setEmergencyPhone($value)
     {
         if (strlen($value) > 25) {
-            throw new \Exception("The string length of emergency phone must be less than or equal to 25.");
+            throw new \Exception('The string length of emergency phone must be less than or equal to 25.');
         }
 
         preg_match_all('/^([0-9\s]+)$/', $value, $matches, PREG_SET_ORDER, 0);
-        
+
         if (!$matches) {
-            throw new \Exception("The string have invalid chars for emergency phone.");
+            throw new \Exception('The string have invalid chars for emergency phone.');
         }
 
         $this->emergencyPhone = $value;
@@ -397,14 +403,15 @@ class HazMatChemicalRecord extends AbstractModel
      * Sets the emergency contact attribute.
      *
      * @param string $value
+     *
      * @throws Exception
      */
     public function setEmergencyContact($value)
     {
         if (strlen($value) > 35) {
-            throw new \Exception("The string length of emergency contact must be less than or equal to 35.");
+            throw new \Exception('The string length of emergency contact must be less than or equal to 35.');
         }
-        
+
         $this->emergencyContact = $value;
     }
 
@@ -412,12 +419,13 @@ class HazMatChemicalRecord extends AbstractModel
      * Sets the reportable quantity attribute.
      *
      * @param string $value
+     *
      * @throws Exception
      */
     public function setReportableQuantity($value)
     {
         if (strlen($value) > 2) {
-            throw new \Exception("The string length of reportable quantity must be less than or equal to 2.");
+            throw new \Exception('The string length of reportable quantity must be less than or equal to 2.');
         }
 
         $this->reportableQuantity = $value;
@@ -427,12 +435,13 @@ class HazMatChemicalRecord extends AbstractModel
      * Sets the sub risk class attribute.
      *
      * @param string $value
+     *
      * @throws Exception
      */
     public function setSubRiskClass($value)
     {
         if (strlen($value) > 100) {
-            throw new \Exception("The string length of sub risk class must be less than or equal to 100.");
+            throw new \Exception('The string length of sub risk class must be less than or equal to 100.');
         }
 
         $this->subRiskClass = $value;
@@ -442,12 +451,13 @@ class HazMatChemicalRecord extends AbstractModel
      * Sets the packaging group type attribute.
      *
      * @param string $value
+     *
      * @throws Exception
      */
     public function setPackagingGroupType($value)
     {
         if (!in_array($value, $this->packagingGroupTypes)) {
-            throw new \Exception("The string length of packaging group type with an unexpected value.");
+            throw new \Exception('The string length of packaging group type with an unexpected value.');
         }
 
         $this->packagingGroupType = $value;
@@ -457,16 +467,17 @@ class HazMatChemicalRecord extends AbstractModel
      * Sets the quantity attribute.
      *
      * @param string $value
+     *
      * @throws Exception
      */
     public function setQuantity($value)
     {
         if (strlen($value) > 15) {
-            throw new \Exception("The string length of quantity must be less than or equal to 15.");
+            throw new \Exception('The string length of quantity must be less than or equal to 15.');
         }
 
         if (!is_numeric($value)) {
-            throw new \Exception("The quantity value needs to be numeric type.");
+            throw new \Exception('The quantity value needs to be numeric type.');
         }
 
         $this->quantity = $value;
@@ -482,7 +493,7 @@ class HazMatChemicalRecord extends AbstractModel
         $len = strlen($value);
 
         if ($len < 1 || $len > 10) {
-            throw new \Exception("The string length of UOM must be between 1 and 10.");
+            throw new \Exception('The string length of UOM must be between 1 and 10.');
         }
 
         $this->UOM = $value;
@@ -492,6 +503,7 @@ class HazMatChemicalRecord extends AbstractModel
      * Sets the packaging instruction code attribute.
      *
      * @param string $value
+     *
      * @throws Exception
      */
     public function setPackagingInstructionCode($value)
@@ -499,9 +511,9 @@ class HazMatChemicalRecord extends AbstractModel
         $len = strlen($value);
 
         if ($len < 1 || $len > 353) {
-            throw new \Exception("The string length of packaging instruction code must be between 1 and 353.");
+            throw new \Exception('The string length of packaging instruction code must be between 1 and 353.');
         }
-        
+
         $this->packagingInstructionCode = $value;
     }
 
@@ -509,6 +521,7 @@ class HazMatChemicalRecord extends AbstractModel
      * Sets the proper shipping name attribute.
      *
      * @param string $value
+     *
      * @throws Exception
      */
     public function setProperShippingName($value)
@@ -516,7 +529,7 @@ class HazMatChemicalRecord extends AbstractModel
         $len = strlen($value);
 
         if ($len < 1 || $len > 250) {
-            throw new \Exception("The string length of proper shipping name must be between 1 and 250.");
+            throw new \Exception('The string length of proper shipping name must be between 1 and 250.');
         }
 
         $this->properShippingName = $value;
@@ -526,6 +539,7 @@ class HazMatChemicalRecord extends AbstractModel
      * Sets the techincal name attribute.
      *
      * @param string $value
+     *
      * @throws Exception
      */
     public function setTechnicalName($value)
@@ -533,7 +547,7 @@ class HazMatChemicalRecord extends AbstractModel
         $len = strlen($value);
 
         if ($len < 1 || $len > 300) {
-            throw new \Exception("The string length of technical name must be between 1 and 300.");
+            throw new \Exception('The string length of technical name must be between 1 and 300.');
         }
 
         $this->technicalName = $value;
@@ -543,6 +557,7 @@ class HazMatChemicalRecord extends AbstractModel
      * Sets the aditional description attribute.
      *
      * @param string $value
+     *
      * @throws Exception
      */
     public function setAdditionalDescription($value)
@@ -550,7 +565,7 @@ class HazMatChemicalRecord extends AbstractModel
         $len = strlen($value);
 
         if ($len < 1 || $len > 75) {
-            throw new \Exception("The string length of additional description must be between 1 and 75.");
+            throw new \Exception('The string length of additional description must be between 1 and 75.');
         }
 
         $this->additionalDescription = $value;
@@ -560,6 +575,7 @@ class HazMatChemicalRecord extends AbstractModel
      * Sets the packaging type attribute.
      *
      * @param string $value
+     *
      * @throws Exception
      */
     public function setPackagingType($value)
@@ -567,7 +583,7 @@ class HazMatChemicalRecord extends AbstractModel
         $len = strlen($value);
 
         if ($len < 1 || $len > 250) {
-            throw new \Exception("The string length of packaging type must be between 1 and 255.");
+            throw new \Exception('The string length of packaging type must be between 1 and 255.');
         }
 
         $this->packagingType = $value;
@@ -577,6 +593,7 @@ class HazMatChemicalRecord extends AbstractModel
      * Sets the hazard level required attribute.
      *
      * @param string $value
+     *
      * @throws Exception
      */
     public function setHazardLabelRequired($value)
@@ -584,7 +601,7 @@ class HazMatChemicalRecord extends AbstractModel
         $len = strlen($value);
 
         if ($len < 1 || $len > 50) {
-            throw new \Exception("The string length of hazard label required must be between 1 and 50.");
+            throw new \Exception('The string length of hazard label required must be between 1 and 50.');
         }
 
         $this->hazardLabelRequired = $value;
@@ -594,6 +611,7 @@ class HazMatChemicalRecord extends AbstractModel
      * Sets the packaging type quantity attribute.
      *
      * @param string $value
+     *
      * @throws Exception
      */
     public function setPackagingTypeQuantity($value)
@@ -601,11 +619,11 @@ class HazMatChemicalRecord extends AbstractModel
         $len = strlen($value);
 
         if ($len < 1 || $len > 3) {
-            throw new \Exception("The string length of packaging type quantity must be between 1 and 3.");
+            throw new \Exception('The string length of packaging type quantity must be between 1 and 3.');
         }
 
         if (!is_numeric($value)) {
-            throw new \Exception("The packaging type quantity only accepts numerical values.");
+            throw new \Exception('The packaging type quantity only accepts numerical values.');
         }
 
         $this->packagingTypeQuantity = $value;
@@ -615,6 +633,7 @@ class HazMatChemicalRecord extends AbstractModel
      * Sets the commodity regulated level code attribute.
      *
      * @param string $value
+     *
      * @throws Exception
      */
     public function setCommodityRegulatedLevelCode($value)
@@ -627,7 +646,7 @@ class HazMatChemicalRecord extends AbstractModel
                 $this->commodityRegulatedLevelCode = $value;
                 break;
             default:
-                throw new \Exception("Cannot set the commodity regulated level code with an unexpected value.");
+                throw new \Exception('Cannot set the commodity regulated level code with an unexpected value.');
         }
     }
 
@@ -636,16 +655,17 @@ class HazMatChemicalRecord extends AbstractModel
      * Valid values are 0 to 4.
      *
      * @param string $value
+     *
      * @throws Exception
      */
     public function setTransportCategory($value)
     {
         if (!is_numeric($value)) {
-            throw new \Exception("The transport category only accepts numerical values.");
+            throw new \Exception('The transport category only accepts numerical values.');
         }
 
         if ($value < 0 || $value > 4) {
-            throw new \Exception("The transport category value must be between 0 and 4.");
+            throw new \Exception('The transport category value must be between 0 and 4.');
         }
 
         $this->transportCategory = $value;
@@ -655,6 +675,7 @@ class HazMatChemicalRecord extends AbstractModel
      * Sets the tunnel restriction code attribute.
      *
      * @param string $value
+     *
      * @throws Exception
      */
     public function setTunnelRestrictionCode($value)
@@ -662,7 +683,7 @@ class HazMatChemicalRecord extends AbstractModel
         $len = strlen($value);
 
         if ($len < 1 || $len > 10) {
-            throw new \Exception("The string length of tunnel restriction code must be between 1 and 10.");
+            throw new \Exception('The string length of tunnel restriction code must be between 1 and 10.');
         }
 
         $this->tunnelRestrictionCode = $value;

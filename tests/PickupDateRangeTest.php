@@ -1,6 +1,6 @@
 <?php
 
-namespace Tests;
+namespace tests;
 
 use PHPUnit\Framework\TestCase;
 use Logme\Soap\Ups\PickupDateRange;
@@ -13,9 +13,9 @@ class PickupDateRangeTest extends TestCase
     public function it_sets_the_begin_date_with_string_formatted_has_yyyy_mm_dd()
     {
         $pickupDateRange = new PickupDateRange();
-        $pickupDateRange->beginDate = "20190109";
+        $pickupDateRange->beginDate = '20190109';
 
-        $this->assertEquals("20190109", $pickupDateRange->beginDate);
+        $this->assertEquals('20190109', $pickupDateRange->beginDate);
     }
 
     /**
@@ -26,7 +26,7 @@ class PickupDateRangeTest extends TestCase
     public function it_tries_to_set_begin_date_with_a_string_length_not_equals_to_8()
     {
         $pickupDateRange = new PickupDateRange();
-        $pickupDateRange->beginDate = "123456789";
+        $pickupDateRange->beginDate = '123456789';
     }
 
     /**
@@ -37,7 +37,7 @@ class PickupDateRangeTest extends TestCase
     public function it_tries_to_set_begin_date_without_a_string_formatted_has_yyyy_mm_dd()
     {
         $pickupDateRange = new PickupDateRange();
-        $pickupDateRange->beginDate = "12300234";
+        $pickupDateRange->beginDate = '12300234';
     }
 
     /**
@@ -46,9 +46,9 @@ class PickupDateRangeTest extends TestCase
     public function it_sets_the_end_date_with_string_formatted_has_yyyy_mm_dd()
     {
         $pickupDateRange = new PickupDateRange();
-        $pickupDateRange->endDate = "20190110";
+        $pickupDateRange->endDate = '20190110';
 
-        $this->assertEquals("20190110", $pickupDateRange->endDate);
+        $this->assertEquals('20190110', $pickupDateRange->endDate);
     }
 
     /**
@@ -59,7 +59,7 @@ class PickupDateRangeTest extends TestCase
     public function it_tries_to_set_end_date_with_a_string_length_not_equals_to_8()
     {
         $pickupDateRange = new PickupDateRange();
-        $pickupDateRange->endDate = "123456789";
+        $pickupDateRange->endDate = '123456789';
     }
 
     /**
@@ -70,7 +70,6 @@ class PickupDateRangeTest extends TestCase
     public function it_tries_to_set_end_date_without_a_string_formatted_has_yyyy_mm_dd()
     {
         $pickupDateRange = new PickupDateRange();
-        $pickupDateRange->endDate = "12300234";
+        $pickupDateRange->endDate = '12300234';
     }
-
 }

@@ -1,6 +1,6 @@
 <?php
 
-namespace Tests;
+namespace tests;
 
 use PHPUnit\Framework\TestCase;
 use Logme\Soap\Ups\HazMat;
@@ -9,7 +9,7 @@ class HazMatTest extends TestCase
 {
     /**
      * HazMat container instance.
-     * 
+     *
      * @var HazMat
      */
     protected $hazMat;
@@ -36,9 +36,9 @@ class HazMatTest extends TestCase
      */
     public function it_sets_the_package_identifier_attribute()
     {
-        $this->hazMat->packageIdentifier = "1234";
+        $this->hazMat->packageIdentifier = '1234';
 
-        $this->assertEquals("1234", $this->hazMat->packageIdentifier);
+        $this->assertEquals('1234', $this->hazMat->packageIdentifier);
     }
 
     /**
@@ -48,7 +48,7 @@ class HazMatTest extends TestCase
      */
     public function it_tries_to_set_the_package_identifier_with_string_greater_than_5()
     {
-        $this->hazMat->packageIdentifier = "123456";
+        $this->hazMat->packageIdentifier = '123456';
     }
 
     /**
@@ -56,9 +56,9 @@ class HazMatTest extends TestCase
      */
     public function it_sets_the_QValue_attribute()
     {
-        $this->hazMat->QValue = "0.1";
+        $this->hazMat->QValue = '0.1';
 
-        $this->assertEquals("0.1", $this->hazMat->QValue);
+        $this->assertEquals('0.1', $this->hazMat->QValue);
     }
 
     /**
@@ -68,7 +68,7 @@ class HazMatTest extends TestCase
      */
     public function it_tries_to_set_the_QValue_with_an_unexpected_value()
     {
-        $this->hazMat->QValue = "2.0";
+        $this->hazMat->QValue = '2.0';
     }
 
     /**
@@ -88,7 +88,7 @@ class HazMatTest extends TestCase
      */
     public function it_tries_to_set_over_packed_indicator_without_a_boolean_type_value()
     {
-        $this->hazMat->overPackedIndicator = "string";
+        $this->hazMat->overPackedIndicator = 'string';
     }
 
     /**
@@ -108,6 +108,6 @@ class HazMatTest extends TestCase
      */
     public function it_tries_to_set_all_packed_in_one_indicator_without_a_boolean_type_value()
     {
-        $this->hazMat->allPackedInOneIndicator = "string";
+        $this->hazMat->allPackedInOneIndicator = 'string';
     }
 }

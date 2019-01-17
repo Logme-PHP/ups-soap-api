@@ -13,9 +13,9 @@ class ReferenceNumberTest extends TestCase
     public function it_sets_the_value_attribute_value()
     {
         $referenceNumber = new ReferenceNumber();
-        $referenceNumber->value = "123456789";
-        
-        $this->assertEquals("123456789", $referenceNumber->value);
+        $referenceNumber->value = '123456789';
+
+        $this->assertEquals('123456789', $referenceNumber->value);
     }
 
     /**
@@ -26,7 +26,7 @@ class ReferenceNumberTest extends TestCase
     public function it_tries_to_set_the_value_attribute_with_string_greater_than_35()
     {
         $referenceNumber = new ReferenceNumber();
-        $str = str_repeat("1", 36);
+        $str = str_repeat('1', 36);
         $referenceNumber->value = $str;
     }
 }

@@ -2,19 +2,17 @@
 
 namespace Logme\Soap\Ups;
 
-use Logme\Soap\Ups\TransactionReference;
-
 class Request extends AbstractModel
 {
-    const RATE = "Rate";
-    const SHOP = "Shop";
-    const RATE_TIME_IN_TRANSIT = "Ratetimeintransit";
-    const SHOP_TIME_IN_TRANSIT = "Shoptimeintransit";
+    const RATE = 'Rate';
+    const SHOP = 'Shop';
+    const RATE_TIME_IN_TRANSIT = 'Ratetimeintransit';
+    const SHOP_TIME_IN_TRANSIT = 'Shoptimeintransit';
 
-    const SUBVERSION_1601 = "1601";
-    const SUBVERSION_1607 = "1607";
-    const SUBVERSION_1701 = "1701";
-    const SUBVERSION_1801 = "1801";
+    const SUBVERSION_1601 = '1601';
+    const SUBVERSION_1607 = '1607';
+    const SUBVERSION_1701 = '1701';
+    const SUBVERSION_1801 = '1801';
 
     /**
      * Used to define the request type.
@@ -25,7 +23,7 @@ class Request extends AbstractModel
 
     /**
      * Indicates Rate API to display the new release features in Rate API response based on Rate release.
-     * Supported values: 1601, 1607, 1701, 1801
+     * Supported values: 1601, 1607, 1701, 1801.
      *
      * @var string
      */
@@ -60,12 +58,13 @@ class Request extends AbstractModel
      * Rate is the only valid request option for UPS Ground Freight Pricing requests.
      *
      * @param string $value
+     *
      * @throws \Exception
      */
     protected function setRequestOption($value)
     {
         switch ($value) {
-            case "1":
+            case '1':
             case self::RATE:
             case self::SHOP:
             case self::RATE_TIME_IN_TRANSIT:
@@ -73,7 +72,7 @@ class Request extends AbstractModel
                 $this->requestOption = $value;
                 break;
             default:
-                throw new \Exception("Cannot set an invalid request option value.");
+                throw new \Exception('Cannot set an invalid request option value.');
         }
     }
 
@@ -82,6 +81,7 @@ class Request extends AbstractModel
      * Supported values: 1601, 1607, 1701, 1801.
      *
      * @param string $value
+     *
      * @throws \Exception
      */
     protected function setSubVersion($value)
@@ -94,7 +94,7 @@ class Request extends AbstractModel
                 $this->subVersion = $value;
                 break;
             default:
-                throw new \Exception("The requested sub version is not supported.");
+                throw new \Exception('The requested sub version is not supported.');
         }
     }
 

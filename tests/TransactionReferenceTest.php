@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 namespace Tests;
 
@@ -13,9 +13,9 @@ class TransactionReferenceTest extends TestCase
     public function it_sets_customer_context_attribute_value()
     {
         $transactionReference = new TransactionReference();
-        $transactionReference->customerContext = "Send my identifier number.";
+        $transactionReference->customerContext = 'Send my identifier number.';
 
-        $this->assertEquals("Send my identifier number.", $transactionReference->customerContext);
+        $this->assertEquals('Send my identifier number.', $transactionReference->customerContext);
     }
 
     /**
@@ -26,7 +26,7 @@ class TransactionReferenceTest extends TestCase
     public function it_tries_to_set_customer_context_context_with_string_greater_than_512()
     {
         $transactionReference = new TransactionReference();
-        $str = str_repeat("a", 513);
+        $str = str_repeat('a', 513);
         $transactionReference->customerContext = $str;
     }
 }

@@ -87,7 +87,7 @@ class PackageServiceOptions extends AbstractModel
 
     /**
      * Indicates special handling is required for shipment having controller substances.
-     * Valid only for CA to CA movements
+     * Valid only for CA to CA movements.
      *
      * Available for following return services:
      * Returns Exchange (available with a contract)
@@ -184,12 +184,13 @@ class PackageServiceOptions extends AbstractModel
      * Sets the proactive indicator attribute.
      *
      * @param bool $value
+     *
      * @throws Exception
      */
     public function setProactiveIndicator($value)
     {
         if (!is_bool($value)) {
-            throw new \Exception("Cannot set the proactive indicator without a boolean type value.");
+            throw new \Exception('Cannot set the proactive indicator without a boolean type value.');
         }
 
         $this->proactiveIndicator = $value;
@@ -199,12 +200,13 @@ class PackageServiceOptions extends AbstractModel
      * Sets the refrigeration indicator.
      *
      * @param bool $value
+     *
      * @throws Exception
      */
     public function setRefrigerationIndicator($value)
     {
         if (!is_bool($value)) {
-            throw new \Exception("Cannot set the refrigeration indicator without a boolean type value.");
+            throw new \Exception('Cannot set the refrigeration indicator without a boolean type value.');
         }
 
         $this->refrigerationIndicator = $value;
@@ -213,7 +215,7 @@ class PackageServiceOptions extends AbstractModel
     /**
      * Sets the insurance container.
      *
-     * @var Insurance $value
+     * @var Insurance
      */
     public function setInsurance(Insurance $value)
     {
@@ -224,12 +226,13 @@ class PackageServiceOptions extends AbstractModel
      * Sets the verbal confirmation indicator.
      *
      * @param bool $value
+     *
      * @throws Exception
      */
     public function setVerbalConfirmationIndicator($value)
     {
         if (!is_bool($value)) {
-            throw new \Exception("Cannot set the verbal confirmation indicator without a boolean type value.");
+            throw new \Exception('Cannot set the verbal confirmation indicator without a boolean type value.');
         }
 
         $this->verbalConfirmationIndicator = $value;
@@ -239,12 +242,13 @@ class PackageServiceOptions extends AbstractModel
      * Sets the UPS premium care indicator.
      *
      * @param bool $value
+     *
      * @throws Exception
      */
     public function setUPSPremiumCareIndicator($value)
     {
         if (!is_bool($value)) {
-            throw new \Exception("Cannot set the UPS Premium care indicator a boolean type value.");
+            throw new \Exception('Cannot set the UPS Premium care indicator a boolean type value.');
         }
 
         $this->UPSPremiumCareIndicator = $value;

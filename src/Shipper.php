@@ -41,12 +41,13 @@ class Shipper extends AbstractModel
      * Sets the shipper name or company name value.
      *
      * @param string $value
+     *
      * @throws Exception
      */
     public function setName($value)
     {
         if (strlen($value) > 35) {
-            throw new \Exception("The string length of shipper name must be less or equal to 35.");
+            throw new \Exception('The string length of shipper name must be less or equal to 35.');
         }
 
         $this->name = $value;
@@ -56,12 +57,13 @@ class Shipper extends AbstractModel
      * Sets the shipper account number value.
      *
      * @param string $value
+     *
      * @throws Exception
      */
     public function setShipperNumber($value)
     {
         if (strlen($value) > 6) {
-            throw new \Exception("The string length of shipper number must be less or equal to 6.");
+            throw new \Exception('The string length of shipper number must be less or equal to 6.');
         }
 
         $this->shipperNumber = $value;

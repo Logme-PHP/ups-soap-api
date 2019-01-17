@@ -1,6 +1,6 @@
 <?php
 
-namespace Tests;
+namespace tests;
 
 use PHPUnit\Framework\TestCase;
 use Logme\Soap\Ups\PackageServiceOptions;
@@ -13,7 +13,7 @@ class PackageServiceOptionsTest extends TestCase
 {
     /**
      * Package service options instance.
-     * 
+     *
      * @var PackageServiceOptions
      */
     public $packageServiceOptions;
@@ -26,7 +26,7 @@ class PackageServiceOptionsTest extends TestCase
         parent::setUp();
         $this->packageServiceOptions = new PackageServiceOptions();
     }
-    
+
     /**
      * @test Sets defaults attributes values.
      */
@@ -47,13 +47,13 @@ class PackageServiceOptionsTest extends TestCase
     public function it_sets_delivery_confirmation_container()
     {
         $this->assertNull($this->packageServiceOptions->deliveryConfirmation->DCISType);
-        
+
         $deliveryConfirmation = new DeliveryConfirmation();
         $deliveryConfirmation->DCISType = $deliveryConfirmation::DELIVERY_CONFIRMATION;
 
         $this->packageServiceOptions->deliveryConfirmation = $deliveryConfirmation;
 
-        $this->assertEquals("1", $this->packageServiceOptions->deliveryConfirmation->DCISType);
+        $this->assertEquals('1', $this->packageServiceOptions->deliveryConfirmation->DCISType);
     }
 
     /**
@@ -65,16 +65,16 @@ class PackageServiceOptionsTest extends TestCase
         $this->assertNull($this->packageServiceOptions->accessPointCOD->monetaryValue);
 
         $accessPointCOD = new Currency();
-        $accessPointCOD->currencyCode = "EUR";
-        $accessPointCOD->monetaryValue = "200.5";
+        $accessPointCOD->currencyCode = 'EUR';
+        $accessPointCOD->monetaryValue = '200.5';
 
         $this->packageServiceOptions->accessPointCOD = $accessPointCOD;
 
-        $this->assertEquals("EUR", $this->packageServiceOptions->accessPointCOD->currencyCode);
-        $this->assertEquals("200.5", $this->packageServiceOptions->accessPointCOD->monetaryValue);
+        $this->assertEquals('EUR', $this->packageServiceOptions->accessPointCOD->currencyCode);
+        $this->assertEquals('200.5', $this->packageServiceOptions->accessPointCOD->monetaryValue);
     }
 
-        /**
+    /**
      * @test Sets the COD container.
      */
     public function it_sets_the_COD_container()
@@ -83,18 +83,18 @@ class PackageServiceOptionsTest extends TestCase
         $this->assertInstanceOf(Currency::class, $this->packageServiceOptions->COD->CODAmount);
 
         $CODAmount = new Currency();
-        $CODAmount->currencyCode = "EUR";
-        $CODAmount->monetaryValue = "200";
+        $CODAmount->currencyCode = 'EUR';
+        $CODAmount->monetaryValue = '200';
 
         $COD = new CashOnDelivery();
-        $COD->CODFundsCode = "1";
+        $COD->CODFundsCode = '1';
         $COD->CODAmount = $CODAmount;
 
         $this->packageServiceOptions->COD = $COD;
 
-        $this->assertEquals("1", $this->packageServiceOptions->COD->CODFundsCode);
-        $this->assertEquals("EUR", $this->packageServiceOptions->COD->CODAmount->currencyCode);
-        $this->assertEquals("200", $this->packageServiceOptions->COD->CODAmount->monetaryValue);
+        $this->assertEquals('1', $this->packageServiceOptions->COD->CODFundsCode);
+        $this->assertEquals('EUR', $this->packageServiceOptions->COD->CODAmount->currencyCode);
+        $this->assertEquals('200', $this->packageServiceOptions->COD->CODAmount->monetaryValue);
     }
 
     /**
@@ -106,13 +106,13 @@ class PackageServiceOptionsTest extends TestCase
         $this->assertNull($this->packageServiceOptions->declaredValue->monetaryValue);
 
         $declaredValue = new Currency();
-        $declaredValue->currencyCode = "EUR";
-        $declaredValue->monetaryValue = "200.5";
+        $declaredValue->currencyCode = 'EUR';
+        $declaredValue->monetaryValue = '200.5';
 
         $this->packageServiceOptions->declaredValue = $declaredValue;
 
-        $this->assertEquals("EUR", $this->packageServiceOptions->declaredValue->currencyCode);
-        $this->assertEquals("200.5", $this->packageServiceOptions->declaredValue->monetaryValue);
+        $this->assertEquals('EUR', $this->packageServiceOptions->declaredValue->currencyCode);
+        $this->assertEquals('200.5', $this->packageServiceOptions->declaredValue->monetaryValue);
     }
 
     /**
@@ -124,13 +124,13 @@ class PackageServiceOptionsTest extends TestCase
         $this->assertNull($this->packageServiceOptions->shipperDeclaredValue->monetaryValue);
 
         $declaredValue = new Currency();
-        $declaredValue->currencyCode = "EUR";
-        $declaredValue->monetaryValue = "200.5";
+        $declaredValue->currencyCode = 'EUR';
+        $declaredValue->monetaryValue = '200.5';
 
         $this->packageServiceOptions->shipperDeclaredValue = $declaredValue;
 
-        $this->assertEquals("EUR", $this->packageServiceOptions->shipperDeclaredValue->currencyCode);
-        $this->assertEquals("200.5", $this->packageServiceOptions->shipperDeclaredValue->monetaryValue);
+        $this->assertEquals('EUR', $this->packageServiceOptions->shipperDeclaredValue->currencyCode);
+        $this->assertEquals('200.5', $this->packageServiceOptions->shipperDeclaredValue->monetaryValue);
     }
 
     /**
@@ -150,7 +150,7 @@ class PackageServiceOptionsTest extends TestCase
      */
     public function it_tries_to_set_the_proactive_indicator_without_a_boolean_type_value()
     {
-        $this->packageServiceOptions->proactiveIndicator = "string";
+        $this->packageServiceOptions->proactiveIndicator = 'string';
     }
 
     /**
@@ -170,7 +170,7 @@ class PackageServiceOptionsTest extends TestCase
      */
     public function it_tries_to_set_the_refrigeration_indicator_without_a_boolean_type_value()
     {
-        $this->packageServiceOptions->refrigerationIndicator = "string";
+        $this->packageServiceOptions->refrigerationIndicator = 'string';
     }
 
     /**
@@ -189,16 +189,16 @@ class PackageServiceOptionsTest extends TestCase
         $this->assertNull($this->packageServiceOptions->insurance->timeInTransitFlexibleParcelIndicator->monetaryValue);
 
         $basic = new Currency();
-        $basic->currencyCode = "USD";
-        $basic->monetaryValue = "50";
+        $basic->currencyCode = 'USD';
+        $basic->monetaryValue = '50';
 
         $extended = new Currency();
-        $extended->currencyCode = "EUR";
-        $extended->monetaryValue = "60";
+        $extended->currencyCode = 'EUR';
+        $extended->monetaryValue = '60';
 
         $timeInTransit = new Currency();
-        $timeInTransit->currencyCode = "USD";
-        $timeInTransit->monetaryValue = "40";
+        $timeInTransit->currencyCode = 'USD';
+        $timeInTransit->monetaryValue = '40';
 
         $insurance = new Insurance();
         $insurance->basicFlexibleParcelIndicator = $basic;
@@ -207,12 +207,12 @@ class PackageServiceOptionsTest extends TestCase
 
         $this->packageServiceOptions->insurance = $insurance;
 
-        $this->assertEquals("USD", $this->packageServiceOptions->insurance->basicFlexibleParcelIndicator->currencyCode);
-        $this->assertEquals("50", $this->packageServiceOptions->insurance->basicFlexibleParcelIndicator->monetaryValue);
-        $this->assertEquals("EUR", $this->packageServiceOptions->insurance->extendedFlexibleParcelIndicator->currencyCode);
-        $this->assertEquals("60", $this->packageServiceOptions->insurance->extendedFlexibleParcelIndicator->monetaryValue);
-        $this->assertEquals("USD", $this->packageServiceOptions->insurance->timeInTransitFlexibleParcelIndicator->currencyCode);
-        $this->assertEquals("40", $this->packageServiceOptions->insurance->timeInTransitFlexibleParcelIndicator->monetaryValue);
+        $this->assertEquals('USD', $this->packageServiceOptions->insurance->basicFlexibleParcelIndicator->currencyCode);
+        $this->assertEquals('50', $this->packageServiceOptions->insurance->basicFlexibleParcelIndicator->monetaryValue);
+        $this->assertEquals('EUR', $this->packageServiceOptions->insurance->extendedFlexibleParcelIndicator->currencyCode);
+        $this->assertEquals('60', $this->packageServiceOptions->insurance->extendedFlexibleParcelIndicator->monetaryValue);
+        $this->assertEquals('USD', $this->packageServiceOptions->insurance->timeInTransitFlexibleParcelIndicator->currencyCode);
+        $this->assertEquals('40', $this->packageServiceOptions->insurance->timeInTransitFlexibleParcelIndicator->monetaryValue);
     }
 
     /**
@@ -232,7 +232,7 @@ class PackageServiceOptionsTest extends TestCase
      */
     public function it_tries_to_set_the_verbal_confirmation_indicator_without_a_boolean_type_value()
     {
-        $this->packageServiceOptions->verbalConfirmationIndicator = "string";
+        $this->packageServiceOptions->verbalConfirmationIndicator = 'string';
     }
 
     /**
@@ -252,6 +252,6 @@ class PackageServiceOptionsTest extends TestCase
      */
     public function it_tries_to_set_the_UPS_premium_care_indicator_without_a_boolean_type_value()
     {
-        $this->packageServiceOptions->UPSPremiumCareIndicator = "string";
+        $this->packageServiceOptions->UPSPremiumCareIndicator = 'string';
     }
 }

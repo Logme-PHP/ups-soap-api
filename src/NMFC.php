@@ -27,19 +27,20 @@ class NMFC extends AbstractModel
      */
     public function __construct()
     {
-        $this->subCode = "00";
+        $this->subCode = '00';
     }
 
     /**
      * Sets prime code value.
      *
      * @param string $value;
+     *
      * @throws Exception
      */
     public function setPrimeCode($value)
     {
         if (strlen($value) < 4 || strlen($value) > 6) {
-            throw new \Exception("The string length of prime code must be between 4 and 6.");
+            throw new \Exception('The string length of prime code must be between 4 and 6.');
         }
 
         $this->primeCode = $value;
@@ -49,14 +50,15 @@ class NMFC extends AbstractModel
      * Sets the sub code value.
      *
      * @param string $value
+     *
      * @throws Exception
      */
     public function setSubCode($value)
     {
         if (strlen($value) > 2) {
-            throw new \Exception("The string length of sub code must be less or equal to 2.");
+            throw new \Exception('The string length of sub code must be less or equal to 2.');
         }
-            
+
         $this->subCode = $value;
     }
 }

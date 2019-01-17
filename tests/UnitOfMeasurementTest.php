@@ -15,8 +15,8 @@ class UnitOfMeasurementTest extends TestCase
         $unitOfMeasurement = new UnitOfMeasurement();
         $unitOfMeasurement->code = $unitOfMeasurement::CENTIMETERS;
 
-        $this->assertEquals("CM", $unitOfMeasurement->code);
-        $this->assertEquals("Centimeters", $unitOfMeasurement->description);
+        $this->assertEquals('CM', $unitOfMeasurement->code);
+        $this->assertEquals('Centimeters', $unitOfMeasurement->description);
     }
 
     /**
@@ -27,7 +27,7 @@ class UnitOfMeasurementTest extends TestCase
     public function it_tries_to_set_the_code_for_unit_of_measurement_with_an_unexpected_value()
     {
         $unitOfMeasurement = new UnitOfMeasurement();
-        $unitOfMeasurement->code = "M";
+        $unitOfMeasurement->code = 'M';
     }
 
     /**
@@ -81,6 +81,6 @@ class UnitOfMeasurementTest extends TestCase
     public function it_tries_to_set_weight_measure_as_code_without_a_boolean_type_value()
     {
         $unitOfMeasurement = new UnitOfMeasurement();
-        $unitOfMeasurement->useWeightMeasureAsCode = "string";
+        $unitOfMeasurement->useWeightMeasureAsCode = 'string';
     }
 }

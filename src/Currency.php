@@ -25,12 +25,13 @@ class Currency extends AbstractModel
      * Sets currency code.
      *
      * @param string $value
+     *
      * @throws Exception
      */
     public function setCurrencyCode($value)
     {
         if (strlen($value) > 3) {
-            throw new \Exception("The string length of currency code must be less or equal to 3.");
+            throw new \Exception('The string length of currency code must be less or equal to 3.');
         }
 
         $this->currencyCode = $value;
@@ -44,7 +45,7 @@ class Currency extends AbstractModel
     public function setMonetaryValue($value)
     {
         if (strlen($value) > 8) {
-            throw new \Exception("The string length of monetary value must be less or equal to 8.");
+            throw new \Exception('The string length of monetary value must be less or equal to 8.');
         }
 
         $this->monetaryValue = $value;

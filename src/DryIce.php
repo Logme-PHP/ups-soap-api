@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 namespace Logme\Soap\Ups;
 
@@ -13,8 +13,8 @@ class DryIce extends AbstractModel
      * @var array
      */
     private $regulationsSets = [
-        "CDR",
-        "IATA"
+        'CDR',
+        'IATA',
     ];
 
     /**
@@ -44,14 +44,15 @@ class DryIce extends AbstractModel
      * Sets the regulation set attribute.
      *
      * @param string $value
+     *
      * @throws Exception
-     */ 
+     */
     public function setRegulationSet($value)
     {
         if (!in_array($value, $this->regulationsSets)) {
-            throw new \Exception("Cannot set the regulation set with an unexpected value.");
+            throw new \Exception('Cannot set the regulation set with an unexpected value.');
         }
-        
+
         $this->regulationSet = $value;
     }
 

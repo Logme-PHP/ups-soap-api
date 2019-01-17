@@ -1,6 +1,6 @@
 <?php
 
-namespace Tests;
+namespace tests;
 
 use PHPUnit\Framework\TestCase;
 use Logme\Soap\Ups\Address;
@@ -28,23 +28,23 @@ class AddressTest extends TestCase
      */
     public function it_sets_address_line_value()
     {
-        $this->address->addressLine = "1st address line";
+        $this->address->addressLine = '1st address line';
 
         $this->assertCount(1, $this->address->addressLine);
-        $this->assertContains("1st address line", $this->address->addressLine);
+        $this->assertContains('1st address line', $this->address->addressLine);
 
-        $this->address->addressLine = "2nd address line";
+        $this->address->addressLine = '2nd address line';
 
         $this->assertCount(2, $this->address->addressLine);
-        $this->assertContains("1st address line", $this->address->addressLine);
-        $this->assertContains("2nd address line", $this->address->addressLine);
+        $this->assertContains('1st address line', $this->address->addressLine);
+        $this->assertContains('2nd address line', $this->address->addressLine);
 
-        $this->address->addressLine = "3rd address line";
+        $this->address->addressLine = '3rd address line';
 
         $this->assertCount(3, $this->address->addressLine);
-        $this->assertContains("1st address line", $this->address->addressLine);
-        $this->assertContains("2nd address line", $this->address->addressLine);
-        $this->assertContains("3rd address line", $this->address->addressLine);
+        $this->assertContains('1st address line', $this->address->addressLine);
+        $this->assertContains('2nd address line', $this->address->addressLine);
+        $this->assertContains('3rd address line', $this->address->addressLine);
     }
 
     /**
@@ -55,11 +55,11 @@ class AddressTest extends TestCase
     public function it_tries_to_set_a_new_address_line_but_the_address_line_array_already_have_3_elements()
     {
         $this->address->addressLine = [
-            "1st address line",
-            "2nd address line",
-            "3rd address line"
+            '1st address line',
+            '2nd address line',
+            '3rd address line',
         ];
-        $this->address->addressLine = "4th address line";
+        $this->address->addressLine = '4th address line';
     }
 
     /**
@@ -69,7 +69,7 @@ class AddressTest extends TestCase
      */
     public function it_tries_to_set_address_line_with_string_length_greater_that_35()
     {
-        $str = str_repeat("a", 36);
+        $str = str_repeat('a', 36);
         $this->address->addressLine = $str;
     }
 
@@ -81,12 +81,12 @@ class AddressTest extends TestCase
     public function it_tries_to_add_new_element_to_address_line_but_the_list_reach_the_maximum_size_of_3_elements()
     {
         $this->address->addressLine = [
-            "1st address line",
-            "2nd address line",
+            '1st address line',
+            '2nd address line',
         ];
         $this->address->addressLine = [
-            "3rd address line",
-            "4th address line"
+            '3rd address line',
+            '4th address line',
         ];
     }
 
@@ -96,9 +96,9 @@ class AddressTest extends TestCase
     public function it_cleans_the_address_line_list()
     {
         $this->address->addressLine = [
-            "1st address line",
-            "2nd address line",
-            "3rd address line"
+            '1st address line',
+            '2nd address line',
+            '3rd address line',
         ];
         $this->assertCount(3, $this->address->addressLine);
 
@@ -112,9 +112,9 @@ class AddressTest extends TestCase
      */
     public function it_sets_city_of_the_address()
     {
-        $this->address->city = "Lisbon";
-        
-        $this->assertEquals("Lisbon", $this->address->city);
+        $this->address->city = 'Lisbon';
+
+        $this->assertEquals('Lisbon', $this->address->city);
     }
 
     /**
@@ -124,7 +124,7 @@ class AddressTest extends TestCase
      */
     public function it_tries_to_set_city_with_a_string_length_greater_than_30()
     {
-        $str = str_repeat("a", 31);
+        $str = str_repeat('a', 31);
         $this->address->city = $str;
     }
 
@@ -133,9 +133,9 @@ class AddressTest extends TestCase
      */
     public function it_sets_the_state_province_code_of_the_address()
     {
-        $this->address->stateProvinceCode = "AA";
+        $this->address->stateProvinceCode = 'AA';
 
-        $this->assertEquals("AA", $this->address->stateProvinceCode);
+        $this->assertEquals('AA', $this->address->stateProvinceCode);
     }
 
     /**
@@ -145,7 +145,7 @@ class AddressTest extends TestCase
      */
     public function it_tries_to_set_state_province_code_with_a_string_length_greater_than_2()
     {
-        $this->address->stateProvinceCode = "AAA";
+        $this->address->stateProvinceCode = 'AAA';
     }
 
     /**
@@ -153,9 +153,9 @@ class AddressTest extends TestCase
      */
     public function it_sets_the_postal_code_of_the_address()
     {
-        $this->address->postalCode = "2400766";
-        
-        $this->assertEquals("2400766", $this->address->postalCode);
+        $this->address->postalCode = '2400766';
+
+        $this->assertEquals('2400766', $this->address->postalCode);
     }
 
     /**
@@ -165,7 +165,7 @@ class AddressTest extends TestCase
      */
     public function it_tries_to_set_postal_code_with_a_string_length_greater_than_9()
     {
-        $this->address->postalCode = "0123456789";
+        $this->address->postalCode = '0123456789';
     }
 
     /**
@@ -173,9 +173,9 @@ class AddressTest extends TestCase
      */
     public function it_sets_the_country_code_of_the_address()
     {
-        $this->address->countryCode = "AN";
+        $this->address->countryCode = 'AN';
 
-        $this->assertEquals("AN", $this->address->countryCode);
+        $this->assertEquals('AN', $this->address->countryCode);
     }
 
     /**
@@ -185,7 +185,7 @@ class AddressTest extends TestCase
      */
     public function it_tries_to_set_country_code_with_a_string_length_greater_than_2()
     {
-        $this->address->countryCode = "AQT";
+        $this->address->countryCode = 'AQT';
     }
 
     /**
@@ -207,6 +207,6 @@ class AddressTest extends TestCase
      */
     public function it_tries_to_set_residential_address_indicator_without_a_boolean_type_value()
     {
-        $this->address->residentialAddressIndicator = "is false";
+        $this->address->residentialAddressIndicator = 'is false';
     }
 }

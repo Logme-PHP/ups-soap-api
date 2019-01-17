@@ -27,12 +27,13 @@ abstract class AbstractType extends AbstractModel
      * Sets the type code.
      *
      * @param string $value
+     *
      * @throws Exception
      */
-    public function setCode($value)
+    protected function setCode($value)
     {
         if (!array_key_exists($value, $this->descriptions)) {
-            throw new \Exception("Cannot set an invalid code value.");
+            throw new \Exception('Cannot set an invalid code value.');
         }
 
         $this->code = $value;

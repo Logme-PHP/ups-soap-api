@@ -9,7 +9,7 @@ class NMFCTest extends TestCase
 {
     /**
      * NMFC instance.
-     * 
+     *
      * @var NMFC
      */
     public $NMFC;
@@ -28,7 +28,7 @@ class NMFCTest extends TestCase
      */
     public function it_sets_defaults_attributes_values()
     {
-        $this->assertEquals("00", $this->NMFC->subCode);
+        $this->assertEquals('00', $this->NMFC->subCode);
     }
 
     /**
@@ -36,9 +36,9 @@ class NMFCTest extends TestCase
      */
     public function it_sets_prime_code_attribute()
     {
-        $this->NMFC->primeCode = "AAAA";
+        $this->NMFC->primeCode = 'AAAA';
 
-        $this->assertEquals("AAAA", $this->NMFC->primeCode);
+        $this->assertEquals('AAAA', $this->NMFC->primeCode);
     }
 
     /**
@@ -48,7 +48,7 @@ class NMFCTest extends TestCase
      */
     public function it_tries_to_set_prime_code_with_string_an_invalid_string_length()
     {
-        $this->NMFC->primeCode = "AAAAAAA";
+        $this->NMFC->primeCode = 'AAAAAAA';
     }
 
     /**
@@ -56,9 +56,9 @@ class NMFCTest extends TestCase
      */
     public function it_sets_sub_code_attribute()
     {
-        $this->NMFC->subCode = "11";
+        $this->NMFC->subCode = '11';
 
-        $this->assertEquals("11", $this->NMFC->subCode);
+        $this->assertEquals('11', $this->NMFC->subCode);
     }
 
     /**
@@ -68,6 +68,6 @@ class NMFCTest extends TestCase
      */
     public function it_tries_to_set_sub_code_with_a_string_greater_than_2()
     {
-        $this->NMFC->subCode = "000";
+        $this->NMFC->subCode = '000';
     }
 }
