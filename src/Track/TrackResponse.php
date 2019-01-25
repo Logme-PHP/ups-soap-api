@@ -23,7 +23,15 @@ class TrackResponse extends AbstractModel
      *
      * @var array
      */
-    protected $shipment;
+    protected $shipment = [];
+
+    /**
+     * Create a new track response instance.
+     */
+    public function __construct()
+    {
+        $this->response = new Response();
+    }
 
     /**
      * Set the response container.

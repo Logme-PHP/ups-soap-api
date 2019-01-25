@@ -93,7 +93,7 @@ abstract class AbstractModel
                     $this->upperPropertyName(get_object_vars($value)) : $value;
             }
 
-            if (is_array($array[$upperKey])) {
+            if (is_array($array[$upperKey]) && count($array[$upperKey]) > 0) {
                 $array[$upperKey] = $this->upperPropertyName($array[$upperKey]);
             }
         }
@@ -111,20 +111,57 @@ abstract class AbstractModel
      */
     private function instantiateProperty($class, $object)
     {
-        foreach ($object as $k => $value) {
-            $key = lcfirst($k);
-            if (property_exists($class, $key)) {
-                if (is_object($value)) {
-                    $c = $this->getValidNamespace(get_class($class), $key);
-                    $class->$key = new $c();
-                    $class->$key = $this->instantiateProperty($class->$key, $value);
+        $reflection = new \ReflectionClass(get_class($class));
+
+        foreach ($object as $key => $value) {
+            $k = lcfirst($key);
+            if (property_exists($class, $k)) {
+                $property = $reflection->getProperty($k);
+                $property->setAccessible(true);
+                if (is_array($property->getValue($class))) {
+                    $array = $property->getValue($class);
+                    if (is_array($value)) {
+                        foreach ($value as $val) {
+                            $c = $this->getValidClass($class, $key);
+                            $v = $this->instantiateProperty($c, $val);
+                            array_push($array, $v);
+                        }
+                    } elseif (is_object($value)) {
+                        $c = $this->getValidClass($class, $k);
+                        $v = $this->instantiateProperty($c, $value);
+                        array_push($array, $v);
+                    } else {
+                        array_push($array, $value);
+                    }
+                    $property->setValue($class, $array);
+                } elseif (is_object($value)) {
+                    $c = $this->getValidClass($class, $k);
+                    $v = $this->instantiateProperty($c, $value);
+                    $property->setValue($class, $v);
                 } else {
-                    $class->$key = $value;
+                    $property->setValue($class, $value);
                 }
             }
         }
 
         return $class;
+    }
+
+    /**
+     * Instantiate a valid class.
+     *
+     * @param string $class
+     * @param string $key
+     *
+     * @return string
+     */
+    private function getValidClass($class, $key)
+    {
+        $instance = $this->getValidNamespace($class, $key);
+
+        $reflection = new \ReflectionClass($instance);
+
+        return $reflection->newInstanceWithoutConstructor();
     }
 
     /**

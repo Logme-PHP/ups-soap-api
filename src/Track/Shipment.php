@@ -3,6 +3,8 @@
 namespace Logme\Soap\Ups\Track;
 
 use Logme\Soap\Ups\AbstractModel;
+use Logme\Soap\Ups\Service;
+use Logme\Soap\Ups\ReferenceNumber;
 
 /**
  * Tracking shipment container.
@@ -44,6 +46,74 @@ class Shipment extends AbstractModel
      * @var string
      */
     protected $shipperNumber;
+
+    /**
+     * An array of addresses associated with the shipment.
+     *
+     * @var array
+     */
+    protected $shipmentAddress = [];
+
+    /**
+     * Shipment weight container.
+     * 
+     * @var ShipmentWeight;
+     */
+    protected $shipmentWeight;
+
+    /**
+     * Container for UPS service associated with shipment.
+     * 
+     * @var Service
+     */
+    protected $service;
+
+    /**
+     * An array of shipment reference number containers.
+     * 
+     * @var array
+     */
+    protected $referenceNumber = [];
+
+    /**
+     * Sets the reference number value.
+     * 
+     * @param ReferenceNumber $value
+     */
+    protected function setReferenceNumber(array $value)
+    {
+        $this->referenceNumber = $value;
+    }
+
+    /**
+     * Sets the service value.
+     * 
+     * @param Service $value
+     */
+    protected function setService(Service $value)
+    {
+        $this->service = $value;
+    }
+
+    /**
+     * Sets the shipment weight.
+     * 
+     * @param ShipmentWeight $value
+     */
+    protected function setShipmentWeight(ShipmentWeight $value)
+    {
+        $this->shipmentWeight = $value;
+    }
+
+    /**
+     * Sets the shipment address array with shipment address container.
+     *
+     * @var array
+     */
+    protected function setShipmentAddress(array $value)
+    {
+        $this->shipmentAddress = $value;
+    }
 
     /**
      * Sets the shipper number value.

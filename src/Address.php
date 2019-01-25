@@ -146,6 +146,13 @@ class Address extends AbstractModel
         $this->countryCode = $value;
     }
 
+    /**
+     * Set residential address indicator.
+     *
+     * @param bool $value
+     *
+     * @throws \Exception
+     */
     public function setResidentialAddressIndicator($value)
     {
         if (!is_bool($value)) {

@@ -132,8 +132,8 @@ class TrackRequest extends AbstractModel
     public function __construct()
     {
         $this->request = new Request();
-        $this->referenceNumber = new ReferenceNumber();
-        $this->pickupDateRange = new PickupDateRange();
+        //$this->referenceNumber = new ReferenceNumber();
+        //$this->pickupDateRange = new PickupDateRange();
     }
 
     /**

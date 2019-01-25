@@ -29,4 +29,27 @@ class ReferenceNumberTest extends TestCase
         $str = str_repeat('1', 36);
         $referenceNumber->value = $str;
     }
+
+    /**
+     * @test Sets the code attribute with a valid value.
+     */
+    public function it_sets_the_code_attribute_with_a_valid_value()
+    {
+        $referenceNumber = new ReferenceNumber();
+        $referenceNumber->code = ReferenceNumber::UPS_WAYBILL_NUMBER;
+
+        $this->assertEquals('13', $referenceNumber->code);
+        $this->assertEquals('UPS Waybill Number', $referenceNumber->description);
+    }
+
+    /**
+     * @test Tries to set the code attribute without a valid value.
+     * @expectedException Exception
+     * @expectedExceptionMessage Cannot set an invalid code value.
+     */
+    public function it_tries_to_set_the_code_attribute_without_a_valid_value()
+    {
+        $referenceNumber = new ReferenceNumber();
+        $referenceNumber->code = '01';
+    }
 }

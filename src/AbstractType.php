@@ -20,6 +20,8 @@ abstract class AbstractType extends AbstractModel
 
     /**
      * The description of the code that representing the type.
+     * 
+     * @var string
      */
     protected $description;
 
