@@ -88,6 +88,8 @@ abstract class AbstractModel
             unset($array[$key]);
             $upperKey = ucfirst($key);
 
+            if ($upperKey == 'ShipmentType') var_dump($value);
+
             if (!is_null($value)) {
                 $array[$upperKey] = is_object($value) ?
                     $this->upperPropertyName(get_object_vars($value)) : $value;
