@@ -18,6 +18,7 @@ class Service extends AbstractType
     const SAVER = '65';
     const UPS_WORLDWIDE_EXPRESS_FREIGHT = '96';
     const UPS_WORLDWIDE_EXPRESS_FREIGHT_MIDDAY = '71';
+    const UPS_EXPRESS_SAVER = '065';
 
     /**
      * List with the descriptions for service.
@@ -39,6 +40,7 @@ class Service extends AbstractType
      * 65 - Saver
      * 96 - UPS Worldwide Express Freight
      * 71 - UPS Worldwide Express Freight Midday
+     * 065 - UPS Express Saver
      *
      * @var array
      */
@@ -57,5 +59,6 @@ class Service extends AbstractType
         self::SAVER => 'Saver',
         self::UPS_WORLDWIDE_EXPRESS_FREIGHT => 'UPS Worldwide Express Freight',
         self::UPS_WORLDWIDE_EXPRESS_FREIGHT_MIDDAY => 'UPS Worldwide Express Freight Midday',
+        self::UPS_EXPRESS_SAVER => 'UPS Express Saver',
     ];
 }

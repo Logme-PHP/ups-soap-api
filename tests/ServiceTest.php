@@ -19,13 +19,14 @@ class ServiceTest extends TestCase
     }
 
     /**
-     * @test Tries to set service code with an unexpected value.
-     * @expectedException Exception
-     * @expectedExceptionMessage Cannot set an invalid code value.
+     * @test Sets service code with an unexpected value.
      */
     public function it_tries_to_set_service_code_with_an_unexpected_value()
     {
         $service = new Service();
         $service->code = '15461';
+
+        $this->assertEquals('15461', $service->code);
+        $this->assertEquals('Unknown code', $service->description);
     }
 }

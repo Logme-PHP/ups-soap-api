@@ -20,13 +20,14 @@ class ResponseStatusTest extends TestCase
     }
 
     /**
-     * @test Tries to set response status with a invalid value.
-     * @expectedException Exception
-     * @expectedExceptionMessage Cannot set an invalid code value.
+     * @test Sets response status with a invalid value.
      */
     public function it_tries_to_set_response_status_with_a_invalid_value()
     {
         $responseStatus = new ResponseStatus();
         $responseStatus->code = '2';
+
+        $this->assertEquals('2', $responseStatus->code);
+        $this->assertEquals('Unknown code', $responseStatus->description);
     }
 }

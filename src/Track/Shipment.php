@@ -5,6 +5,7 @@ namespace Logme\Soap\Ups\Track;
 use Logme\Soap\Ups\AbstractModel;
 use Logme\Soap\Ups\Service;
 use Logme\Soap\Ups\ReferenceNumber;
+use Logme\Soap\Ups\InquiryNumber;
 
 /**
  * Tracking shipment container.
@@ -56,28 +57,38 @@ class Shipment extends AbstractModel
 
     /**
      * Shipment weight container.
-     * 
+     *
      * @var ShipmentWeight;
      */
     protected $shipmentWeight;
 
     /**
      * Container for UPS service associated with shipment.
-     * 
+     *
      * @var Service
      */
     protected $service;
 
     /**
      * An array of shipment reference number containers.
-     * 
+     *
      * @var array
      */
     protected $referenceNumber = [];
 
     /**
+     * Container for Inquiry Number associated with shipment.
+     *
+     * @var InquiryNumber
+     */
+    protected function setInquiryNumber(InquiryNumber $value)
+    {
+        $this->inquiryNumber = $value;
+    }
+
+    /**
      * Sets the reference number value.
-     * 
+     *
      * @param ReferenceNumber $value
      */
     protected function setReferenceNumber(array $value)
@@ -87,7 +98,7 @@ class Shipment extends AbstractModel
 
     /**
      * Sets the service value.
-     * 
+     *
      * @param Service $value
      */
     protected function setService(Service $value)
@@ -97,7 +108,7 @@ class Shipment extends AbstractModel
 
     /**
      * Sets the shipment weight.
-     * 
+     *
      * @param ShipmentWeight $value
      */
     protected function setShipmentWeight(ShipmentWeight $value)

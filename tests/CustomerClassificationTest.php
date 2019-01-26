@@ -20,13 +20,14 @@ class CustomerClassificationTest extends TestCase
     }
 
     /**
-     * @test Tries to set code without a class expected attribute.
-     * @expectedException Exception
-     * @expectedExceptionMessage Cannot set an invalid code value.
+     * @test Sets code without a class expected attribute.
      */
-    public function it_tries_to_set_code_without_an_expected_value()
+    public function it_sets_code_without_an_expected_value()
     {
         $customerClassification = new CustomerClassification();
         $customerClassification->code = '99';
+
+        $this->assertEquals('99', $customerClassification->code);
+        $this->assertEquals('Unknown code', $customerClassification->description);
     }
 }

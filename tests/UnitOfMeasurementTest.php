@@ -21,13 +21,14 @@ class UnitOfMeasurementTest extends TestCase
 
     /**
      * @test Tries to set the code for unit of measurement with an unexpected value.
-     * @expectedException Exception
-     * @expectedExceptionMessage Cannot set an invalid code value.
      */
     public function it_tries_to_set_the_code_for_unit_of_measurement_with_an_unexpected_value()
     {
         $unitOfMeasurement = new UnitOfMeasurement();
         $unitOfMeasurement->code = 'M';
+
+        $this->assertEquals('M', $unitOfMeasurement->code);
+        $this->assertEquals('Unknown code', $unitOfMeasurement->description);
     }
 
     /**
@@ -41,6 +42,7 @@ class UnitOfMeasurementTest extends TestCase
         $this->assertTrue($unitOfMeasurement->isWeightMeasure());
 
         $unitOfMeasurement->code = $unitOfMeasurement::CENTIMETERS;
+        $unitOfMeasurement->useWeightMeasureAsCode = true;
 
         $this->assertFalse($unitOfMeasurement->isWeightMeasure());
     }

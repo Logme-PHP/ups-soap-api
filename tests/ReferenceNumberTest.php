@@ -43,13 +43,14 @@ class ReferenceNumberTest extends TestCase
     }
 
     /**
-     * @test Tries to set the code attribute without a valid value.
-     * @expectedException Exception
-     * @expectedExceptionMessage Cannot set an invalid code value.
+     * @test Sets the code attribute without a valid value.
      */
     public function it_tries_to_set_the_code_attribute_without_a_valid_value()
     {
         $referenceNumber = new ReferenceNumber();
         $referenceNumber->code = '01';
+
+        $this->assertEquals('01', $referenceNumber->code);
+        $this->assertEquals('Unknown code', $referenceNumber->description);
     }
 }

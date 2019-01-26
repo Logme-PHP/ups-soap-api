@@ -20,7 +20,7 @@ abstract class AbstractType extends AbstractModel
 
     /**
      * The description of the code that representing the type.
-     * 
+     *
      * @var string
      */
     protected $description;
@@ -34,11 +34,20 @@ abstract class AbstractType extends AbstractModel
      */
     protected function setCode($value)
     {
-        if (!array_key_exists($value, $this->descriptions)) {
-            throw new \Exception('Cannot set an invalid code value.');
-        }
+        $this->description = array_key_exists($value, $this->descriptions) ?
+            $this->descriptions[$value] :
+            'Unknown code';
 
         $this->code = $value;
-        $this->description = $this->descriptions[$value];
+    }
+
+    /**
+     * Sets the description.
+     *
+     * @param string $value
+     */
+    protected function setDescription($value)
+    {
+        $this->description = $value;
     }
 }

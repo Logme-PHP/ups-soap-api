@@ -29,4 +29,39 @@ class TransactionReferenceTest extends TestCase
         $str = str_repeat('a', 513);
         $transactionReference->customerContext = $str;
     }
+
+    /**
+     * @test Tries to set an unrecognized attribute.
+     * @expectedException Exception
+     * @expectedExceptionMessage Unrecognized method setBanana.
+     */
+    public function it_tries_to_set_an_unrecognized_method()
+    {
+        $transactionReference = new TransactionReference();
+        $transactionReference->banana = 'banana';
+    }
+
+    /**
+     * @test Tries to get value from an unrecognized attribute.
+     * @expectedException Exception
+     * @expectedExceptionMessage Unrecognized attribute banana.
+     */
+    public function it_tries_to_get_value_from_an_unrecognized_attribute()
+    {
+        $transactionReference = new TransactionReference();
+        $banana = $transactionReference->banana;
+    }
+
+    /**
+     * @test Gets value with uppercase attribute for first letter.
+     */
+    public function it_gets_value_with_uppercase_attribute_for_first_letter()
+    {
+        $transactionReference = new TransactionReference();
+        $transactionReference->customerContext = 'Thing';
+
+        $thing = $transactionReference->CustomerContext;
+
+        $this->assertEquals('Thing', $thing);
+    }
 }

@@ -75,9 +75,6 @@ class ReferenceNumber extends AbstractType
         self::MAIL_INNOVATIONS => 'Mail Innovations (reference number, customer package id (PID)',
     ];
 
-    protected $code;
-    protected $description;
-
     /**
      * The customer assigned reference number.
      * Only applies to Package and Mail Innovations shipments.

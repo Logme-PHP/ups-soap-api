@@ -111,35 +111,32 @@ abstract class AbstractModel
      */
     private function instantiateProperty($class, $object)
     {
-        $reflection = new \ReflectionClass(get_class($class));
-
         foreach ($object as $key => $value) {
             $k = lcfirst($key);
             if (property_exists($class, $k)) {
-                $property = $reflection->getProperty($k);
-                $property->setAccessible(true);
-                if (is_array($property->getValue($class))) {
-                    $array = $property->getValue($class);
+                $setMethod = 'set'.$key;
+                if (is_array($class->$k)) {
+                    $array = $class->$k;
                     if (is_array($value)) {
                         foreach ($value as $val) {
                             $c = $this->getValidClass($class, $key);
                             $v = $this->instantiateProperty($c, $val);
-                            array_push($array, $v);
+                            $array[] = $v;
                         }
                     } elseif (is_object($value)) {
                         $c = $this->getValidClass($class, $k);
                         $v = $this->instantiateProperty($c, $value);
-                        array_push($array, $v);
+                        $array[] = $v;
                     } else {
-                        array_push($array, $value);
+                        $array[] = $value;
                     }
-                    $property->setValue($class, $array);
+                    call_user_func([$class, $setMethod], $array);
                 } elseif (is_object($value)) {
                     $c = $this->getValidClass($class, $k);
                     $v = $this->instantiateProperty($c, $value);
-                    $property->setValue($class, $v);
+                    call_user_func([$class, $setMethod], $v);
                 } else {
-                    $property->setValue($class, $value);
+                    call_user_func([$class, $setMethod], $value);
                 }
             }
         }

@@ -20,13 +20,14 @@ class PackagingTypeTest extends TestCase
     }
 
     /**
-     * @test Tries to set the code with an unexpected value.
-     * @expectedException Exception
-     * @expectedExceptionMessage Cannot set an invalid code value.
+     * @test Sets the code with an unexpected value.
      */
     public function it_tries_to_set_the_code_with_an_unexpected_value()
     {
         $packagingType = new PackagingType();
         $packagingType->code = 'KO';
+
+        $this->assertEquals('KO', $packagingType->code);
+        $this->assertEquals('Unknown code', $packagingType->description);
     }
 }
